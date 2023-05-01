@@ -2,20 +2,21 @@ package com.time7.rentit.Panes;
 
 /**
  *
- * @author José Augusto Scherer
+ * @author Paulo Henrique
  */
-public class RegisterPane extends javax.swing.JFrame {
+public class RentItWindow
+    extends
+        javax.swing.JFrame {
 
     /**
-     * Creates new form RegisterPane
+     * Creates new form RentItWindow
      */
-    public RegisterPane() {
+    public RentItWindow() {
         initComponents();
     }
-    
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
 
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    private void initComponents() {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -30,8 +31,8 @@ public class RegisterPane extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    // End of variables declaration//GEN-END:variables
+    }// </editor-fold>
+    
+    // Variables declaration - do not modify
+    // End of variables declaration  
 }
