@@ -21,8 +21,8 @@ public class Database {
         try {
             Class.forName( "com.mysql.jdbc.Driver" );
             String url = "localhost:3306";
-            String user = "admin";
-            String password = "admin";
+            String user = "root";
+            String password = "280519";
             
             conn = DriverManager.getConnection( url, user, password );
         } catch ( Exception e ) {
