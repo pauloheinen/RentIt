@@ -47,6 +47,7 @@ create table vehicles (
 -- -----------------------------------
 create table rents (
 	id int NOT NULL AUTO_INCREMENT,
+	employee_id int not null,
 	client_id int not null,
 	vehicle_id int not null,
 	rent_start_dt datetime not null,
@@ -61,5 +62,8 @@ create table rents (
     	REFERENCES clients (id),
     CONSTRAINT fk_vehicle_id
     	FOREIGN KEY (vehicle_id)
-    	REFERENCES vehicles (id)
+    	REFERENCES vehicles (id),
+	CONSTRAINT fk_employee_id
+    	FOREIGN KEY (employee_id)
+    	REFERENCES employees (id)
 );
