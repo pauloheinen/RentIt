@@ -4,7 +4,9 @@ package com.time7.rentit.Panes;
  *
  * @author José Augusto Scherer
  */
-public class RegisterPane extends javax.swing.JFrame {
+public class RegisterPane 
+    extends 
+        javax.swing.JFrame {
 
     /**
      * Creates new form RegisterPane

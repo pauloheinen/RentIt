@@ -4,7 +4,9 @@ package com.time7.rentit.Panes;
  *
  * @author José Augusto Scherer
  */
-public class LoginPane extends javax.swing.JFrame {
+public class LoginPane
+    extends
+        javax.swing.JFrame {
 
     /**
      * Creates new form LoginPane
