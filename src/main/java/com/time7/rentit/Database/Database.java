@@ -26,6 +26,7 @@ public class Database {
     private Database() {
         try {
             Class.forName( "com.mysql.jdbc.Driver" );
+
             String url = "jdbc:mysql://localhost:3306:rentit";
             String user = "admin";
             String password = "admin";
