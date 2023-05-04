@@ -4,12 +4,12 @@ package com.time7.rentit.Panes;
  *
  * @author José Augusto Scherer
  */
-public class RegiterPane 
+public class RegisterPane 
     extends 
         javax.swing.JPanel {
 
 
-    public RegiterPane() {
+    public RegisterPane() {
         initComponents();
     }
 

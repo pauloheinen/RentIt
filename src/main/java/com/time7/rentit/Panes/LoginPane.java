@@ -29,8 +29,6 @@ public class LoginPane
         setMinimumSize(new java.awt.Dimension(440, 440));
         setPreferredSize(new java.awt.Dimension(440, 440));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\José Augusto Scherer\\Desktop\\RentIt\\src\\main\\java\\com\\time7\\rentit\\Images\\logo.png")); // NOI18N
-
         userLabel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         userLabel.setForeground(new java.awt.Color(255, 255, 0));
         userLabel.setText("USUÁRIO");
@@ -47,9 +45,9 @@ public class LoginPane
         });
 
         registerButton.setText("Registre-se");
-        registerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerButtonActionPerformed(evt);
+        registerButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                openRegisterPane(evt);
             }
         });
 
@@ -101,13 +99,13 @@ public class LoginPane
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        
-    }//GEN-LAST:event_registerButtonActionPerformed
-
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
         
     }//GEN-LAST:event_enterButtonActionPerformed
+
+    private void openRegisterPane(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openRegisterPane
+        System.out.println("click");
+    }//GEN-LAST:event_openRegisterPane
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
