@@ -24,10 +24,12 @@ public class LoginPane
         registerButton = new javax.swing.JButton();
         forgotPasswordButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(0, 0, 0));
+        setBackground(new java.awt.Color(187, 187, 187));
+        setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         setMaximumSize(new java.awt.Dimension(440, 440));
         setMinimumSize(new java.awt.Dimension(440, 440));
         setPreferredSize(new java.awt.Dimension(440, 440));
+        setRequestFocusEnabled(false);
 
         userLabel.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         userLabel.setForeground(new java.awt.Color(255, 255, 0));
@@ -74,7 +76,7 @@ public class LoginPane
                     .addGroup(layout.createSequentialGroup()
                         .addGap(140, 140, 140)
                         .addComponent(forgotPasswordButton)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,7 +95,7 @@ public class LoginPane
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enterButton)
                     .addComponent(registerButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addComponent(forgotPasswordButton)
                 .addContainerGap())
         );

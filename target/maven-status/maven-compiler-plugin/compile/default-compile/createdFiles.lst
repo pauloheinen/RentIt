@@ -1,6 +1,5 @@
 com\time7\rentit\Panes\LoginPane.class
 com\time7\rentit\Entity\Client.class
-com\time7\rentit\Panes\RentItWindow$1.class
 com\time7\rentit\Panes\LoginPane$1.class
 com\time7\rentit\Service\Implementation\EmployeeServiceImplementation.class
 com\time7\rentit\Panes\Prompt\AbstractPrompt.class
@@ -14,6 +13,7 @@ com\time7\rentit\Panes\RegisterPane.class
 com\time7\rentit\Service\ClientService.class
 com\time7\rentit\Fetchers\VehicleFetcher.class
 com\time7\rentit\Panes\VehiclePane\VehicleMenuPane.class
+.netbeans_automatic_build
 com\time7\rentit\Controller\LoginPaneController.class
 com\time7\rentit\Schemas\QueryResult.class
 com\time7\rentit\Controller\RegisterPaneController.class
