@@ -1,3 +1,0 @@
-url="jdbc:mysql://host:port:rentit"
-user="user"
-password="password"
