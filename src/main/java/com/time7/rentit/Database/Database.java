@@ -3,6 +3,8 @@ package com.time7.rentit.Database;
 import com.time7.rentit.Fetchers.AbstractFetcher;
 import com.time7.rentit.Fetchers.Fetcher;
 import com.time7.rentit.Schemas.QueryResult;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 
 import java.sql.Connection;
@@ -12,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -165,5 +168,31 @@ public class Database {
     private <T> T fetch( QueryResult qr, Fetcher<T> fetcher ) throws Exception
     {
         return fetcher instanceof AbstractFetcher ? ((AbstractFetcher<T>)fetcher).fetch( qr ) : fetcher.fetch( qr );
+    }
+    
+    public void getInfoDataBase() {
+        File file = new File("..\\..\\..\\..\\..\\..\\..\\database-connection.txt");
+        Scanner readFile = null;
+        String vetor[] = new String[3];
+        int cont =0;
+        
+        try {
+            readFile = new Scanner( file );
+            while ( readFile.hasNextLine() ) {
+                String nome = (readFile.nextLine());
+                vetor[cont] = nome.substring(nome.indexOf("'") + 1,nome.lastIndexOf("'"));
+                cont ++;
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if ( readFile != null ) {
+                readFile.close();
+            }
+        }
+        String url = vetor[0];
+        String user = vetor[1];
+        String password = vetor[2];
+        System.out.println("URL: "+ url + "\nUsuário: "+ user +"\nSenha: "+ password);
     }
 }
