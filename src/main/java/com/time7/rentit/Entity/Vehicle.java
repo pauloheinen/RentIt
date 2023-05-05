@@ -13,7 +13,7 @@ public class Vehicle {
     private String vehicleModel;
     private Date vehicleYear;
     private String vehiclePlate;
-    private String type;
+    private int type;
     private boolean status;
 
     public Long getId() {
@@ -56,11 +56,11 @@ public class Vehicle {
         this.vehiclePlate = vehiclePlate;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType( String type ) {
+    public void setType( int type ) {
         this.type = type;
     }
 
