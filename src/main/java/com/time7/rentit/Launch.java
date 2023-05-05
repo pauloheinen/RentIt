@@ -1,7 +1,6 @@
 package com.time7.rentit;
 
 import com.time7.rentit.Panes.LoginPane;
-import com.time7.rentit.Panes.RentItWindow;
 
 /**
  *
@@ -11,7 +10,7 @@ public class Launch {
     
     public static void main( String[] args ) {
         java.awt.EventQueue.invokeLater( () -> {
-            new RentItWindow().setVisible(true);
+            new LoginPane().setVisible(true);
         });
     }
    
