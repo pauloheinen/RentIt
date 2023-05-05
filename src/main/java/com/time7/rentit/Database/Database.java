@@ -173,14 +173,14 @@ public class Database {
     public void getInfoDataBase() {
         File file = new File("..\\..\\..\\..\\..\\..\\..\\database-connection.txt");
         Scanner readFile = null;
-        String vetor[] = new String[3];
+        String vector[] = new String[3];
         int cont =0;
         
         try {
             readFile = new Scanner( file );
             while ( readFile.hasNextLine() ) {
                 String nome = (readFile.nextLine());
-                vetor[cont] = nome.substring(nome.indexOf("'") + 1,nome.lastIndexOf("'"));
+                vector[cont] = nome.substring(nome.indexOf("'") + 1,nome.lastIndexOf("'"));
                 cont ++;
             }
         } catch (IOException e) {
@@ -190,9 +190,9 @@ public class Database {
                 readFile.close();
             }
         }
-        String url = vetor[0];
-        String user = vetor[1];
-        String password = vetor[2];
+        String url = vector[0];
+        String user = vector[1];
+        String password = vector[2];
         System.out.println("URL: "+ url + "\nUsuário: "+ user +"\nSenha: "+ password);
     }
 }
