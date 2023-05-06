@@ -54,7 +54,7 @@ public class Database {
             readFile = new Scanner( file );
             while ( readFile.hasNextLine() ) {
                 String nome = (readFile.nextLine());
-                vector[cont] = nome.substring(nome.indexOf("'") + 1,nome.lastIndexOf("'"));
+                vector[cont] = nome.substring(nome.indexOf("\"") + 1,nome.lastIndexOf("\""));
                 cont ++;
             }
         } catch (IOException e) {

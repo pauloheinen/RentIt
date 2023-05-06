@@ -22,6 +22,5 @@ com\time7\rentit\Service\EmployeeService.class
 com\time7\rentit\Panes\RegisterPane$2.class
 com\time7\rentit\Entity\Vehicle.class
 com\time7\rentit\Panes\RentItWindow.class
-com\time7\rentit\Panes\RegisterPane$3.class
 com\time7\rentit\Service\Interface\ClientServiceInterface.class
 com\time7\rentit\Entity\Employee_.class

@@ -2,6 +2,9 @@ package com.time7.rentit.Panes;
 
 import com.time7.rentit.Service.EmployeeService;
 import com.time7.rentit.Controller.LoginPaneController;
+import com.time7.rentit.Entity.Vehicle;
+import com.time7.rentit.Service.ClientService;
+import com.time7.rentit.Service.VehicleService;
 
 /**
  *
@@ -115,9 +118,20 @@ public class LoginPane
     private void enterButtonClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterButtonClick
         System.out.println("enter button click");
         
-        String user = userTextField.getText();
-        String password = passwordField.getText();
-
+        /*
+        VehicleService service = VehicleService.getInstance();
+        
+        
+        Vehicle vehicle = new Vehicle();
+        vehicle.setVehicleBrand("Fiat");
+        vehicle.setVehicleModel("Uno");
+        vehicle.setVehiclePlate("XXXX");
+        vehicle.setType(0);
+        vehicle.setStatus(true);
+        vehicle.setVehicleYear();
+        
+        service.createVehicle(vehicle);
+        */
     }//GEN-LAST:event_enterButtonClick
 
 
