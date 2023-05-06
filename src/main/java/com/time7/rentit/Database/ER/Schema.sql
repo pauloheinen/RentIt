@@ -34,7 +34,7 @@ create table vehicles (
     id int AUTO_INCREMENT not null,
     vehicle_brand varchar (20) not null,
     vehicle_model varchar (120) not null,
-    vehicle_year date not null,
+    vehicle_year varchar (4) not null,
     vehicle_plate varchar (10) not null,
     type tinyint not null,
     status boolean not null,

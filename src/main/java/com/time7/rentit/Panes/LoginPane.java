@@ -5,6 +5,9 @@ import com.time7.rentit.Controller.LoginPaneController;
 import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Service.ClientService;
 import com.time7.rentit.Service.VehicleService;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,6 +34,7 @@ public class LoginPane
         enterButton = new javax.swing.JButton();
         registerButton = new javax.swing.JButton();
         forgotPasswordButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(187, 187, 187));
         setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -63,6 +67,13 @@ public class LoginPane
 
         forgotPasswordButton.setText("Esqueceu a Senha?");
 
+        jButton1.setText("Fechar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -71,20 +82,23 @@ public class LoginPane
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(passwordLabel)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(userLabel)
+                                .addComponent(userTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                                .addComponent(passwordField))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(enterButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(registerButton))
-                            .addComponent(passwordLabel)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(userLabel)
-                            .addComponent(userTextField)
-                            .addComponent(passwordField)))
+                                .addGap(18, 18, 18)
+                                .addComponent(registerButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(140, 140, 140)
                         .addComponent(forgotPasswordButton)))
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,8 +116,9 @@ public class LoginPane
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(enterButton)
-                    .addComponent(registerButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                    .addComponent(registerButton)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addComponent(forgotPasswordButton)
                 .addContainerGap())
         );
@@ -117,27 +132,20 @@ public class LoginPane
 
     private void enterButtonClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterButtonClick
         System.out.println("enter button click");
-        
-        /*
-        VehicleService service = VehicleService.getInstance();
-        
-        
-        Vehicle vehicle = new Vehicle();
-        vehicle.setVehicleBrand("Fiat");
-        vehicle.setVehicleModel("Uno");
-        vehicle.setVehiclePlate("XXXX");
-        vehicle.setType(0);
-        vehicle.setStatus(true);
-        vehicle.setVehicleYear();
-        
-        service.createVehicle(vehicle);
-        */
     }//GEN-LAST:event_enterButtonClick
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int option = JOptionPane.showConfirmDialog(null, "Deseja fechar a tela ?", "Atenção!", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton enterButton;
     private javax.swing.JButton forgotPasswordButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;

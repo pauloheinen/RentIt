@@ -1,7 +1,6 @@
 package com.time7.rentit.Entity;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.*;
 
 /**
@@ -20,9 +19,8 @@ public class Vehicle
     private String vehicleBrand;
     @Column(name = "vehicle_model", nullable = false, length = 120)
     private String vehicleModel;
-    @Temporal(TemporalType.DATE)
-    @Column(name = "vehicle_year", nullable = false)
-    private Date vehicleYear;
+    @Column(name = "vehicle_year", nullable = false, length = 4)
+    private String vehicleYear;
     @Column(name = "vehicle_plate", nullable = false, length = 10)
     private String vehiclePlate;
     @Column(name = "type", nullable = false)
@@ -54,11 +52,11 @@ public class Vehicle
         this.vehicleModel = vehicleModel;
     }
 
-    public Date getVehicleYear() {
+    public String getVehicleYear() {
         return vehicleYear;
     }
 
-    public void setVehicleYear(Date vehicleYear) {
+    public void setVehicleYear(String vehicleYear) {
         this.vehicleYear = vehicleYear;
     }
 

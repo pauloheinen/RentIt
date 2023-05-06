@@ -10,6 +10,7 @@ com\time7\rentit\Panes\RegisterPane$1.class
 com\time7\rentit\Service\VehicleService.class
 com\time7\rentit\Panes\RegisterPane.class
 com\time7\rentit\Service\ClientService.class
+com\time7\rentit\Panes\LoginPane$3.class
 com\time7\rentit\Controller\LoginPaneController.class
 com\time7\rentit\Controller\RegisterPaneController.class
 com\time7\rentit\Entity\Client_.class
