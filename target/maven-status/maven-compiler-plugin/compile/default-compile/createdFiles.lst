@@ -3,16 +3,13 @@ com\time7\rentit\Entity\Client.class
 com\time7\rentit\Service\Interface\VehicleServiceInterface.class
 com\time7\rentit\Panes\LoginPane$1.class
 com\time7\rentit\Dto\EmployeeDto.class
-com\time7\rentit\Panes\Prompt\AbstractPrompt.class
 com\time7\rentit\Utilities\PersistenceUtils\PersistenceUtil.class
 com\time7\rentit\Database\Database.class
 com\time7\rentit\Entity\Employee.class
 com\time7\rentit\Panes\RegisterPane$1.class
-com\time7\rentit\Panes\VehiclePane\VehicleMenuPane$1.class
 com\time7\rentit\Service\VehicleService.class
 com\time7\rentit\Panes\RegisterPane.class
 com\time7\rentit\Service\ClientService.class
-com\time7\rentit\Panes\VehiclePane\VehicleMenuPane.class
 com\time7\rentit\Controller\LoginPaneController.class
 com\time7\rentit\Controller\RegisterPaneController.class
 com\time7\rentit\Entity\Client_.class
@@ -25,5 +22,6 @@ com\time7\rentit\Service\EmployeeService.class
 com\time7\rentit\Panes\RegisterPane$2.class
 com\time7\rentit\Entity\Vehicle.class
 com\time7\rentit\Panes\RentItWindow.class
+com\time7\rentit\Panes\RegisterPane$3.class
 com\time7\rentit\Service\Interface\ClientServiceInterface.class
 com\time7\rentit\Entity\Employee_.class

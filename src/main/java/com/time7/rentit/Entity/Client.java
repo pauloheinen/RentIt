@@ -24,7 +24,7 @@ public class Client
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId( Long id ) {
         this.id = id;
     }
 
@@ -32,7 +32,7 @@ public class Client
         return name;
     }
 
-    public void setName(String name) {
+    public void setName( String name ) {
         this.name = name;
     }
 
@@ -40,7 +40,7 @@ public class Client
         return type;
     }
 
-    public void setType(String type) {
+    public void setType( String type ) {
         this.type = type;
     }
 
@@ -48,7 +48,7 @@ public class Client
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone( int phone ) {
         this.phone = phone;
     }
 
@@ -56,7 +56,7 @@ public class Client
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail( String email ) {
         this.email = email;
     }
 }

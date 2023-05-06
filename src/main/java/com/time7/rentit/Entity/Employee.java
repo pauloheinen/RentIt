@@ -36,14 +36,14 @@ public class Employee
         this.name = name;
     }
 
-    public String getUserName() {
+    public String getUsername() {
         return username;
     }
 
-    public void setUserName(String userName) {
+    public void setUsername(String userName) {
         this.username = userName;
     }
-
+    
     public String getPassword() {
         return password;
     }
@@ -55,7 +55,7 @@ public class Employee
     public int getType() {
         return type;
     }
-
+    
     public void setType(int type) {
         this.type = type;
     }

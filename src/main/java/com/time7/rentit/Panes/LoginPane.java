@@ -109,7 +109,7 @@ public class LoginPane
     private void openRegisterPane(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openRegisterPane
         
         
-        System.out.println("click");
+        System.out.println("register button click");
     }//GEN-LAST:event_openRegisterPane
 
     private void enterButtonClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterButtonClick
@@ -117,8 +117,6 @@ public class LoginPane
         
         String user = userTextField.getText();
         String password = passwordField.getText();
-        
-            new LoginPaneController().logInEmployee(user, password);
 
     }//GEN-LAST:event_enterButtonClick
 

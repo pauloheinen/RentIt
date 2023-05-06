@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
   <Properties>
-    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="0" green="0" red="0" type="rgb"/>
-    </Property>
-    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[440, 440]"/>
-    </Property>
-    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[440, 440]"/>
-    </Property>
-    <Property name="name" type="java.lang.String" value="" noResource="true"/>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -28,154 +30,232 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="confirmPasswordLabel" min="-2" max="-2" attributes="0"/>
-                  <Component id="passwordLabel" min="-2" max="-2" attributes="0"/>
-                  <Component id="userNameLabel" min="-2" max="-2" attributes="0"/>
-                  <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
-                  <Component id="regiterIcon" max="32767" attributes="0"/>
-                  <Component id="nameTextField" alignment="0" max="32767" attributes="0"/>
-                  <Component id="userNameTextField" alignment="0" max="32767" attributes="0"/>
-                  <Component id="passwordTextField" alignment="0" max="32767" attributes="0"/>
-                  <Component id="confirmPasswordTextField" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="125" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="adviceLabel" min="-2" max="-2" attributes="0"/>
-                  <Component id="registerButton" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="enterButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
-          </Group>
+          <Component id="registerPaneContent" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Component id="regiterIcon" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="nameTextField" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="userNameLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="userNameTextField" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="passwordLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="passwordTextField" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="confirmPasswordLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="confirmPasswordTextField" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                      <Component id="registerButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="79" max="32767" attributes="0"/>
-                      <Component id="adviceLabel" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="enterButton" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <Component id="registerPaneContent" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="regiterIcon">
+    <Container class="javax.swing.JPanel" name="registerPaneContent">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="0" red="0" type="rgb"/>
+          <Color blue="99" green="99" red="99" type="rgb"/>
         </Property>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="nameLabel">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="NOME"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="nameTextField">
-    </Component>
-    <Component class="javax.swing.JLabel" name="userNameLabel">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="NOME DE USU&#xc1;RIO"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="userNameTextField">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userNameTextFieldActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="passwordLabel">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="SENHA"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JPasswordField" name="passwordTextField">
-    </Component>
-    <Component class="javax.swing.JLabel" name="confirmPasswordLabel">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Yu Gothic UI Semibold" size="14" style="0"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="CONFIRME A SENHA"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JPasswordField" name="confirmPasswordTextField">
-    </Component>
-    <Component class="javax.swing.JButton" name="registerButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Registrar"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="adviceLabel">
-      <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="0" green="ff" red="ff" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Voc&#xea; j&#xe1; possui uma conta? "/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="enterButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Entrar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enterButtonActionPerformed"/>
-      </Events>
-    </Component>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="81" max="32767" attributes="0"/>
+                          <Component id="goBackButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="userNameLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="pencilIcon2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="passwordLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="lockerIcon1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="tittleLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="registerIcon" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="245" max="-2" attributes="0"/>
+                                  <Component id="pencilIcon1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="nameTextField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="userNameTextField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="passwordTextField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="confirmPasswordTextField" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="confirmPasswordLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="lockerIcon2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                  <Component id="registerButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="registerIcon" min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="tittleLabel" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="pencilIcon1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="nameTextField" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="userNameLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="pencilIcon2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="userNameTextField" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="passwordLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="lockerIcon1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="passwordTextField" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="confirmPasswordLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="lockerIcon2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="confirmPasswordTextField" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="registerButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="goBackButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="tittleLabel">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="36" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Registre-se"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="registerIcon">
+        </Component>
+        <Component class="javax.swing.JLabel" name="nameLabel">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Nome"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="nameTextField">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="userNameLabel">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Nome de Usu&#xe1;rio"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="userNameTextField">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="passwordLabel">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Senha"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="passwordTextField">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="confirmPasswordLabel">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Confirme a Senha"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="confirmPasswordTextField">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="registerButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Registrar"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="goBackButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Voltar"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="goBackButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="pencilIcon1">
+        </Component>
+        <Component class="javax.swing.JLabel" name="pencilIcon2">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lockerIcon1">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lockerIcon2">
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>
