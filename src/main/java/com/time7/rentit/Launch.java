@@ -9,7 +9,7 @@ import com.time7.rentit.Panes.LoginPane;
 public class Launch {
     
     public static void main( String[] args ) {
-        java.awt.EventQueue.invokeLater( () -> {
+        java.awt.EventQueue.invokeLater(() -> {
             new LoginPane().setVisible(true);
         });
     }
