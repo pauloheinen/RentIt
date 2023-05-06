@@ -1,17 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package com.time7.rentit.Service;
 
+import com.time7.rentit.Dto.EmployeeDto;
 import com.time7.rentit.Entity.Employee;
+import java.util.List;
 
 /**
  *
  * @author Daniel
  */
 public interface EmployeeService {
-    Employee createClient (Employee employee) throws Exception;
-    void updateClient (Employee employee) throws Exception;
-    void deleteClient (Employee employee) throws Exception;   
+    void createEmployee(EmployeeDto userDTO) throws Exception;
+    void updateEmployee(Employee employee) throws Exception;
+    void deleteEmployee(Employee employee) throws Exception;
+    EmployeeDto getEmployeeById(Long employeeId) throws Exception;
+    List<EmployeeDto> getEmployees() throws Exception;  
 }

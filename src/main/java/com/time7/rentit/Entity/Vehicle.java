@@ -1,19 +1,33 @@
 package com.time7.rentit.Entity;
 
-import java.sql.Date;
+import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.*;
 
 /**
  *
  * @author Daniel
  */
-public class Vehicle {
+@Entity(name = "vehicles")
+public class Vehicle
+    implements 
+        Serializable {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "vehicle_brand", nullable = false, length = 20)
     private String vehicleBrand;
+    @Column(name = "vehicle_model", nullable = false, length = 120)
     private String vehicleModel;
+    @Temporal(TemporalType.DATE)
+    @Column(name = "vehicle_year", nullable = false)
     private Date vehicleYear;
+    @Column(name = "vehicle_plate", nullable = false, length = 10)
     private String vehiclePlate;
+    @Column(name = "type", nullable = false)
     private int type;
+    @Column(name = "status", nullable = false)
     private boolean status;
 
     public Long getId() {
@@ -44,7 +58,7 @@ public class Vehicle {
         return vehicleYear;
     }
 
-    public void setVehicleYear( Date vehicleYear ) {
+    public void setVehicleYear(Date vehicleYear) {
         this.vehicleYear = vehicleYear;
     }
 

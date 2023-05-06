@@ -1,5 +1,8 @@
 package com.time7.rentit.Panes;
 
+import com.time7.rentit.Service.EmployeeService;
+import com.time7.rentit.Controller.LoginPaneController;
+
 /**
  *
  * @author José Augusto Scherer
@@ -7,7 +10,9 @@ package com.time7.rentit.Panes;
 public class LoginPane 
     extends 
         javax.swing.JPanel {
-
+    
+    private LoginPaneController controller;
+    
     public LoginPane() {
         initComponents();
     }
@@ -40,9 +45,9 @@ public class LoginPane
         passwordLabel.setText("SENHA");
 
         enterButton.setText("Entrar");
-        enterButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enterButtonActionPerformed(evt);
+        enterButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                enterButtonClick(evt);
             }
         });
 
@@ -101,13 +106,21 @@ public class LoginPane
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
-        
-    }//GEN-LAST:event_enterButtonActionPerformed
-
     private void openRegisterPane(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openRegisterPane
+        
+        
         System.out.println("click");
     }//GEN-LAST:event_openRegisterPane
+
+    private void enterButtonClick(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterButtonClick
+        System.out.println("enter button click");
+        
+        String user = userTextField.getText();
+        String password = passwordField.getText();
+        
+            new LoginPaneController().logInEmployee(user, password);
+
+    }//GEN-LAST:event_enterButtonClick
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
