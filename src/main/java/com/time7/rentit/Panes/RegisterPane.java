@@ -47,6 +47,11 @@ public class RegisterPane
         pencilIcon2 = new javax.swing.JLabel();
         lockerIcon1 = new javax.swing.JLabel();
         lockerIcon2 = new javax.swing.JLabel();
+        registerLabel = new javax.swing.JLabel();
+        pencilLabel01 = new javax.swing.JLabel();
+        pencilLabel02 = new javax.swing.JLabel();
+        lockerLabel01 = new javax.swing.JLabel();
+        lockerLabel02 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -56,8 +61,6 @@ public class RegisterPane
 
         tittleLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         tittleLabel.setText("Registre-se");
-
-        registerIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\José Augusto Scherer\\Desktop\\RentIt\\src\\main\\java\\com\\time7\\rentit\\Images\\register-32x32.png")); // NOI18N
 
         nameLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         nameLabel.setText("Nome");
@@ -95,13 +98,15 @@ public class RegisterPane
             }
         });
 
-        pencilIcon1.setIcon(new javax.swing.ImageIcon("C:\\Users\\José Augusto Scherer\\Desktop\\RentIt\\src\\main\\java\\com\\time7\\rentit\\Images\\pencil-16x16.png")); // NOI18N
+        registerLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\José Augusto Scherer\\Desktop\\RentIt\\src\\main\\java\\com\\time7\\rentit\\Images\\register-32x32.png")); // NOI18N
 
-        pencilIcon2.setIcon(new javax.swing.ImageIcon("C:\\Users\\José Augusto Scherer\\Desktop\\RentIt\\src\\main\\java\\com\\time7\\rentit\\Images\\pencil-16x16.png")); // NOI18N
+        pencilLabel01.setIcon(new javax.swing.ImageIcon("C:\\Users\\José Augusto Scherer\\Desktop\\RentIt\\src\\main\\java\\com\\time7\\rentit\\Images\\pencil-16x16.png")); // NOI18N
 
-        lockerIcon1.setIcon(new javax.swing.ImageIcon("C:\\Users\\José Augusto Scherer\\Desktop\\RentIt\\src\\main\\java\\com\\time7\\rentit\\Images\\locker-16x16.png")); // NOI18N
+        pencilLabel02.setIcon(new javax.swing.ImageIcon("C:\\Users\\José Augusto Scherer\\Desktop\\RentIt\\src\\main\\java\\com\\time7\\rentit\\Images\\pencil-16x16.png")); // NOI18N
 
-        lockerIcon2.setIcon(new javax.swing.ImageIcon("C:\\Users\\José Augusto Scherer\\Desktop\\RentIt\\src\\main\\java\\com\\time7\\rentit\\Images\\locker-16x16.png")); // NOI18N
+        lockerLabel01.setIcon(new javax.swing.ImageIcon("C:\\Users\\José Augusto Scherer\\Desktop\\RentIt\\src\\main\\java\\com\\time7\\rentit\\Images\\locker-16x16.png")); // NOI18N
+
+        lockerLabel02.setIcon(new javax.swing.ImageIcon("C:\\Users\\José Augusto Scherer\\Desktop\\RentIt\\src\\main\\java\\com\\time7\\rentit\\Images\\locker-16x16.png")); // NOI18N
 
         javax.swing.GroupLayout registerPaneContentLayout = new javax.swing.GroupLayout(registerPaneContent);
         registerPaneContent.setLayout(registerPaneContentLayout);
@@ -116,22 +121,33 @@ public class RegisterPane
                         .addContainerGap()
                         .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(registerPaneContentLayout.createSequentialGroup()
-                                .addComponent(userNameLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(pencilIcon2))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(pencilIcon2)
+                                .addGap(43, 43, 43))
                             .addGroup(registerPaneContentLayout.createSequentialGroup()
                                 .addComponent(passwordLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lockerIcon1))
+                                .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPaneContentLayout.createSequentialGroup()
+                                        .addComponent(lockerIcon1)
+                                        .addGap(43, 43, 43))
+                                    .addComponent(lockerLabel01, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPaneContentLayout.createSequentialGroup()
                                 .addComponent(tittleLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(registerIcon))
+                                .addComponent(registerIcon)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(registerLabel))
                             .addGroup(registerPaneContentLayout.createSequentialGroup()
                                 .addComponent(nameLabel)
-                                .addGap(245, 245, 245)
-                                .addComponent(pencilIcon1)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(registerPaneContentLayout.createSequentialGroup()
+                                        .addGap(222, 222, 222)
+                                        .addComponent(pencilIcon1)
+                                        .addGap(0, 23, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPaneContentLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(pencilLabel01))))
                             .addComponent(nameTextField)
                             .addComponent(userNameTextField)
                             .addComponent(passwordTextField)
@@ -139,7 +155,15 @@ public class RegisterPane
                             .addGroup(registerPaneContentLayout.createSequentialGroup()
                                 .addComponent(confirmPasswordLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lockerIcon2)))))
+                                .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPaneContentLayout.createSequentialGroup()
+                                        .addComponent(lockerIcon2)
+                                        .addGap(43, 43, 43))
+                                    .addComponent(lockerLabel02, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPaneContentLayout.createSequentialGroup()
+                                .addComponent(userNameLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(pencilLabel02)))))
                 .addContainerGap())
             .addGroup(registerPaneContentLayout.createSequentialGroup()
                 .addGap(116, 116, 116)
@@ -149,32 +173,41 @@ public class RegisterPane
         registerPaneContentLayout.setVerticalGroup(
             registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(registerPaneContentLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
                 .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(registerIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tittleLabel))
-                .addGap(26, 26, 26)
-                .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(nameLabel)
-                    .addComponent(pencilIcon1))
+                    .addGroup(registerPaneContentLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(registerIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tittleLabel)))
+                    .addGroup(registerPaneContentLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(registerLabel)))
+                .addGap(32, 32, 32)
+                .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pencilIcon1)
+                    .addComponent(pencilLabel01, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(userNameLabel)
-                    .addComponent(pencilIcon2))
+                .addGap(51, 51, 51)
+                .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(userNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pencilIcon2)
+                    .addComponent(pencilLabel02, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(userNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(passwordLabel)
-                    .addComponent(lockerIcon1))
+                    .addComponent(lockerIcon1)
+                    .addComponent(lockerLabel01))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(confirmPasswordLabel)
-                    .addComponent(lockerIcon2))
+                    .addComponent(lockerIcon2)
+                    .addComponent(lockerLabel02))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(confirmPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -216,14 +249,19 @@ public class RegisterPane
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lockerIcon1;
     private javax.swing.JLabel lockerIcon2;
+    private javax.swing.JLabel lockerLabel01;
+    private javax.swing.JLabel lockerLabel02;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nameTextField;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JPasswordField passwordTextField;
     private javax.swing.JLabel pencilIcon1;
     private javax.swing.JLabel pencilIcon2;
+    private javax.swing.JLabel pencilLabel01;
+    private javax.swing.JLabel pencilLabel02;
     private javax.swing.JButton registerButton;
     private javax.swing.JLabel registerIcon;
+    private javax.swing.JLabel registerLabel;
     private javax.swing.JPanel registerPaneContent;
     private javax.swing.JLabel tittleLabel;
     private javax.swing.JLabel userNameLabel;
