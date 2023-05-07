@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.time7.rentit.Service.Implementation;
+package com.time7.rentit.Service.Interface;
 
 import com.time7.rentit.Database.Database;
 import com.time7.rentit.Entity.Client;
@@ -13,7 +13,7 @@ import jdk.jshell.spi.ExecutionControl;
  *
  * @author Daniel
  */
-public class ClientServiceImplementation 
+public class ClientServiceInterface 
     implements 
         ClientService {
     final private Database db = Database.getInstance();

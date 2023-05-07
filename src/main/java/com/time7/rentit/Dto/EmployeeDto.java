@@ -1,30 +1,32 @@
-package com.time7.rentit.Entity;
+package com.time7.rentit.Dto;
 
+import java.io.Serial;
 import java.io.Serializable;
-import javax.persistence.*;
 
 /**
  *
- * @author Daniel
+ * @author Paulo Henrique
  */
-@Entity(name = "employees")
-public class Employee
+public class EmployeeDto 
     implements
         Serializable {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     private Long id;
     private String name;
-    private String username;
+    private String userName;
     private String password;
     private int type;
 
-    public Long getId() {
+    public Long getId()
+    {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id)
+    {
         this.id = id;
     }
 
@@ -36,14 +38,14 @@ public class Employee
         this.name = name;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String userName) {
-        this.username = userName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
-    
+
     public String getPassword() {
         return password;
     }
@@ -55,8 +57,10 @@ public class Employee
     public int getType() {
         return type;
     }
-    
+
     public void setType(int type) {
         this.type = type;
     }
+
+    
 }

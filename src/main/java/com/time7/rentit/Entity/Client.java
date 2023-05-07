@@ -1,10 +1,19 @@
 package com.time7.rentit.Entity;
 
+import java.io.Serializable;
+import javax.persistence.*;
+
 /**
  *
  * @author Daniel
  */
-public class Client {
+@Entity(name = "clients")
+public class Client
+    implements
+        Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String type;

@@ -13,5 +13,4 @@ public class Launch {
             new LoginPane().setVisible(true);
         });
     }
-   
 }
