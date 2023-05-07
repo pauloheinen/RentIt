@@ -220,16 +220,6 @@ public class LoginPane
         JOptionPane.showMessageDialog(null, "Work in progress.");
     }//GEN-LAST:event_forgotPasswordActionPerformed
 
-
-    public static void main(String args[]) {
-       
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginPane().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel carIcon;
     private javax.swing.JButton enterButton;

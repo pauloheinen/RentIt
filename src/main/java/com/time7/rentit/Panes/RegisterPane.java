@@ -8,7 +8,9 @@ import javax.swing.JOptionPane;
  *
  * @author José Augusto Scherer
  */
-public class RegisterPane extends javax.swing.JFrame {
+public class RegisterPane 
+    extends 
+        javax.swing.JFrame {
 
     
     public RegisterPane() {
@@ -20,7 +22,9 @@ public class RegisterPane extends javax.swing.JFrame {
     // método 'close' para fechar o JFrame
     public void close(){
         WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
-        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
+        Toolkit.getDefaultToolkit()
+               .getSystemEventQueue()
+               .postEvent(closeWindow);
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -204,16 +208,6 @@ public class RegisterPane extends javax.swing.JFrame {
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         JOptionPane.showMessageDialog(null, "Work in progress.");
     }//GEN-LAST:event_registerButtonActionPerformed
-
-    public static void main(String args[]) {
-     
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RegisterPane().setVisible(true);
-                
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel confirmPasswordLabel;
