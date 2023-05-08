@@ -17,7 +17,7 @@ public class ToastInfo
     public ToastInfo() {
 //        Notification not = new Notification(this, Notification.Type.INFO, Notification.Location.BOTTOM_LEFT, "Test message");
 //        not.showNotification();
-        
+        // being implemented
         
     }
     

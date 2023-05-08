@@ -12,7 +12,7 @@ public class PromptError
     extends 
         javax.swing.JFrame {
     
-    private String message;
+    private final String message;
     
     public PromptError(Exception e) {
         this.message = e.getLocalizedMessage();
@@ -22,7 +22,6 @@ public class PromptError
         logException();
     }
     
-
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -133,7 +132,6 @@ public class PromptError
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jButtonCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCopyActionPerformed
-        
         Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
         StringSelection ss = new StringSelection (errorLogText.getText());
         clip.setContents (ss, ss);   

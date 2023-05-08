@@ -12,14 +12,23 @@ public class Employee
     implements
         Serializable {
     
+    public static class EMPLOYEES_TYPES {
+        public static final int ordinary = 0;
+        public static final int admin = 1;
+    }
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "name", nullable = false, length = 120)
     private String name;
+    @Column(name = "username", nullable = false, length = 20)
     private String username;
+    @Column(name = "password", nullable = false, length = 40)
     private String password;
+    @Column(name = "type", nullable = false)
     private int type;
-
+    
     public Long getId() {
         return id;
     }
@@ -40,8 +49,8 @@ public class Employee
         return username;
     }
 
-    public void setUsername(String userName) {
-        this.username = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
     
     public String getPassword() {
