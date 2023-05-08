@@ -1,10 +1,5 @@
 package com.time7.rentit.Database;
 
-
-import java.io.File;
-import java.io.IOException;
-import java.util.Scanner;
-
 /**
  *
  * @author Paulo Henrique

@@ -1,6 +1,5 @@
 package com.time7.rentit.Service.Interface;
 
-import com.time7.rentit.Dto.EmployeeDto;
 import com.time7.rentit.Entity.Employee;
 import com.time7.rentit.Service.EmployeeService;
 import java.util.List;
@@ -16,7 +15,7 @@ public class EmployeeServiceInterface
         EmployeeService {
     
     @Override
-    public void createEmployee(EmployeeDto userDTO) throws Exception {
+    public void createEmployee(Employee userDTO) throws Exception {
         throw new java.lang.UnsupportedOperationException("Not supported yet.");
     }
 
@@ -32,13 +31,13 @@ public class EmployeeServiceInterface
     }
 
     @Override
-    public EmployeeDto getEmployeeById(Long employeeId) throws Exception {
+    public Employee getEmployeeById(Long employeeId) throws Exception {
         throw new java.lang.UnsupportedOperationException("Not supported yet.");
 
     }
 
     @Override
-    public List<EmployeeDto> getEmployees() throws Exception {
+    public List<Employee> getEmployees() throws Exception {
         throw new java.lang.UnsupportedOperationException("Not supported yet.");
     }
 }
