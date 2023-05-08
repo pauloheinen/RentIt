@@ -85,10 +85,8 @@ public class LoginPane
         titleLabel.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         titleLabel.setText("RV RentIt Vehicle");
 
-        carIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\José Augusto Scherer\\Desktop\\RentIt\\src\\main\\java\\com\\time7\\rentit\\Images\\car-32x32.png")); // NOI18N
-
         nameLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        nameLabel.setText("Nome");
+        nameLabel.setText("Usuário");
 
         nameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -101,10 +99,6 @@ public class LoginPane
                 passwordTextFieldActionPerformed(evt);
             }
         });
-
-        pencilLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\José Augusto Scherer\\Desktop\\RentIt\\src\\main\\java\\com\\time7\\rentit\\Images\\pencil-16x16.png")); // NOI18N
-
-        lockerLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\José Augusto Scherer\\Desktop\\RentIt\\src\\main\\java\\com\\time7\\rentit\\Images\\locker-16x16.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -213,7 +207,10 @@ public class LoginPane
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
-        JOptionPane.showMessageDialog(null, "Work in progress.");
+        String user;
+        String password;
+        
+        
     }//GEN-LAST:event_enterButtonActionPerformed
 
     private void forgotPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgotPasswordActionPerformed
