@@ -1,8 +1,9 @@
 package com.time7.rentit.Panes;
 
+import com.time7.rentit.Controller.RegisterPaneController;
+import com.time7.rentit.Entity.Employee;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -11,7 +12,8 @@ import javax.swing.JOptionPane;
 public class RegisterPane 
     extends 
         javax.swing.JFrame {
-
+    
+    RegisterPaneController controller = new RegisterPaneController();
     
     public RegisterPane() {
         initComponents();
@@ -52,6 +54,7 @@ public class RegisterPane
         pencilLabel02 = new javax.swing.JLabel();
         lockerLabel01 = new javax.swing.JLabel();
         lockerLabel02 = new javax.swing.JLabel();
+        choice1 = new java.awt.Choice();
 
         jLabel1.setText("jLabel1");
 
@@ -108,6 +111,8 @@ public class RegisterPane
 
         lockerLabel02.setIcon(new javax.swing.ImageIcon("C:\\Users\\José Augusto Scherer\\Desktop\\RentIt\\src\\main\\java\\com\\time7\\rentit\\Images\\locker-16x16.png")); // NOI18N
 
+        choice1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout registerPaneContentLayout = new javax.swing.GroupLayout(registerPaneContent);
         registerPaneContent.setLayout(registerPaneContentLayout);
         registerPaneContentLayout.setHorizontalGroup(
@@ -118,8 +123,13 @@ public class RegisterPane
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(goBackButton))
                     .addGroup(registerPaneContentLayout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(registerButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(registerPaneContentLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(choice1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(registerPaneContentLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(pencilIcon2)
@@ -144,7 +154,7 @@ public class RegisterPane
                                     .addGroup(registerPaneContentLayout.createSequentialGroup()
                                         .addGap(222, 222, 222)
                                         .addComponent(pencilIcon1)
-                                        .addGap(0, 23, Short.MAX_VALUE))
+                                        .addGap(0, 15, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPaneContentLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(pencilLabel01))))
@@ -165,10 +175,6 @@ public class RegisterPane
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(pencilLabel02)))))
                 .addContainerGap())
-            .addGroup(registerPaneContentLayout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(registerButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         registerPaneContentLayout.setVerticalGroup(
             registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,9 +216,11 @@ public class RegisterPane
                     .addComponent(lockerLabel02))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(confirmPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
+                .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(registerButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addComponent(goBackButton)
                 .addContainerGap())
         );
@@ -225,7 +233,9 @@ public class RegisterPane
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registerPaneContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(registerPaneContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -239,10 +249,17 @@ public class RegisterPane
     }//GEN-LAST:event_goBackButtonActionPerformed
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        JOptionPane.showMessageDialog(null, "Work in progress.");
+       String name = nameTextField.getText();
+       String username = userNameTextField.getText();
+       String password = passwordTextField.getText();
+       String confirmPassword = confirmPasswordTextField.getText();
+       int type = Employee.EMPLOYEES_TYPES.admin;
+       
+       controller.registerEmployee(name, username, password, confirmPassword, type);
     }//GEN-LAST:event_registerButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Choice choice1;
     private javax.swing.JLabel confirmPasswordLabel;
     private javax.swing.JPasswordField confirmPasswordTextField;
     private javax.swing.JButton goBackButton;

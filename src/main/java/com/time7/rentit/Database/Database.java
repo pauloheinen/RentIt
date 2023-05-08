@@ -1,10 +1,5 @@
 package com.time7.rentit.Database;
 
-
-import java.io.File;
-import java.io.IOException;
-import java.util.Scanner;
-
 /**
  *
  * @author Paulo Henrique
@@ -40,7 +35,11 @@ public class Database {
        getConnection().delete(object);
    }
    
-   public <T> T find(Class<T> aClass, Object object) {
-        return getConnection().find(aClass, object);
+   public <T> T findById(Class<T> aClass, Object object) {
+        return getConnection().findById(aClass, object);
+    }
+
+    public <T> T findObjectBySql(Class<T> aClass, String sql) {
+        return getConnection().findObjectBySql(aClass, sql);
     }
 }

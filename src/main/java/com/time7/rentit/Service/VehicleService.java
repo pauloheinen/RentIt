@@ -33,7 +33,7 @@ public class VehicleService
     public void updateVehicle(Vehicle vehicle) throws Exception {
         Database database = Database.getInstance();
         
-        Vehicle find = database.find(Vehicle.class, vehicle.getId());
+        Vehicle find = database.findById(Vehicle.class, vehicle.getId());
         
         find.setVehicleBrand(vehicle.getVehicleBrand());
         find.setVehicleModel(vehicle.getVehicleModel());
@@ -56,6 +56,6 @@ public class VehicleService
     public Vehicle getVehicleById(int id) throws Exception {
         Database database = Database.getInstance();
         
-        return database.find(Vehicle.class, id);
+        return database.findById(Vehicle.class, id);
     }
 }

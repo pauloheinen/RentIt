@@ -16,7 +16,7 @@ public class PersistenceUtil {
     
     public static EntityManagerFactory loadConnectionInfo() {
         String[] paramsArray = new String[3];
-        paramsArray = getDatabaseParams();
+        paramsArray = getDatabaseParams();        
         
         Map<String, String> persistenceMap = new HashMap<>();
         
