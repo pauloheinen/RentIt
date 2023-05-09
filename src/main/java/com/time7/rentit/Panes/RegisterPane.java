@@ -251,8 +251,8 @@ public class RegisterPane
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
        String name = nameTextField.getText();
        String username = userNameTextField.getText();
-       String password = passwordTextField.getText();
-       String confirmPassword = confirmPasswordTextField.getText();
+       String password = passwordTextField.getPassword().toString();
+       String confirmPassword = confirmPasswordTextField.getPassword().toString();
        int type = Employee.EMPLOYEES_TYPES.admin;
        
        controller.registerEmployee(name, username, password, confirmPassword, type);
