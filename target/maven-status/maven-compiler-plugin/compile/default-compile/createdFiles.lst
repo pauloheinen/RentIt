@@ -4,7 +4,7 @@ com\time7\rentit\Service\Interface\VehicleServiceInterface.class
 com\time7\rentit\Panes\LoginPane$1.class
 com\time7\rentit\Panes\PromptError$1.class
 com\time7\rentit\Dto\EmployeeDto.class
-com\time7\rentit\Panes\LoginPane$5.class
+com\time7\rentit\Entity\Employee$EMPLOYEES_TYPES.class
 com\time7\rentit\Panes\PromptError.class
 com\time7\rentit\Utilities\PersistenceUtils\PersistenceUtil.class
 com\time7\rentit\Database\Database.class
@@ -27,6 +27,7 @@ com\time7\rentit\Service\EmployeeService.class
 com\time7\rentit\Panes\RegisterPane$2.class
 com\time7\rentit\Entity\Vehicle.class
 com\time7\rentit\Panes\RentItWindow.class
+com\time7\rentit\Panes\RegisterPane$3.class
 com\time7\rentit\Panes\LoginPane$4.class
 com\time7\rentit\Service\Interface\ClientServiceInterface.class
 com\time7\rentit\Panes\PromptError$3.class
