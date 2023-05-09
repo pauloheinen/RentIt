@@ -2,6 +2,7 @@ package com.time7.rentit.Controller;
 
 import com.time7.rentit.Entity.Employee;
 import com.time7.rentit.Service.EmployeeService;
+import javax.swing.JOptionPane;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -22,7 +23,7 @@ public class LoginPaneController {
             Employee employee = service.getEmployeeByUsernameAndPassword(user, password);
 
             if (employee == null){
-                System.out.println("Dados incorretos ou usuário não cadastrado!");
+                JOptionPane.showMessageDialog(null, "Dados inválidos ou usuários não cadastrado!", "Não foi possível fazer login.", 1);
                 return;
             } else {
                 System.out.println("Entrou na tela principal");
