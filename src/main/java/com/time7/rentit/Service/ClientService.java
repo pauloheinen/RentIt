@@ -24,12 +24,10 @@ public class ClientService
     }
     
     @Override
-    public Client createClient (Client client) throws Exception {
+    public void createClient (Client client) throws Exception {
         Database database = Database.getInstance();
         
         database.add(client);
-        
-        return null;
     }
     
     @Override
@@ -59,11 +57,11 @@ public class ClientService
         return database.findById(Client.class, id);
     }
     
-    public Client getAll() throws Exception {
-        Connection connection = Connection.getConnection();
+    public <T> Client getAll() throws Exception {
+        Database database = Database.getInstance();
         
         String sql = "select e from clients";
         
-        return connection.findObjectBySql(Client.class, sql);
+        return database.findAll(Client.class, sql);
     }
 }
