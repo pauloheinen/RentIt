@@ -210,7 +210,7 @@ public class LoginPane
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\José Augusto Scherer\\Desktop\\RentIt\\src\\main\\java\\com\\time7\\rentit\\Images\\menLogin.JPG")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menLogin.JPG"))); // NOI18N
 
         javax.swing.GroupLayout loginPaneContetLayout = new javax.swing.GroupLayout(loginPaneContet);
         loginPaneContet.setLayout(loginPaneContetLayout);
@@ -244,13 +244,13 @@ public class LoginPane
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-//GEN-FIRST:event_registerButtonActionPerformed
+                                               
  private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         close();
         RegisterPane registerPane = new RegisterPane();
         registerPane.setVisible(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-    }//GEN-LAST:event_registerButtonActionPerformed
+    }                                              
 //GEN-LAST:event_registerButtonActionPerformed
 
     private void forgotPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgotPasswordActionPerformed
