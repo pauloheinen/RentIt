@@ -1,3 +1,5 @@
+package com.time7.rentit.Panes.VehiclePane;
+
 /**
  *
  * @author Paulo Henrique
