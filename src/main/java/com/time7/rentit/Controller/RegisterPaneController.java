@@ -21,7 +21,7 @@ public class RegisterPaneController
         Employee employee = service.getEmployeeByNameAndUsername(name, username);
         
         if (employee != null) {
-            System.out.println("Usuário já existe com esse name e username");
+            System.out.println("Já existe um usuário com esse nome e username!");
             return;
         }
         

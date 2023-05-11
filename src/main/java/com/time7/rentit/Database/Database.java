@@ -42,4 +42,8 @@ public class Database {
     public <T> T findObjectBySql(Class<T> aClass, String sql) {
         return getConnection().findObjectBySql(aClass, sql);
     }
+    
+    public <T> T findAll(Class<T> aClass, String sql) {
+        return getConnection().findAllObject(aClass, sql);
+    }
 }

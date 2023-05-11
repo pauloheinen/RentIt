@@ -1,35 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.time7.rentit.Service.Interface;
 
-import com.time7.rentit.Database.Database;
 import com.time7.rentit.Entity.Client;
-import com.time7.rentit.Service.ClientService;
-import jdk.jshell.spi.ExecutionControl;
 
 /**
  *
  * @author Daniel
  */
-public class ClientServiceInterface 
-    implements 
-        ClientService {
-    final private Database db = Database.getInstance();
-    
-    @Override
-    public Client createClient (Client client) throws Exception {
-        throw new ExecutionControl.NotImplementedException("not implemented");
+    public interface ClientServiceInterface {
+        void createClient (Client client) throws Exception;
+        void updateClient (Client client) throws Exception;
+        void deleteClient (Client client) throws Exception;
+
+        Client getClientById (int id) throws Exception;
     }
-    
-    @Override
-    public void updateClient (Client client) throws Exception {
-        throw new ExecutionControl.NotImplementedException("not implemented");
-    }
-    
-    @Override
-    public void deleteClient (Client client) throws Exception {
-        throw new ExecutionControl.NotImplementedException("not implemented");
-    }
-}

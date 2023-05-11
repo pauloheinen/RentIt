@@ -3,6 +3,7 @@ package com.time7.rentit.Panes;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
+import com.time7.rentit.Controller.LoginPaneController;
 
 /**
  *
@@ -12,6 +13,8 @@ public class LoginPane
     extends 
         javax.swing.JFrame {
 
+    LoginPaneController controller = new LoginPaneController();
+        
     public LoginPane() {
         initComponents();
         // centraliza o JFrame
@@ -241,22 +244,31 @@ public class LoginPane
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    // ação do botão 'Registrar-se'
-    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+//GEN-FIRST:event_registerButtonActionPerformed
+ private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         close();
         RegisterPane registerPane = new RegisterPane();
         registerPane.setVisible(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_registerButtonActionPerformed
+//GEN-LAST:event_registerButtonActionPerformed
 
     private void forgotPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgotPasswordActionPerformed
         JOptionPane.showMessageDialog(null, "Work in progress.");
     }//GEN-LAST:event_forgotPasswordActionPerformed
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
-        JOptionPane.showMessageDialog(null, "Work in progress.");
+        String user = nameTextField.getText();
+        String password = passwordTextField.getText();
+
+        if (user.isEmpty() || password.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha usuário e senha!");
+        } else {
+            controller.logInEmployee(user, password);
+        }
     }//GEN-LAST:event_enterButtonActionPerformed
-    
+
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel creditsLabel;
     private javax.swing.JButton enterButton;

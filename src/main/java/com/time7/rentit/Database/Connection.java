@@ -115,4 +115,22 @@ public class Connection {
         
         return find;
     }
+    
+    public <T> T findAllObject(Class<T> aClass, String sql) {
+        open();
+        
+        T find;
+        
+        try {
+            find = (T) manager.createQuery(sql).getResultList();
+        } catch (NoResultException e) {
+            find = null;
+        }
+        
+        finally {
+            close();
+        }
+        
+        return find;
+    }
 }

@@ -60,11 +60,16 @@ public class EmployeeService
     public Employee getEmployeeByNameAndUsername(String user, String username) {
         Database database = Database.getInstance();
         
-        String sql = "select e from employees e where e.name = '" + user + "' or e.username = '" + username + "'"; 
+        String sql = "select e from employees e where e.name = '" + user + "' or e.username = '" + username + "'";
         
         return database.findObjectBySql(Employee.class, sql);
     }
     
-      
-    
+    public Employee getEmployeeByUsernameAndPassword(String user, String password){
+        Database database = Database.getInstance();
+        
+        String sql = "select e from employees e where e.name = '" + user + "' and e.password = '" + password + "'";
+        
+        return database.findObjectBySql(Employee.class, sql);
+    }
 }
