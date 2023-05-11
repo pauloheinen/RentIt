@@ -23,7 +23,7 @@ public class LoginPaneController {
             Employee employee = service.getEmployeeByUsernameAndPassword(user, password);
 
             if (employee == null){
-                JOptionPane.showMessageDialog(null, "Dados inválidos ou usuários não cadastrado!", "Não foi possível fazer login.", 1);
+                JOptionPane.showMessageDialog(null, "Dados inválidos!", "Não foi possível fazer login.", 0);
                 return;
             } else {
                 System.out.println("Entrou na tela principal");
