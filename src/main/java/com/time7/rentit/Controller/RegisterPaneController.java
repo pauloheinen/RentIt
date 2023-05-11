@@ -1,6 +1,7 @@
 package com.time7.rentit.Controller;
 
 import com.time7.rentit.Entity.Employee;
+import com.time7.rentit.Panes.Prompts.PromptError;
 import com.time7.rentit.Service.EmployeeService;
 
 /**
@@ -17,25 +18,26 @@ public class RegisterPaneController
             return;
         }
         
-        EmployeeService service = EmployeeService.getInstance();
-        Employee employee = service.getEmployeeByNameAndUsername(name, username);
-        
-        if (employee != null) {
-            System.out.println("Já existe um usuário com esse nome e username!");
-            return;
-        }
-        
-        employee = new Employee();
-        
-        employee.setName(name);
-        employee.setUsername(username);
-        employee.setPassword(password);
-        employee.setType(type);
-        
         try {
+            EmployeeService service = EmployeeService.getInstance();
+            Employee employee = service.getEmployeeByNameAndUsername(name, username);
+
+            if (employee != null) {
+                System.out.println("Já existe um usuário com esse nome e username!");
+                return;
+            }
+
+            employee = new Employee();
+
+            employee.setName(name);
+            employee.setUsername(username);
+            employee.setPassword(password);
+            employee.setType(type);
+
+
             service.createEmployee(employee);
         } catch (Exception e) {
-            e.printStackTrace();
+            new PromptError(e);
         }
     } 
 }

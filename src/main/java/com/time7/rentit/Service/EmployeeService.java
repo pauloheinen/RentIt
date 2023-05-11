@@ -57,19 +57,20 @@ public class EmployeeService
     }
 
     @Override
-    public Employee getEmployeeByNameAndUsername(String user, String username) {
+    public Employee getEmployeeByNameAndUsername(String name, String username) throws Exception{
         Database database = Database.getInstance();
         
-        String sql = "select e from employees e where e.name = '" + user + "' or e.username = '" + username + "'";
+        String sql = "select e from employees e where e.name = '" + name + "' or e.username = '" + username + "'";
         
-        return database.findObjectBySql(Employee.class, sql);
+        return database.findSingleBySql(Employee.class, sql);
     }
     
-    public Employee getEmployeeByUsernameAndPassword(String user, String password){
+    @Override
+    public Employee getEmployeeByUsernameAndPassword(String name, String password) throws Exception{
         Database database = Database.getInstance();
         
-        String sql = "select e from employees e where e.name = '" + user + "' and e.password = '" + password + "'";
+        String sql = "select e from employees e where e.name = '" + name + "' and e.password = '" + password + "'";
         
-        return database.findObjectBySql(Employee.class, sql);
+        return database.findSingleBySql(Employee.class, sql);
     }
 }

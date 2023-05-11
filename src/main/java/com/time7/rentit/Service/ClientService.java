@@ -4,6 +4,7 @@ import com.time7.rentit.Database.Connection;
 import com.time7.rentit.Database.Database;
 import com.time7.rentit.Entity.Client;
 import com.time7.rentit.Service.Interface.ClientServiceInterface;
+import java.util.List;
 
 /**
  *
@@ -51,17 +52,19 @@ public class ClientService
         database.delete(client);
     }
     
+    @Override
     public Client getClientById(int id) throws Exception {
         Database database = Database.getInstance();
      
         return database.findById(Client.class, id);
     }
     
-    public <T> Client getAll() throws Exception {
+    @Override
+    public List<Client> getClients() throws Exception {
         Database database = Database.getInstance();
         
-        String sql = "select e from clients";
+        String sql = "select c from clients";
         
-        return database.findAll(Client.class, sql);
+        return database.findAllBySql(Client.class, sql);
     }
 }

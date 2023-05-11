@@ -21,13 +21,8 @@ public class LoginPane
         this.setLocationRelativeTo(null);
     }
     
-    // método 'close' para fechar o JFrame
     public void close(){
-        WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
-        Toolkit.getDefaultToolkit()
-               .getSystemEventQueue()
-               .postEvent(closeWindow);
-        
+        this.dispose();
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -72,6 +67,7 @@ public class LoginPane
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         loginPaneContet.setBackground(new java.awt.Color(255, 255, 255));
         loginPaneContet.setPreferredSize(new java.awt.Dimension(1000, 459));
@@ -247,8 +243,11 @@ public class LoginPane
                                                
  private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         close();
+        
         RegisterPane registerPane = new RegisterPane();
+        registerPane.setLocationRelativeTo(this);
         registerPane.setVisible(true);
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }                                              
 //GEN-LAST:event_registerButtonActionPerformed

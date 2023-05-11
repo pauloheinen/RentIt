@@ -2,8 +2,6 @@ package com.time7.rentit.Panes;
 
 import com.time7.rentit.Controller.RegisterPaneController;
 import com.time7.rentit.Entity.Employee;
-import java.awt.Toolkit;
-import java.awt.event.WindowEvent;
 
 /**
  *
@@ -17,16 +15,10 @@ public class RegisterPane
     
     public RegisterPane() {
         initComponents();
-        
-        // centraliza o JFrame
-        this.setLocationRelativeTo(null);
     }
-    // método 'close' para fechar o JFrame
+
     public void close(){
-        WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
-        Toolkit.getDefaultToolkit()
-               .getSystemEventQueue()
-               .postEvent(closeWindow);
+        this.dispose();
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -58,8 +50,13 @@ public class RegisterPane
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(1038, 524));
+        setMinimumSize(new java.awt.Dimension(1038, 524));
+        setResizable(false);
 
         registerPaneContent.setBackground(new java.awt.Color(0, 129, 239));
+        registerPaneContent.setMaximumSize(new java.awt.Dimension(740, 506));
+        registerPaneContent.setMinimumSize(new java.awt.Dimension(740, 506));
 
         tittleLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         tittleLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -243,18 +240,23 @@ public class RegisterPane
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 524, Short.MAX_VALUE)
+                    .addComponent(registerPaneContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(registerPaneContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    // ação do botão 'Voltar'
+
     private void goBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goBackButtonActionPerformed
         close();
+        
         LoginPane loginPane = new LoginPane();
+        
+        loginPane.setLocationRelativeTo(this);
         loginPane.setVisible(true);
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_goBackButtonActionPerformed
 

@@ -1,6 +1,7 @@
 package com.time7.rentit.Database;
 
 import com.time7.rentit.Utilities.PersistenceUtils.PersistenceUtil;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
@@ -98,7 +99,7 @@ public class Connection {
         return (T) find;
     }
 
-    public <T> T findObjectBySql(Class<T> aClass, String sql) {
+    public <T> T findSingleBySql(Class<T> aClass, String sql) {
         open();
         
         T find;
@@ -116,13 +117,13 @@ public class Connection {
         return find;
     }
     
-    public <T> T findAllObject(Class<T> aClass, String sql) {
+    public <T> List<T> findAllBySql(Class<T> aClass, String sql) {
         open();
         
-        T find;
+        List <T> find;
         
         try {
-            find = (T) manager.createQuery(sql).getResultList();
+            find = manager.createQuery(sql).getResultList();
         } catch (NoResultException e) {
             find = null;
         }

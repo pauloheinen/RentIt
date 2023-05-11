@@ -1,5 +1,7 @@
 package com.time7.rentit.Database;
 
+import java.util.List;
+
 /**
  *
  * @author Paulo Henrique
@@ -39,11 +41,11 @@ public class Database {
         return getConnection().findById(aClass, object);
     }
 
-    public <T> T findObjectBySql(Class<T> aClass, String sql) {
-        return getConnection().findObjectBySql(aClass, sql);
+    public <T> T findSingleBySql(Class<T> aClass, String sql) {
+        return getConnection().findSingleBySql(aClass, sql);
     }
     
-    public <T> T findAll(Class<T> aClass, String sql) {
-        return getConnection().findAllObject(aClass, sql);
+    public <T> List<T> findAllBySql(Class<T> aClass, String sql) {
+        return getConnection().findAllBySql(aClass, sql);
     }
 }
