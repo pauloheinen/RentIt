@@ -1,8 +1,11 @@
 package com.time7.rentit.Panes.Prompts;
 
+import java.awt.Component;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 /**
  *
@@ -11,15 +14,17 @@ import java.awt.datatransfer.StringSelection;
 public class PromptError
     extends 
         javax.swing.JFrame {
-    
-    private final String message;
-    
-    public PromptError(Exception e) {
-        this.message = e.getLocalizedMessage();
         
+    public PromptError() {
         initComponents();
-        
-        logException();
+    }
+    
+    public void log(Component root, Exception e) {
+        StringWriter stackTraceWriter = new StringWriter();
+        e.printStackTrace(new PrintWriter(stackTraceWriter));
+        errorLogText.setText(e.toString() + "\n" + stackTraceWriter.toString());
+
+        presentWindow(root);
     }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -36,6 +41,9 @@ public class PromptError
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ocorreu um erro...");
+        setAlwaysOnTop(true);
+        setUndecorated(true);
+        setResizable(false);
 
         jButtonCopy.setForeground(new java.awt.Color(102, 102, 102));
         jButtonCopy.setText("Copiar");
@@ -61,12 +69,15 @@ public class PromptError
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Veja o erro abaixo:");
 
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         jScrollPane1.setViewportBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         errorLogText.setEditable(false);
         errorLogText.setColumns(20);
         errorLogText.setRows(5);
+        errorLogText.setAutoscrolls(false);
+        errorLogText.setCaretColor(new java.awt.Color(0, 0, 0));
+        errorLogText.setSelectedTextColor(new java.awt.Color(0, 116, 255));
         jScrollPane1.setViewportView(errorLogText);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/alarm.png")));
@@ -97,9 +108,8 @@ public class PromptError
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonExit, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,18 +138,18 @@ public class PromptError
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
-        System.exit(0);
+        dispose();
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jButtonCopyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCopyActionPerformed
         Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
         StringSelection ss = new StringSelection (errorLogText.getText());
-        clip.setContents (ss, ss);   
+        clip.setContents(ss, ss);   
     }//GEN-LAST:event_jButtonCopyActionPerformed
-
-    private void logException() {
-        errorLogText.setText(message);
-        this.setVisible(true);
+     
+    private void presentWindow(Component root) {
+        setLocationRelativeTo(root);
+        setVisible(true);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

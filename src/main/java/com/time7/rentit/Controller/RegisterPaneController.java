@@ -3,6 +3,7 @@ package com.time7.rentit.Controller;
 import com.time7.rentit.Entity.Employee;
 import com.time7.rentit.Panes.Prompts.PromptError;
 import com.time7.rentit.Service.EmployeeService;
+import java.awt.Component;
 
 /**
  *
@@ -12,6 +13,12 @@ public class RegisterPaneController
     extends 
         Employee{
 
+    Component root;
+    
+    public RegisterPaneController(Component root) {
+        this.root = root;
+    }
+    
     public void registerEmployee(String name, String username, String password, String confirmPassword, int type) {
         if (!password.equals(confirmPassword)){
             System.out.println("Senhas diferentes!");
@@ -37,7 +44,7 @@ public class RegisterPaneController
 
             service.createEmployee(employee);
         } catch (Exception e) {
-            new PromptError(e);
+            new PromptError().log(root, e);
         }
     } 
 }
