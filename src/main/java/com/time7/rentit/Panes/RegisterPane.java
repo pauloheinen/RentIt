@@ -10,7 +10,7 @@ public class RegisterPane
     extends 
         javax.swing.JFrame {
     
-    RegisterPaneController controller = new RegisterPaneController();
+    RegisterPaneController controller = new RegisterPaneController(this);
     
     public RegisterPane() {
         initComponents();

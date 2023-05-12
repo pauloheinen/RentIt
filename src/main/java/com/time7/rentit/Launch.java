@@ -1,7 +1,6 @@
 package com.time7.rentit;
 
 import com.time7.rentit.Panes.LoginPane;
-import com.time7.rentit.Panes.Prompts.PromptInfo;
 
 /**
  *

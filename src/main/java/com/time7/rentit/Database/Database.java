@@ -11,6 +11,8 @@ public class Database {
     private static Connection conn;
     private static Database db;
 
+    private Database() {}
+    
     public static Database getInstance() {
         if (db == null) {
             db = new Database();
