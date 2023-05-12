@@ -2,6 +2,7 @@ package com.time7.rentit.Panes;
 
 import javax.swing.JOptionPane;
 import com.time7.rentit.Controller.LoginPaneController;
+import java.awt.Color;
 
 /**
  *
@@ -41,6 +42,7 @@ public class LoginPane
         usernameLabel = new javax.swing.JLabel();
         passwordLabel = new javax.swing.JLabel();
         creditsLabel = new javax.swing.JLabel();
+        exitButton = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -65,12 +67,16 @@ public class LoginPane
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(968, 459));
         setResizable(false);
 
         loginPaneContet.setBackground(new java.awt.Color(255, 255, 255));
         loginPaneContet.setPreferredSize(new java.awt.Dimension(1000, 459));
 
         jPanel1.setBackground(new java.awt.Color(0, 129, 239));
+        jPanel1.setMaximumSize(new java.awt.Dimension(968, 459));
+        jPanel1.setMinimumSize(new java.awt.Dimension(968, 459));
 
         nameTextField.setToolTipText("");
         nameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -136,6 +142,23 @@ public class LoginPane
         creditsLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         creditsLabel.setText("Powered By Team 007 ltda");
 
+        exitButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        exitButton.setForeground(new java.awt.Color(255, 255, 255));
+        exitButton.setText("X");
+        exitButton.setToolTipText("Sair");
+        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitButton(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                mouseOver(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                mouseExit(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -154,10 +177,6 @@ public class LoginPane
                     .addComponent(nameTextField))
                 .addGap(67, 67, 67))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(176, 176, 176)
-                .addComponent(forgotPassword)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
@@ -165,11 +184,22 @@ public class LoginPane
                     .addComponent(loginLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(wolcomeLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(176, 176, 176)
+                        .addComponent(forgotPassword))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(441, 441, 441)
+                        .addComponent(exitButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addContainerGap()
+                .addComponent(exitButton)
+                .addGap(3, 3, 3)
                 .addComponent(loginLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(wolcomeLabel)
@@ -187,7 +217,7 @@ public class LoginPane
                     .addComponent(registerButton))
                 .addGap(30, 30, 30)
                 .addComponent(forgotPassword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(creditsLabel))
         );
 
@@ -245,7 +275,6 @@ public class LoginPane
         registerPane.setLocationRelativeTo(this);
         registerPane.setVisible(true);
         
-        
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }                                              
 //GEN-LAST:event_registerButtonActionPerformed
@@ -265,10 +294,23 @@ public class LoginPane
         }
     }//GEN-LAST:event_enterButtonActionPerformed
 
+    private void exitButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButton
+        System.exit(0);
+    }//GEN-LAST:event_exitButton
+
+    private void mouseOver(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseOver
+        exitButton.setForeground(Color.red);
+    }//GEN-LAST:event_mouseOver
+
+    private void mouseExit(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseExit
+        exitButton.setForeground(Color.WHITE);
+    }//GEN-LAST:event_mouseExit
+
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel creditsLabel;
     private javax.swing.JButton enterButton;
+    private javax.swing.JLabel exitButton;
     private javax.swing.JButton forgotPassword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
