@@ -2,7 +2,6 @@ package com.time7.rentit.Panes;
 
 import com.time7.rentit.Controller.RegisterPaneController;
 import com.time7.rentit.Entity.Employee;
-
 /**
  *
  * @author José Augusto Scherer
@@ -83,11 +82,6 @@ public class RegisterPane
         passwordLabel.setText("Senha");
 
         passwordTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        passwordTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordTextFieldActionPerformed(evt);
-            }
-        });
 
         confirmPasswordLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         confirmPasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -253,10 +247,9 @@ public class RegisterPane
         close();
         
         LoginPane loginPane = new LoginPane();
-        
         loginPane.setLocationRelativeTo(this);
         loginPane.setVisible(true);
-        
+       
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_goBackButtonActionPerformed
 
@@ -269,10 +262,6 @@ public class RegisterPane
        
        controller.registerEmployee(name, username, password, confirmPassword, type);
     }//GEN-LAST:event_registerButtonActionPerformed
-
-    private void passwordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordTextFieldActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel confirmPasswordLabel;

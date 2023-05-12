@@ -19,9 +19,11 @@ public class LoginPaneController {
     public void logInEmployee(String user, String password) {
         EmployeeService service = EmployeeService.getInstance();
         
+        
+        
         try {
             Employee employee = service.getEmployeeByUsernameAndPassword(user, password);
-
+            
             if (employee == null){
                 JOptionPane.showMessageDialog(null, "Dados inválidos!", "Não foi possível fazer login.", 0);
                 return;

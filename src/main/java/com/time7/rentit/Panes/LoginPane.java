@@ -1,7 +1,5 @@
 package com.time7.rentit.Panes;
 
-import java.awt.Toolkit;
-import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 import com.time7.rentit.Controller.LoginPaneController;
 
@@ -17,7 +15,7 @@ public class LoginPane
         
     public LoginPane() {
         initComponents();
-        // centraliza o JFrame
+        
         this.setLocationRelativeTo(null);
     }
     
@@ -243,10 +241,10 @@ public class LoginPane
                                                
  private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         close();
-        
         RegisterPane registerPane = new RegisterPane();
         registerPane.setLocationRelativeTo(this);
         registerPane.setVisible(true);
+        
         
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }                                              
