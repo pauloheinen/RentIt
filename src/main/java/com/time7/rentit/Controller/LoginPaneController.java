@@ -21,7 +21,7 @@ public class LoginPaneController {
     
     public void logInEmployee(String user, String password) {
         if (user.isEmpty() || password.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha usuário e senha!");
+            JOptionPane.showMessageDialog(root, "Preencha usuário e senha!");
             
             return;
         } 
