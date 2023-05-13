@@ -18,6 +18,8 @@ public class LoginPane
         initComponents();
         
         this.setLocationRelativeTo(null);
+        
+        getRootPane().setDefaultButton(enterButton);
     }
     
     public void close(){
@@ -79,7 +81,6 @@ public class LoginPane
         nameTextField.setToolTipText("");
         nameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         nameTextField.setCaretColor(new java.awt.Color(0, 0, 0));
-        nameTextField.setFocusTraversalPolicyProvider(true);
         nameTextField.setSelectedTextColor(new java.awt.Color(0, 116, 255));
 
         passwordTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));

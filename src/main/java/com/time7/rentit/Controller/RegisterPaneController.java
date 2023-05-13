@@ -18,7 +18,7 @@ public class RegisterPaneController {
         this.root = root;
     }
     
-    public void registerEmployee(String name, String username, String password, String confirmPassword, int type) {
+    public void registerEmployee(String name, String username, String password, String confirmPassword) {
         if (! validateFields(name, username, password, confirmPassword)) {
             return;
         }
@@ -39,8 +39,7 @@ public class RegisterPaneController {
             employee.setName(name);
             employee.setUsername(username);
             employee.setPassword(password);
-            employee.setType(type);
-
+            
             service.createEmployee(employee);
         } catch (Exception e) {
             Prompts.PromptError(null, e);
