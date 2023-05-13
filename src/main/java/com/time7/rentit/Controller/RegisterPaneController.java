@@ -1,7 +1,7 @@
 package com.time7.rentit.Controller;
 
 import com.time7.rentit.Entity.Employee;
-import com.time7.rentit.Panes.Prompts.PromptError;
+import com.time7.rentit.Panes.Prompts.Prompts;
 import com.time7.rentit.Service.EmployeeService;
 import javax.swing.JOptionPane;
 import java.awt.Component;
@@ -43,7 +43,7 @@ public class RegisterPaneController {
 
             service.createEmployee(employee);
         } catch (Exception e) {
-            new PromptError().log(root, e);
+            Prompts.PromptError(null, e);
         }
     }
     

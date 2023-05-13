@@ -1,7 +1,7 @@
 package com.time7.rentit.Controller;
 
 import com.time7.rentit.Entity.Employee;
-import com.time7.rentit.Panes.Prompts.PromptError;
+import com.time7.rentit.Panes.Prompts.Prompts;
 import com.time7.rentit.Panes.VehiclePane.VehicleMenuPane;
 import com.time7.rentit.Service.EmployeeService;
 import java.awt.Component;
@@ -42,7 +42,7 @@ public class LoginPaneController {
             vehicleMenuPane.setVisible(true);
             
         } catch (Exception e) {
-            new PromptError().log(root, e);
+            Prompts.PromptError(null, e);
         }
     }
 }

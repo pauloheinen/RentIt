@@ -1,7 +1,7 @@
 package com.time7.rentit.Controller.VehicleMenuController;
 
 import com.time7.rentit.Entity.Vehicle;
-import com.time7.rentit.Panes.Prompts.PromptError;
+import com.time7.rentit.Panes.Prompts.Prompts;
 import com.time7.rentit.Service.VehicleService;
 import java.awt.Component;
 import java.util.List;
@@ -41,7 +41,7 @@ public class VehicleMenuController {
             }
             
         } catch (Exception e) {
-            new PromptError().log(root, e);
+            Prompts.PromptError(null, e);
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.time7.rentit.Controller.ClientMenuController;
 
 import com.time7.rentit.Entity.Client;
-import com.time7.rentit.Panes.Prompts.PromptError;
+import com.time7.rentit.Panes.Prompts.Prompts;
 import com.time7.rentit.Service.ClientService;
 import java.awt.Component;
 import java.util.List;
@@ -39,7 +39,7 @@ public class ClientMenuController {
                 model.addRow(row);
             }
         } catch (Exception e) {
-            new PromptError().log(root, e);
+            Prompts.PromptError(null, e);
         }
     }
     
@@ -49,7 +49,7 @@ public class ClientMenuController {
         try {
             
         } catch (Exception e) {
-            new PromptError().log(root, e);
+            Prompts.PromptError(null, e);
         }
     }
     
@@ -59,7 +59,7 @@ public class ClientMenuController {
         try {            
             
         } catch (Exception e) {
-            new PromptError().log(root, e);
+            Prompts.PromptError(null, e);
         }
     }
     
@@ -86,7 +86,7 @@ public class ClientMenuController {
                 JOptionPane.showMessageDialog(null, "Cliente removido com sucesso!", "Cliente removido.", 1);
             }
         } catch (Exception e) {
-            new PromptError().log(root, e);
+            Prompts.PromptError(null, e);
         }
     }
 }
