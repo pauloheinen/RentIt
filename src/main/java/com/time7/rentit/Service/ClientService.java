@@ -1,6 +1,5 @@
 package com.time7.rentit.Service;
 
-import com.time7.rentit.Database.Connection;
 import com.time7.rentit.Database.Database;
 import com.time7.rentit.Entity.Client;
 import com.time7.rentit.Service.Interface.ClientServiceInterface;
@@ -15,6 +14,8 @@ public class ClientService
         ClientServiceInterface {
     
     private static ClientService clientService;
+    
+    private ClientService() {}
     
     public static ClientService getInstance() {
         if (clientService == null) {

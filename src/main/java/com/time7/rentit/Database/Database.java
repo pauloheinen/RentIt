@@ -27,7 +27,7 @@ public class Database {
         return conn;
     }
     
-    public void add(Object object) throws Exception {
+    public void add(Object object) {
         getConnection().add(object);   
     }
     

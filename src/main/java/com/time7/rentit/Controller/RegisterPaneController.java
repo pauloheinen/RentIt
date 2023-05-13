@@ -6,59 +6,29 @@ import com.time7.rentit.Service.EmployeeService;
 import javax.swing.JOptionPane;
 import java.awt.Component;
 
-
 /**
  *
  * @author José Augusto Scherer
  */
-public class RegisterPaneController
-        extends
-        Employee {
+public class RegisterPaneController {
 
-    Component root;
+    private final Component root;
     
     public RegisterPaneController(Component root) {
         this.root = root;
     }
     
     public void registerEmployee(String name, String username, String password, String confirmPassword, int type) {
-        EmployeeService service = EmployeeService.getInstance();
-
-        if (name.strip().isEmpty()
-                && username.strip().isEmpty()
-                && password.strip().isEmpty()
-                && confirmPassword.strip().isEmpty()) {
-
-            JOptionPane.showMessageDialog(null, "Para se registrar, é necessário preencher os campos!");
-
-        } else if (name.strip().isEmpty()) {
-
-            JOptionPane.showMessageDialog(null, "Insira seu nome!");
-
-        } else if (username.strip().isEmpty()) {
-
-            JOptionPane.showMessageDialog(null, "Insira seu nome de usuário!");
-
-        } else if (password.strip().isEmpty()) {
-
-            JOptionPane.showMessageDialog(null, "Insira sua senha!");
-
-        } else if (confirmPassword.strip().isEmpty()) {
-
-            JOptionPane.showMessageDialog(null, "Confirme sua senha!");
-
-        }
-
-        if (!password.equals(confirmPassword)) {
-            System.out.println("Senhas diferentes!");
+        if (! validateFields(name, username, password, confirmPassword)) {
             return;
         }
-
+                
         try {
+            EmployeeService service = EmployeeService.getInstance();
+            
             Employee employee = service.getEmployeeByNameAndUsername(name, username);
 
             if (employee != null) {
-
                 JOptionPane.showMessageDialog(null, "Já existe um usuário com esse nome e username!");
 
                 return;
@@ -75,5 +45,25 @@ public class RegisterPaneController
         } catch (Exception e) {
             new PromptError().log(root, e);
         }
+    }
+    
+    private boolean validateFields(String name, String username, String password, String confirmPassword) {
+        
+        if (name.strip().isEmpty() ||
+            username.strip().isEmpty() ||
+            password.strip().isEmpty() ||
+            confirmPassword.strip().isEmpty()) {
+            
+            JOptionPane.showMessageDialog(root, "Há campos vazios!");
+            
+            return false;
+        }
+
+        else if (!password.equals(confirmPassword)) {
+            System.out.println("Senhas diferentes!");
+            return false;
+        }
+        
+        return true;
     }
 }

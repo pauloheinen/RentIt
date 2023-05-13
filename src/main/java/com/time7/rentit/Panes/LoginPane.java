@@ -12,7 +12,7 @@ public class LoginPane
     extends 
         javax.swing.JFrame {
 
-    LoginPaneController controller = new LoginPaneController();
+    LoginPaneController controller = new LoginPaneController(this);
         
     public LoginPane() {
         initComponents();
@@ -67,8 +67,6 @@ public class LoginPane
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(968, 459));
         setResizable(false);
 
         loginPaneContet.setBackground(new java.awt.Color(255, 255, 255));
@@ -80,10 +78,13 @@ public class LoginPane
 
         nameTextField.setToolTipText("");
         nameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        nameTextField.setCaretColor(new java.awt.Color(0, 0, 0));
         nameTextField.setFocusTraversalPolicyProvider(true);
-        nameTextField.setSelectionColor(new java.awt.Color(255, 255, 255));
+        nameTextField.setSelectedTextColor(new java.awt.Color(0, 116, 255));
 
         passwordTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        passwordTextField.setCaretColor(new java.awt.Color(0, 0, 0));
+        passwordTextField.setSelectedTextColor(new java.awt.Color(0, 116, 255));
 
         enterButton.setBackground(new java.awt.Color(0, 129, 239));
         enterButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -287,15 +288,11 @@ public class LoginPane
         String user = nameTextField.getText();
         String password = passwordTextField.getText();
 
-        if (user.isEmpty() || password.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha usuário e senha!");
-        } else {
-            controller.logInEmployee(user, password);
-        }
+        controller.logInEmployee(user, password);
     }//GEN-LAST:event_enterButtonActionPerformed
 
     private void exitButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButton
-        System.exit(0);
+        close();
     }//GEN-LAST:event_exitButton
 
     private void mouseOver(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseOver

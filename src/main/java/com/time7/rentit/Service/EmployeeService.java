@@ -13,7 +13,9 @@ public class EmployeeService
         EmployeeServiceInterface {
     
     private static EmployeeService employeeService;
-            
+    
+    private EmployeeService() {}
+    
     public static EmployeeService getInstance() {
         if ( employeeService == null ) {
             employeeService = new EmployeeService();

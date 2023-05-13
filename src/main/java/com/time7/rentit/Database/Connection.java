@@ -1,5 +1,6 @@
 package com.time7.rentit.Database;
 
+import com.time7.rentit.Panes.Prompts.PromptError;
 import com.time7.rentit.Utilities.PersistenceUtils.PersistenceUtil;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -22,7 +23,7 @@ public class Connection {
             manager = managerFactory.createEntityManager();
         }
         catch (Exception e){
-            e.printStackTrace();
+            new PromptError().log(null, e);
         }
     }
     
@@ -72,12 +73,13 @@ public class Connection {
     }
     
     public void delete(Object object) {
-       open();
+        open();
+        
+        Object merge = manager.merge(object);
+        manager.remove(merge);
        
-       manager.remove(object);
-       
-       commit();
-       close();
+        commit();
+        close();
     }
     
     public <T> T findById(Class<T> aClass, Object object) {
@@ -91,11 +93,12 @@ public class Connection {
             }
         
             find = manager.find(aClass, object);
-        } catch( Exception e) {
-            e.printStackTrace();
+        } catch(NumberFormatException e) {
+            new PromptError().log(null, e);
         } finally {
             close();
         }
+        
         return (T) find;
     }
 
