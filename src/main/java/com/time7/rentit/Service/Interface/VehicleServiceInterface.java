@@ -1,6 +1,7 @@
 package com.time7.rentit.Service.Interface;
 
 import com.time7.rentit.Entity.Vehicle;
+import java.util.List;
 
 /**
  *
@@ -12,4 +13,5 @@ public interface VehicleServiceInterface {
     void deleteVehicle(Vehicle vehicle) throws Exception;
     
     Vehicle getVehicleById(int id) throws Exception;
+    List<Vehicle> getVehicles() throws Exception;
 }

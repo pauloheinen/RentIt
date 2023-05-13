@@ -3,6 +3,7 @@ package com.time7.rentit.Service;
 import com.time7.rentit.Database.Database;
 import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Service.Interface.VehicleServiceInterface;
+import java.util.List;
 
 /**
  *
@@ -13,7 +14,9 @@ public class VehicleService
         VehicleServiceInterface {
 
     private static VehicleService vehicleService;
-            
+        
+    private VehicleService() {}
+    
     public static VehicleService getInstance() {
         if ( vehicleService == null ) {
             vehicleService = new VehicleService();
@@ -58,4 +61,13 @@ public class VehicleService
         
         return database.findById(Vehicle.class, id);
     }
+
+    @Override
+    public List<Vehicle> getVehicles() throws Exception {
+        Database database = Database.getInstance();
+        
+        String sql = "select v from vehicles v";
+        
+        return database.findAllBySql(Vehicle.class, sql);
+    }    
 }
