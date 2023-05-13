@@ -5,6 +5,7 @@ import com.time7.rentit.Panes.Prompts.PromptError;
 import com.time7.rentit.Service.ClientService;
 import java.awt.Component;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -36,6 +37,53 @@ public class ClientMenuController {
                 row[4] = clients.get(i).getType();
                 
                 model.addRow(row);
+            }
+        } catch (Exception e) {
+            new PromptError().log(root, e);
+        }
+    }
+    
+    public void editRow(JTable table) {
+        DefaultTableModel model = (DefaultTableModel)table.getModel();
+        
+        try {
+            
+        } catch (Exception e) {
+            new PromptError().log(root, e);
+        }
+    }
+    
+    public void addRow(JTable table) {
+        DefaultTableModel model = (DefaultTableModel)table.getModel();
+        
+        try {            
+            
+        } catch (Exception e) {
+            new PromptError().log(root, e);
+        }
+    }
+    
+    public void removeRow(JTable table) {
+        ClientService clientService = ClientService.getInstance();
+        
+        try {            
+            //Saber a linha que o usuário selecionou
+            int line = table.getSelectedRow();
+            int column = 0;
+            
+            //Recebendo o valor do ID da linha selecionada
+            Object object = table.getValueAt(line, column);
+            
+            //Transformando o objeto em int para pesquisar o cliente no BD pelo ID
+            int idClient = Integer.parseInt(object.toString());
+                        
+            //Buscando o cliente
+            Client client = ClientService.getInstance().getClientById(idClient);
+                        
+            int option = JOptionPane.showConfirmDialog(null, "Deseja excluir o cliente de código: " + client.getId() +" ?", "Atenção!", JOptionPane.YES_NO_OPTION);
+            if (option == JOptionPane.YES_OPTION) {
+                clientService.deleteClient(client);
+                JOptionPane.showMessageDialog(null, "Cliente removido com sucesso!", "Cliente removido.", 1);
             }
         } catch (Exception e) {
             new PromptError().log(root, e);

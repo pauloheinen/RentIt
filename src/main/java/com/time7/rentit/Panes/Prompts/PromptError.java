@@ -42,6 +42,7 @@ public class PromptError
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ocorreu um erro...");
         setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
         setResizable(false);
 

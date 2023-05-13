@@ -1,6 +1,7 @@
 package com.time7.rentit;
 
 import com.time7.rentit.Panes.LoginPane;
+import com.time7.rentit.Panes.Prompts.PromptInfo;
 
 /**
  *
@@ -13,4 +14,6 @@ public class Launch {
             new LoginPane().setVisible(true);
         });
     }
+    
+    
 }
