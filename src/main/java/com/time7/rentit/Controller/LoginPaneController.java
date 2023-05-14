@@ -2,6 +2,7 @@ package com.time7.rentit.Controller;
 
 import com.time7.rentit.Entity.Employee;
 import com.time7.rentit.Panes.Prompts.PromptError;
+import com.time7.rentit.Panes.Prompts.Prompts;
 import com.time7.rentit.Panes.VehiclePane.VehicleTablePane;
 import com.time7.rentit.Service.EmployeeService;
 import javax.swing.JFrame;
@@ -21,7 +22,7 @@ public class LoginPaneController {
     
     public void logInEmployee(String user, String password) {
         if (user.isEmpty() || password.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha usuário e senha!");
+            JOptionPane.showMessageDialog(root, "Preencha usuário e senha!");
             
             return;
         } 
@@ -42,7 +43,7 @@ public class LoginPaneController {
             vehicleTable.setLocationRelativeTo(root);
             
         } catch (Exception e) {
-            new PromptError().log(root, e);
+            Prompts.PromptError(root, e);
         }
     }
 }

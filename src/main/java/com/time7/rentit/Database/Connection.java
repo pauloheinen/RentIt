@@ -1,6 +1,6 @@
 package com.time7.rentit.Database;
 
-import com.time7.rentit.Panes.Prompts.PromptError;
+import com.time7.rentit.Panes.Prompts.Prompts;
 import com.time7.rentit.Utilities.PersistenceUtils.PersistenceUtil;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -23,7 +23,7 @@ public class Connection {
             manager = managerFactory.createEntityManager();
         }
         catch (Exception e){
-            new PromptError().log(null, e);
+            Prompts.PromptError(null, e);
         }
     }
     
@@ -94,7 +94,7 @@ public class Connection {
         
             find = manager.find(aClass, object);
         } catch(NumberFormatException e) {
-            new PromptError().log(null, e);
+            Prompts.PromptError(null, e);
         } finally {
             close();
         }

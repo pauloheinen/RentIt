@@ -69,5 +69,5 @@ public class VehicleService
         String sql = "select v from vehicles v";
         
         return database.findAllBySql(Vehicle.class, sql);
-    }   
+    }
 }

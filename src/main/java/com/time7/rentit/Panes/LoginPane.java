@@ -1,6 +1,5 @@
 package com.time7.rentit.Panes;
 
-import javax.swing.JOptionPane;
 import com.time7.rentit.Controller.LoginPaneController;
 import java.awt.Color;
 
@@ -18,6 +17,8 @@ public class LoginPane
         initComponents();
         
         this.setLocationRelativeTo(null);
+        
+        getRootPane().setDefaultButton(enterButton);
     }
     
     public void close(){
@@ -79,12 +80,16 @@ public class LoginPane
         nameTextField.setToolTipText("");
         nameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         nameTextField.setCaretColor(new java.awt.Color(0, 0, 0));
-        nameTextField.setFocusTraversalPolicyProvider(true);
         nameTextField.setSelectedTextColor(new java.awt.Color(0, 116, 255));
 
         passwordTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         passwordTextField.setCaretColor(new java.awt.Color(0, 0, 0));
         passwordTextField.setSelectedTextColor(new java.awt.Color(0, 116, 255));
+        passwordTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordTextFieldActionPerformed(evt);
+            }
+        });
 
         enterButton.setBackground(new java.awt.Color(0, 129, 239));
         enterButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -281,7 +286,12 @@ public class LoginPane
 //GEN-LAST:event_registerButtonActionPerformed
 
     private void forgotPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgotPasswordActionPerformed
-        JOptionPane.showMessageDialog(null, "Work in progress.");
+        close();
+        RecoverPassword recoverPassword = new RecoverPassword();
+        recoverPassword.setLocationRelativeTo(this);
+        recoverPassword.setVisible(true);
+        
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_forgotPasswordActionPerformed
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
@@ -302,6 +312,10 @@ public class LoginPane
     private void mouseExit(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseExit
         exitButton.setForeground(Color.WHITE);
     }//GEN-LAST:event_mouseExit
+
+    private void passwordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordTextFieldActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables

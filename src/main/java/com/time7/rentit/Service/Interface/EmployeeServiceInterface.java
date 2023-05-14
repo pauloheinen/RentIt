@@ -12,6 +12,6 @@ public interface EmployeeServiceInterface {
     void deleteEmployee(Employee employee) throws Exception;
     
     Employee getEmployeeById(int id) throws Exception;
-    Employee getEmployeeByNameAndUsername(String user, String username) throws Exception;
+    Employee getEmployeeByNameOrUsername(String user, String username) throws Exception;
     Employee getEmployeeByUsernameAndPassword(String user, String password) throws Exception;
 }

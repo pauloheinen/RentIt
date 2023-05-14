@@ -1,7 +1,7 @@
 package com.time7.rentit.Models.VehicleModel;
 
 import com.time7.rentit.Entity.Vehicle;
-import com.time7.rentit.Panes.Prompts.PromptError;
+import com.time7.rentit.Panes.Prompts.Prompts;
 import com.time7.rentit.Service.VehicleService;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class VehicleTableModel
             List<Vehicle> vehicles = VehicleService.getInstance().getVehicles();
             vehiclesList.addAll(vehicles);            
         } catch (Exception e) {
-            new PromptError().log(null, e);
+            Prompts.PromptError(null, e);
         }
     }
     

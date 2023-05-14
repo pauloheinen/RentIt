@@ -1,7 +1,7 @@
 package com.time7.rentit.Controller;
 
 import com.time7.rentit.Entity.Employee;
-import com.time7.rentit.Panes.Prompts.PromptError;
+import com.time7.rentit.Panes.Prompts.Prompts;
 import com.time7.rentit.Service.EmployeeService;
 import javax.swing.JOptionPane;
 import java.awt.Component;
@@ -18,7 +18,7 @@ public class RegisterPaneController {
         this.root = root;
     }
     
-    public void registerEmployee(String name, String username, String password, String confirmPassword, int type) {
+    public void registerEmployee(String name, String username, String password, String confirmPassword) {
         if (! validateFields(name, username, password, confirmPassword)) {
             return;
         }
@@ -26,7 +26,7 @@ public class RegisterPaneController {
         try {
             EmployeeService service = EmployeeService.getInstance();
             
-            Employee employee = service.getEmployeeByNameAndUsername(name, username);
+            Employee employee = service.getEmployeeByNameOrUsername(name, username);
 
             if (employee != null) {
                 JOptionPane.showMessageDialog(null, "Já existe um usuário com esse nome e username!");
@@ -39,11 +39,10 @@ public class RegisterPaneController {
             employee.setName(name);
             employee.setUsername(username);
             employee.setPassword(password);
-            employee.setType(type);
-
+            
             service.createEmployee(employee);
         } catch (Exception e) {
-            new PromptError().log(root, e);
+            Prompts.PromptError(null, e);
         }
     }
     

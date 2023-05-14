@@ -4,7 +4,6 @@ import com.time7.rentit.Controller.VehicleTableController.VehicleTableController
 import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Models.VehicleModel.VehicleTableModel;
 
-
 /**
  *
  * @author Paulo Henrique

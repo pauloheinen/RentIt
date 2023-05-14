@@ -11,7 +11,6 @@ create table employees (
     name varchar (120) not null,
     username varchar (20) not null,
     password varchar (40) not null,
-    type tinyint not null,
     primary key (id)
 );
 

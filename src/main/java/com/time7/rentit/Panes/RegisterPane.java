@@ -1,8 +1,6 @@
 package com.time7.rentit.Panes;
 
 import com.time7.rentit.Controller.RegisterPaneController;
-import com.time7.rentit.Entity.Employee;
-import java.awt.Color;
 /**
  *
  * @author José Augusto Scherer
@@ -15,6 +13,7 @@ public class RegisterPane
     
     public RegisterPane() {
         initComponents();
+        getRootPane().setDefaultButton(registerButton);
     }
 
     public void close(){
@@ -42,10 +41,7 @@ public class RegisterPane
         pencilIcon2 = new javax.swing.JLabel();
         lockerIcon1 = new javax.swing.JLabel();
         lockerIcon2 = new javax.swing.JLabel();
-        typeSelector = new java.awt.Choice();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        exitButton = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
@@ -74,6 +70,11 @@ public class RegisterPane
         nameLabel.setText("Nome");
 
         nameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        nameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameTextFieldActionPerformed(evt);
+            }
+        });
 
         userNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         userNameLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -118,34 +119,9 @@ public class RegisterPane
             }
         });
 
-        typeSelector.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        typeSelector.setName(""); // NOI18N
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Classe");
-
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Preencha os campos abaixo!");
-
-        exitButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        exitButton.setForeground(new java.awt.Color(255, 255, 255));
-        exitButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        exitButton.setText("X");
-        exitButton.setToolTipText("Sair");
-        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RegisterPane.this.mouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                mouseOver(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                mouseExit(evt);
-            }
-        });
 
         javax.swing.GroupLayout registerPaneContentLayout = new javax.swing.GroupLayout(registerPaneContent);
         registerPaneContent.setLayout(registerPaneContentLayout);
@@ -155,9 +131,7 @@ public class RegisterPane
                 .addContainerGap()
                 .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPaneContentLayout.createSequentialGroup()
-                        .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tittleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(exitButton))
+                        .addComponent(tittleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(registerIcon)
                         .addGap(54, 54, 54))
@@ -174,16 +148,11 @@ public class RegisterPane
                                     .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(confirmPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPaneContentLayout.createSequentialGroup()
-                                            .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(goBackButton)
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPaneContentLayout.createSequentialGroup()
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(typeSelector, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(registerPaneContentLayout.createSequentialGroup()
-                                                    .addGap(150, 150, 150)
-                                                    .addComponent(registerButton)))))
+                                            .addGap(15, 15, 15)
+                                            .addComponent(goBackButton)
+                                            .addGap(150, 150, 150)
+                                            .addComponent(registerButton)
+                                            .addGap(18, 18, 18)))
                                     .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(276, 276, 276)
                                 .addComponent(pencilIcon1))
@@ -212,9 +181,7 @@ public class RegisterPane
             .addGroup(registerPaneContentLayout.createSequentialGroup()
                 .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(registerPaneContentLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(exitButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(37, 37, 37)
                         .addComponent(tittleLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4))
@@ -248,11 +215,7 @@ public class RegisterPane
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(registerPaneContentLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(typeSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(55, 55, 55)
+                        .addGap(114, 114, 114)
                         .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(goBackButton)
                             .addComponent(registerButton)))
@@ -301,33 +264,22 @@ public class RegisterPane
        String username = userNameTextField.getText();
        String password = passwordTextField.getText();
        String confirmPassword = confirmPasswordTextField.getText();
-       int type = Employee.EMPLOYEES_TYPES.admin;
-       
-       controller.registerEmployee(name, username, password, confirmPassword, type);
+              
+       controller.registerEmployee(name, username, password, confirmPassword);
     }//GEN-LAST:event_registerButtonActionPerformed
 
-    private void mouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseClicked
-        System.exit(0);
-    }//GEN-LAST:event_mouseClicked
-
-    private void mouseOver(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseOver
-        exitButton.setForeground(Color.red);
-    }//GEN-LAST:event_mouseOver
-
-    private void mouseExit(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseExit
-        exitButton.setForeground(Color.WHITE);
-    }//GEN-LAST:event_mouseExit
+    private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameTextFieldActionPerformed
 
      
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel confirmPasswordLabel;
     private javax.swing.JPasswordField confirmPasswordTextField;
-    private javax.swing.JLabel exitButton;
     private javax.swing.JButton goBackButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lockerIcon1;
@@ -342,7 +294,6 @@ public class RegisterPane
     private javax.swing.JLabel registerIcon;
     private javax.swing.JPanel registerPaneContent;
     private javax.swing.JLabel tittleLabel;
-    private java.awt.Choice typeSelector;
     private javax.swing.JLabel userNameLabel;
     private javax.swing.JTextField userNameTextField;
     // End of variables declaration//GEN-END:variables

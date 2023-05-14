@@ -14,19 +14,23 @@ import java.io.StringWriter;
 public class PromptError
     extends 
         javax.swing.JFrame {
+    
+    static void showErrorDialog(Component root, Exception exception, String erro) {
         
-    public PromptError() {
+        PromptError promptError = new PromptError();
+        promptError.setTitle(erro);
+        
+        StringWriter stackTraceWriter = new StringWriter();
+        exception.printStackTrace(new PrintWriter(stackTraceWriter));
+        promptError.errorLogText.setText(stackTraceWriter.toString());
+
+        promptError.presentWindow(root);
+    }
+        
+    private PromptError() {
         initComponents();
     }
-    
-    public void log(Component root, Exception e) {
-        StringWriter stackTraceWriter = new StringWriter();
-        e.printStackTrace(new PrintWriter(stackTraceWriter));
-        errorLogText.setText(e.toString() + "\n" + stackTraceWriter.toString());
-
-        presentWindow(root);
-    }
-    
+        
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -40,8 +44,9 @@ public class PromptError
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Ocorreu um erro...");
+        setTitle(".");
         setAlwaysOnTop(true);
+        setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
         setResizable(false);
 

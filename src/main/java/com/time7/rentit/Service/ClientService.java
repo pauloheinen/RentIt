@@ -64,7 +64,7 @@ public class ClientService
     public List<Client> getClients() throws Exception {
         Database database = Database.getInstance();
         
-        String sql = "select c from clients";
+        String sql = "select c from clients c";
         
         return database.findAllBySql(Client.class, sql);
     }
