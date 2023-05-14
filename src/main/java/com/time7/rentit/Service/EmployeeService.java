@@ -59,7 +59,7 @@ public class EmployeeService
     }
 
     @Override
-    public Employee getEmployeeByNameAndUsername(String name, String username) throws Exception{
+    public Employee getEmployeeByNameOrUsername(String name, String username) throws Exception{
         Database database = Database.getInstance();
         
         String sql = "select e from employees e where e.name = '" + name + "' or e.username = '" + username + "'";

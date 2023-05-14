@@ -17,36 +17,45 @@ public class RecoverPasswordController {
     }
     
     public void recoverPassword (String name, String user, String newPassword, String retryNewPassword){
+        if (! validateFields(name, user, newPassword, retryNewPassword)) {
+            return;
+        }
+        
+        try {
+            EmployeeService service = EmployeeService.getInstance();
+            Employee employee = service.getEmployeeByNameOrUsername(name, user);
+            
+            if (employee == null){
+                    String message = "Não foi possível localizar o usuário.";
+                    Prompts.PromptWarning(root, message);
+                    return;
+                } else {
+                    employee.setPassword(newPassword);
+                    service.updateEmployee(employee);
+                    
+                    String message = "Senha alterada com sucesso!";
+                    Prompts.PromptInfo(root, message);
+                }
+        } catch (Exception e){
+            Prompts.PromptError(null, e);
+        }
+    }
+    
+    private boolean validateFields (String name, String user, String newPassword, String retryNewPassword){
+        
         if (name.isEmpty() || user.isEmpty() || newPassword.isEmpty() || retryNewPassword.isEmpty()){
             String message = "Preencha todos os campos!";
             Prompts.PromptWarning(root, message);
-            
-            return;
+
+            return false;
         }
-        if (newPassword == retryNewPassword) {
+        else if (!newPassword.equals(retryNewPassword)) {
             String message = "As senhas são diferentes!";
             Prompts.PromptWarning(root, message);
-                        
-            return;
-        }
-            
-        EmployeeService service = EmployeeService.getInstance();
-        
-        try {
-            Employee employee = service.getEmployeeByNameAndUsername(name, user);
 
-            if (employee == null){
-                String message = "Não foi possível localizar o usuário.";
-                Prompts.PromptWarning(root, message);
-                return;
-            } else {
-                employee.setPassword(newPassword);
-                String message = "Senha alterada com sucesso!";
-                Prompts.PromptInfo(root, message);
-                service.updateEmployee(employee);
-            }
-        } catch (Exception e) {
-            Prompts.PromptError(root, e);
+            return false;
         }
+        
+        return true;
     }
 }
