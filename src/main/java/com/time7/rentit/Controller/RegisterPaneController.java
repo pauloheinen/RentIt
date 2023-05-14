@@ -26,7 +26,7 @@ public class RegisterPaneController {
         try {
             EmployeeService service = EmployeeService.getInstance();
             
-            Employee employee = service.getEmployeeByNameAndUsername(name, username);
+            Employee employee = service.getEmployeeByNameOrUsername(name, username);
 
             if (employee != null) {
                 JOptionPane.showMessageDialog(null, "Já existe um usuário com esse nome e username!");
