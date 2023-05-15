@@ -1,4 +1,4 @@
-package com.time7.rentit.Models.VehicleModel;
+package com.time7.rentit.Models.VehicleTable;
 
 import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Panes.Prompts.Prompts;

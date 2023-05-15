@@ -62,14 +62,14 @@ public class VehicleCellEditor
         confirmButton.setText("Confirmar");
         confirmButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                confirmAction(evt);
+                confirmButton(evt);
             }
         });
 
         cancelButton.setText("Cancelar");
         cancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cancelAction(evt);
+                cancelButton(evt);
             }
         });
 
@@ -120,11 +120,11 @@ public class VehicleCellEditor
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void cancelAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelAction
+    private void cancelButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelButton
         this.dispose();
-    }//GEN-LAST:event_cancelAction
+    }//GEN-LAST:event_cancelButton
 
-    private void confirmAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmAction
+    private void confirmButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmButton
         Vehicle vehicle;
         
         if (source != null) {
@@ -144,7 +144,7 @@ public class VehicleCellEditor
         
         callback.inform(vehicle);
         dispose();
-    }//GEN-LAST:event_confirmAction
+    }//GEN-LAST:event_confirmButton
 
     public void editVehicle(Vehicle vehicle) {
         source = vehicle;

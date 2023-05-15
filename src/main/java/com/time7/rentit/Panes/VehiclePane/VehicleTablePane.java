@@ -2,7 +2,7 @@ package com.time7.rentit.Panes.VehiclePane;
 
 import com.time7.rentit.Controller.VehicleTableController.VehicleTableController;
 import com.time7.rentit.Entity.Vehicle;
-import com.time7.rentit.Models.VehicleModel.VehicleTableModel;
+import com.time7.rentit.Models.VehicleTable.VehicleTableModel;
 
 /**
  *
@@ -109,7 +109,7 @@ public class VehicleTablePane
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
+                .addContainerGap(66, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
@@ -126,7 +126,7 @@ public class VehicleTablePane
                         .addComponent(rentButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(reportButton)))
-                .addGap(22, 22, 22))
+                .addGap(23, 23, 23))
         );
 
         pack();
