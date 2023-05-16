@@ -23,7 +23,7 @@ public class RecoverPasswordController {
         
         try {
             EmployeeService service = EmployeeService.getInstance();
-            Employee employee = service.getEmployeeByNameOrUsername("", user);
+            Employee employee = service.getEmployeeByUsername(user);
             
             if (employee == null){
                     String message = "Não foi possível localizar o usuário.";

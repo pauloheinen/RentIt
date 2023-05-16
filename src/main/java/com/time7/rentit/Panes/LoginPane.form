@@ -215,10 +215,7 @@
                 <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
-<<<<<<< HEAD
                 <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
-=======
->>>>>>> cb7386ef592ac0ee9d1d81e39581b62a62bb6ff6
                 <Property name="selectedTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="74" red="0" type="rgb"/>
                 </Property>

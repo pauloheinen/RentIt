@@ -68,6 +68,15 @@ public class EmployeeService
     }
     
     @Override
+    public Employee getEmployeeByUsername(String username) throws Exception{
+        Database database = Database.getInstance();
+        
+        String sql = "select e from employees e where e.username = '" + username + "'";
+        
+        return database.findSingleBySql(Employee.class, sql);
+    }
+    
+    @Override
     public Employee getEmployeeByUsernameAndPassword(String name, String password) throws Exception{
         Database database = Database.getInstance();
         
