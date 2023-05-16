@@ -41,8 +41,7 @@ public class ClientService
         find.setName(client.getName());
         find.setEmail(client.getEmail());
         find.setPhone(client.getPhone());
-        find.setType(client.getType());
-        
+                
         database.update(find);
     }
     
