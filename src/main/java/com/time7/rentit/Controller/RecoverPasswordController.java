@@ -16,14 +16,14 @@ public class RecoverPasswordController {
         this.root = root;
     }
     
-    public void recoverPassword (String name, String user, String newPassword, String retryNewPassword){
-        if (! validateFields(name, user, newPassword, retryNewPassword)) {
+    public void recoverPassword (String user, String newPassword, String retryNewPassword){
+        if (! validateFields(user, newPassword, retryNewPassword)) {
             return;
         }
         
         try {
             EmployeeService service = EmployeeService.getInstance();
-            Employee employee = service.getEmployeeByNameOrUsername(name, user);
+            Employee employee = service.getEmployeeByNameOrUsername("", user);
             
             if (employee == null){
                     String message = "Não foi possível localizar o usuário.";
@@ -41,9 +41,9 @@ public class RecoverPasswordController {
         }
     }
     
-    private boolean validateFields (String name, String user, String newPassword, String retryNewPassword){
+    private boolean validateFields (String user, String newPassword, String retryNewPassword){
         
-        if (name.isEmpty() || user.isEmpty() || newPassword.isEmpty() || retryNewPassword.isEmpty()){
+        if (user.isEmpty() || newPassword.isEmpty() || retryNewPassword.isEmpty()){
             String message = "Preencha todos os campos!";
             Prompts.PromptWarning(root, message);
 

@@ -30,8 +30,6 @@ public class RecoverPassword extends javax.swing.JFrame {
         jButtonChangePassword = new javax.swing.JButton();
         jLabelNewPassword = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabelName = new javax.swing.JLabel();
-        jTextFieldName = new javax.swing.JTextField();
         jButtonReturn = new javax.swing.JButton();
         jPasswordFieldNewPassword = new javax.swing.JPasswordField();
         jPasswordFieldRepeatPassword = new javax.swing.JPasswordField();
@@ -74,14 +72,6 @@ public class RecoverPassword extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Repetir senha");
 
-        jLabelName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabelName.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelName.setText("Nome");
-
-        jTextFieldName.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextFieldName.setCaretColor(new java.awt.Color(0, 0, 0));
-        jTextFieldName.setSelectedTextColor(new java.awt.Color(0, 116, 255));
-
         jButtonReturn.setBackground(new java.awt.Color(0, 129, 239));
         jButtonReturn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButtonReturn.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,12 +101,10 @@ public class RecoverPassword extends javax.swing.JFrame {
                         .addGap(48, 48, 48)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabelUsername)
-                            .addComponent(jLabelName)
                             .addComponent(jLabelNewPassword)
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPasswordFieldNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPasswordFieldRepeatPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,22 +120,18 @@ public class RecoverPassword extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelName)
-                    .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUsername)
                     .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordFieldNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelNewPassword))
+                    .addComponent(jLabelNewPassword)
+                    .addComponent(jPasswordFieldNewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordFieldRepeatPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(jPasswordFieldRepeatPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonChangePassword)
@@ -183,13 +167,16 @@ public class RecoverPassword extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonReturnActionPerformed
 
     private void jButtonChangePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangePasswordActionPerformed
-        String name = jTextFieldName.getText();
         String userName = jTextFieldUsername.getText();
         String newPass = jPasswordFieldNewPassword.getText();
         String retryPassword = jPasswordFieldRepeatPassword.getText();
 
-        controller.recoverPassword(name, userName, newPass, retryPassword);
+        controller.recoverPassword(userName, newPass, retryPassword);
         jButtonChangePassword.requestFocus();
+        
+        jTextFieldUsername.setText("");
+        jPasswordFieldNewPassword.setText("");
+        jPasswordFieldRepeatPassword.setText("");
     }//GEN-LAST:event_jButtonChangePasswordActionPerformed
 
     /**
@@ -202,13 +189,11 @@ public class RecoverPassword extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabelName;
     private javax.swing.JLabel jLabelNewPassword;
     private javax.swing.JLabel jLabelUsername;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordFieldNewPassword;
     private javax.swing.JPasswordField jPasswordFieldRepeatPassword;
-    private javax.swing.JTextField jTextFieldName;
     private javax.swing.JTextField jTextFieldUsername;
     // End of variables declaration//GEN-END:variables
 }
