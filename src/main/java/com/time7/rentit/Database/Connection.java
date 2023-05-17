@@ -23,7 +23,7 @@ public class Connection {
             manager = managerFactory.createEntityManager();
         }
         catch (Exception e){
-            Prompts.PromptError(null, e);
+            Prompts.promptError(null, e);
         }
     }
     
@@ -94,7 +94,7 @@ public class Connection {
         
             find = manager.find(aClass, object);
         } catch(NumberFormatException e) {
-            Prompts.PromptError(null, e);
+            Prompts.promptError(null, e);
         } finally {
             close();
         }

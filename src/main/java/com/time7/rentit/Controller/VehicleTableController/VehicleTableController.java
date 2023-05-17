@@ -2,8 +2,6 @@ package com.time7.rentit.Controller.VehicleTableController;
 
 import com.time7.rentit.Editors.VehicleTableEditor.VehicleCellEditor;
 import com.time7.rentit.Entity.Vehicle;
-import com.time7.rentit.Models.VehicleTable.VehicleTableModel;
-import com.time7.rentit.Panes.Prompts.Prompts;
 import com.time7.rentit.Service.VehicleService;
 import com.time7.rentit.Utilities.GenericObserver;
 import javax.swing.JFrame;
@@ -67,15 +65,5 @@ public class VehicleTableController {
                 e.printStackTrace();
             }
         }).editVehicle(vehicle);
-    }
-    
-    public boolean validateRowSelected(int selectedRow) {
-        if (selectedRow == -1) {
-            String message = "Selecione uma linha.";
-            Prompts.PromptWarning(root, message);
-            return false;
-        } else {
-            return true;
-        }
     }
 }

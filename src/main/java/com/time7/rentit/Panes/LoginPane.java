@@ -15,7 +15,7 @@ public class LoginPane
         
     public LoginPane() {
         initComponents();
-        
+        this.setTitle("Bem vindo!");
         this.setLocationRelativeTo(null);
         
         getRootPane().setDefaultButton(enterButton);

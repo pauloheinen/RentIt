@@ -21,6 +21,7 @@ public class ClientTablePane
         this.clientTableModel = new ClientTableModel();
         this.jTable.setModel(clientTableModel);
         this.controller = new ClientTableController(this);
+        this.setTitle("Listagem de clientes");
         
         setVisible(true);
     }
@@ -42,6 +43,11 @@ public class ClientTablePane
         selectButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 selectButton(evt);
+            }
+        });
+        selectButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectButtonActionPerformed(evt);
             }
         });
 
@@ -139,17 +145,22 @@ public class ClientTablePane
         
     }//GEN-LAST:event_selectButton
 
+    private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
+        int selectedRow = this.jTable.getSelectedRow();
+        Client client = clientTableModel.getClient(selectedRow);
+        
+        
+        
+        this.dispose();
+    }//GEN-LAST:event_selectButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButon;
     private javax.swing.JButton editButton;
-    private javax.swing.JButton editButtton;
-    private javax.swing.JButton editButtton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable;
-    private javax.swing.JButton removeButton;
-    private javax.swing.JButton removeButton1;
     private javax.swing.JButton selectButton;
     // End of variables declaration//GEN-END:variables
 }
