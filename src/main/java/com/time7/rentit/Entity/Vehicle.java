@@ -18,7 +18,7 @@ public class Vehicle
     public static String[] TYPES = new String[] {
         "Carro",
         "Van"
-    }
+    };
     
     public static final int STATUS_RENT = 0;
     public static final int STATUS_DISPONIBLE = 1;
@@ -26,7 +26,7 @@ public class Vehicle
     public static String[] STATUS = new String[] {
         "Alugado",
         "Disponível"
-    }
+    };
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
