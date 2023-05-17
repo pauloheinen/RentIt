@@ -12,15 +12,20 @@ public class Vehicle
     implements 
         Serializable {
     
-    public static class TYPES {
-        public static final int CAR = 1;
-        public static final int MOTORCYCLE = 2;
-        public static final int VAN = 3;
+    public static final int TYPE_CAR = 0;
+    public static final int TYPE_VAN = 1;
+    
+    public static String[] TYPES = new String[] {
+        "Carro",
+        "Van"
     }
     
-    public static class STATUS {
-        public static final int RENT = 1;
-        public static final int DISPONIBLE = 2;
+    public static final int STATUS_RENT = 0;
+    public static final int STATUS_DISPONIBLE = 1;
+    
+    public static String[] STATUS = new String[] {
+        "Alugado",
+        "Disponível"
     }
     
     @Id
@@ -93,5 +98,13 @@ public class Vehicle
 
     public void setStatus( boolean status ) {
         this.status = status;
-    }  
+    }
+    
+    private String getVehicleTypeName(int type) {
+        return TYPES[type];
+    }
+    
+    private String getVehicleStatusLabel(int status) {
+        return STATUS[status];
+    }
 }
