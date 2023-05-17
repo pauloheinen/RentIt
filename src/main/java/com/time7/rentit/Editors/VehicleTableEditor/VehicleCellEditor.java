@@ -14,7 +14,7 @@ public class VehicleCellEditor
     
     private final GenericObserver callback;
     private Vehicle source;
-    
+       
     public VehicleCellEditor(Component root, GenericObserver callback) {
         this.callback = callback;
         
@@ -56,6 +56,11 @@ public class VehicleCellEditor
         yearTextEditor.setText("Ano");
 
         statusTextEditor.setText("Status");
+        statusTextEditor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statusTextEditorActionPerformed(evt);
+            }
+        });
 
         typeTextEditor.setText("Tipo");
 
@@ -145,6 +150,10 @@ public class VehicleCellEditor
         callback.inform(vehicle);
         dispose();
     }//GEN-LAST:event_confirmButton
+
+    private void statusTextEditorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusTextEditorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_statusTextEditorActionPerformed
 
     public void editVehicle(Vehicle vehicle) {
         source = vehicle;

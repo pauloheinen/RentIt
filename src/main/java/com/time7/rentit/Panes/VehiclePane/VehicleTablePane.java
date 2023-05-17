@@ -3,6 +3,7 @@ package com.time7.rentit.Panes.VehiclePane;
 import com.time7.rentit.Controller.VehicleTableController.VehicleTableController;
 import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Models.VehicleTable.VehicleTableModel;
+import com.time7.rentit.Panes.Prompts.Prompts;
 
 /**
  *
@@ -63,6 +64,11 @@ public class VehicleTablePane
         });
 
         rentButton.setText("Alugar");
+        rentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentButtonActionPerformed(evt);
+            }
+        });
 
         addButon.setText("Adicionar");
         addButon.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -170,8 +176,20 @@ public class VehicleTablePane
     }//GEN-LAST:event_editVehicleButton
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        // TODO add your handling code here:
+        int selectedRow = this.jTable.getSelectedRow();
+        
+        if (controller.validateRowSelected(selectedRow)) {
+            System.out.println("Abre tela devolver");
+        }
     }//GEN-LAST:event_returnButtonActionPerformed
+
+    private void rentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentButtonActionPerformed
+        int selectedRow = this.jTable.getSelectedRow();
+        
+        if (controller.validateRowSelected(selectedRow)) {
+            System.out.println("Abre tela alugar");
+        }
+    }//GEN-LAST:event_rentButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButon;
