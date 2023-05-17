@@ -12,6 +12,17 @@ public class Vehicle
     implements 
         Serializable {
     
+    public static class TYPES {
+        public static final int CAR = 1;
+        public static final int MOTORCYCLE = 2;
+        public static final int VAN = 3;
+    }
+    
+    public static class STATUS {
+        public static final int RENT = 1;
+        public static final int DISPONIBLE = 2;
+    }
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
