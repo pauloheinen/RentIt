@@ -1,7 +1,7 @@
 package com.time7.rentit.Controller;
 
 import com.time7.rentit.Entity.Employee;
-import com.time7.rentit.Panes.Prompts.PromptError;
+import com.time7.rentit.Panes.ManagerPane;
 import com.time7.rentit.Panes.Prompts.Prompts;
 import com.time7.rentit.Panes.VehiclePane.VehicleTablePane;
 import com.time7.rentit.Service.EmployeeService;
@@ -39,8 +39,9 @@ public class LoginPaneController {
             
             root.dispose();
             
-            VehicleTablePane vehicleTable = new VehicleTablePane();
-            vehicleTable.setLocationRelativeTo(root);
+            ManagerPane managerPane = new ManagerPane();
+            managerPane.setVisible(true);
+            managerPane.setLocationRelativeTo(root);
             
         } catch (Exception e) {
             Prompts.promptError(root, e);
