@@ -149,6 +149,7 @@ public class ClientTablePane
         int selectedRow = this.jTable.getSelectedRow();
         Client client = clientTableModel.getClient(selectedRow);
         
+        //SALVAR OS DADOS NA TABELA RENTS
         
         
         this.dispose();

@@ -1,7 +1,6 @@
 package com.time7.rentit.Service;
 
 import com.time7.rentit.Database.Database;
-import com.time7.rentit.Entity.Employee;
 import com.time7.rentit.Entity.Rent;
 import com.time7.rentit.Service.Interface.RentServiceInterface;
 
@@ -57,4 +56,12 @@ public class RentService
         
         database.delete(rent);
     }
+    
+    /*
+    public void rentVehicle (Client client, Vehicle vehicle) {
+        Database database = Database.getInstance();
+        
+        Rent rent = database.findById(Rent.class, rent.getId());
+    }
+    */
 }

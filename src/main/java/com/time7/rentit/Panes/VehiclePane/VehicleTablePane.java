@@ -212,9 +212,6 @@ public class VehicleTablePane
             try {
                 ClientTablePane clientTablePane = new ClientTablePane();
                 clientTablePane.setVisible(true);
-                
-                
-                
             } catch (Exception e) {
                 Prompts.promptError(this, e);
             }
