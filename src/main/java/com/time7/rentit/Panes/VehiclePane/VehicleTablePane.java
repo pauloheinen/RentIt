@@ -23,8 +23,8 @@ public class VehicleTablePane
         
         this.vehicleTableModel = new VehicleTableModel();
         this.jTable.setModel(vehicleTableModel);
-        this.controller = new VehicleTableController(this);
-        this.setTitle("Listagem de veículos");
+        this.controller = new VehicleTableController(null);
+//        this.setTitle("Listagem de veículos");
         
         setVisible(true);
     }
@@ -167,7 +167,7 @@ public class VehicleTablePane
         controller.removeVehicle(vehicleId, (Object object) -> {
             vehicleTableModel.removeVehicle(selectedRow);
         });
-    }//GEN-LAST:event_removeVehicleButton
+    }//GEN-LAST:event_editVehicleButton
 
     private void addVehicleButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addVehicleButton
         controller.addVehicle((Object object) -> {

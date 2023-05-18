@@ -1,19 +1,11 @@
 package com.time7.rentit.Controller.ClientTableController;
 
 import com.time7.rentit.Editors.ClientTableEditor.ClientCellEditor;
-import com.time7.rentit.Editors.ClientTableEditor.ClientCellEditor;
 import com.time7.rentit.Entity.Client;
-import com.time7.rentit.Entity.Client;
-import com.time7.rentit.Panes.Prompts.Prompts;
-import com.time7.rentit.Service.ClientService;
 import com.time7.rentit.Service.ClientService;
 import com.time7.rentit.Utilities.GenericObserver;
-import java.awt.Component;
-import java.util.List;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
