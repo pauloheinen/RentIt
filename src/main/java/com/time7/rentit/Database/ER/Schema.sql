@@ -36,7 +36,7 @@ create table vehicles (
     vehicle_year varchar (4) not null,
     vehicle_plate varchar (10) not null,
     type tinyint not null,
-    status boolean not null,
+    status tinyint not null,
     primary key (id)
 );
 

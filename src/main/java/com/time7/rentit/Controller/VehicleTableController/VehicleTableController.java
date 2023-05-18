@@ -2,7 +2,6 @@ package com.time7.rentit.Controller.VehicleTableController;
 
 import com.time7.rentit.Editors.VehicleTableEditor.VehicleCellEditor;
 import com.time7.rentit.Entity.Vehicle;
-import com.time7.rentit.Models.VehicleTable.VehicleTableModel;
 import com.time7.rentit.Panes.Prompts.Prompts;
 import com.time7.rentit.Service.VehicleService;
 import com.time7.rentit.Utilities.GenericObserver;
@@ -28,11 +27,11 @@ public class VehicleTableController {
                 Vehicle vehicle = Vehicle.class.cast(object);
                 service.createVehicle(vehicle);
                 
-                // prompt something to inform that the vehicle has been added
+                Prompts.PromptInfo(root, "Veículo adicionado!");
                 
                 callback.inform(vehicle);
             } catch (Exception e) {
-                e.printStackTrace();
+                Prompts.PromptError(root, e);
             }
         }).addVehicle();
     }
@@ -44,11 +43,11 @@ public class VehicleTableController {
             Vehicle vehicle = service.getVehicleById(vehicleId);
             service.deleteVehicle(vehicle);
             
-            // prompt something to inform that the vehicle has been removed
+            Prompts.PromptInfo(root, "Veículo removido");
             
             callback.inform(vehicle);
         } catch (Exception e) {
-            e.printStackTrace();
+            Prompts.PromptError(root, e);
         }
     }
     
@@ -60,11 +59,11 @@ public class VehicleTableController {
                 Vehicle v = Vehicle.class.cast(object);
                 service.updateVehicle(v);
                 
-                // prompt something to inform that the vehicle has been edited
+                Prompts.PromptInfo(root, "Veículo atualizado");
                 
                 callback.inform(v);
             } catch (Exception e) {
-                e.printStackTrace();
+                Prompts.PromptError(root, e);
             }
         }).editVehicle(vehicle);
     }

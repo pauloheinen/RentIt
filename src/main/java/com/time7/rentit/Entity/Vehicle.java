@@ -42,13 +42,13 @@ public class Vehicle
     @Column(name = "type", nullable = false)
     private int type;
     @Column(name = "status", nullable = false)
-    private boolean status;
+    private int status;
 
     public Long getId() {
         return id;
     }
 
-    public void setId( Long id ) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -56,7 +56,7 @@ public class Vehicle
         return vehicleBrand;
     }
 
-    public void setVehicleBrand( String vehicleBrand ) {
+    public void setVehicleBrand(String vehicleBrand) {
         this.vehicleBrand = vehicleBrand;
     }
 
@@ -64,7 +64,7 @@ public class Vehicle
         return vehicleModel;
     }
 
-    public void setVehicleModel( String vehicleModel ) {
+    public void setVehicleModel(String vehicleModel) {
         this.vehicleModel = vehicleModel;
     }
 
@@ -80,7 +80,7 @@ public class Vehicle
         return vehiclePlate;
     }
 
-    public void setVehiclePlate( String vehiclePlate ) {
+    public void setVehiclePlate(String vehiclePlate) {
         this.vehiclePlate = vehiclePlate;
     }
 
@@ -88,23 +88,23 @@ public class Vehicle
         return type;
     }
 
-    public void setType( int type ) {
+    public void setType(int type) {
         this.type = type;
     }
 
-    public boolean isStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus( boolean status ) {
+    public void setStatus(int status) {
         this.status = status;
     }
     
-    private String getVehicleTypeName(int type) {
-        return TYPES[type];
+    public String getVehicleTypeName() {
+        return Vehicle.TYPES[this.type];
     }
     
-    private String getVehicleStatusLabel(int status) {
-        return STATUS[status];
+    public String getVehicleStatusLabel() {
+        return Vehicle.STATUS[this.status];
     }
 }

@@ -43,7 +43,7 @@ public class VehicleService
         find.setVehicleYear(vehicle.getVehicleYear());
         find.setVehiclePlate(vehicle.getVehiclePlate());
         find.setType(vehicle.getType());
-        find.setStatus(vehicle.isStatus());
+        find.setStatus(vehicle.getStatus());
         
         database.update(find);
     }

@@ -5,6 +5,7 @@ import com.time7.rentit.Panes.Prompts.Prompts;
 import com.time7.rentit.Service.VehicleService;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -15,8 +16,8 @@ public class VehicleTableModel
     extends
         AbstractTableModel {
 
-    private List<Vehicle> vehiclesList = new ArrayList<>();
-    private String[] columns = {"Posição", "Marca", "Modelo", "Ano", "Placa", "Tipo", "Status", "ID"};
+    private final List<Vehicle> vehiclesList = new ArrayList<>();
+    private final String[] columns = {"Posição", "Marca", "Modelo", "Ano", "Placa", "Tipo", "Status", "ID"};
     
     public VehicleTableModel() {
         loadData();
@@ -83,7 +84,7 @@ public class VehicleTableModel
             case 5:
                 return this.vehiclesList.get(rowIndex).getType();
             case 6:
-                return this.vehiclesList.get(rowIndex).isStatus();
+                return this.vehiclesList.get(rowIndex).getStatus();
             case 7:
                 return this.vehiclesList.get(rowIndex).getId();
             default:
