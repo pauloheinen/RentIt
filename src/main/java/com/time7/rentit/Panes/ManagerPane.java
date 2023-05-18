@@ -1,9 +1,7 @@
 package com.time7.rentit.Panes;
 
-import com.time7.rentit.Panes.ClientPane.ClientTablePane;
 import com.time7.rentit.Panes.ClientPane.ClientsJPanel;
 import com.time7.rentit.Panes.VehiclePane.VehiclesJPanel;
-import com.time7.rentit.Panes.VehiclePane.VehicleTablePane;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
@@ -25,7 +23,7 @@ public class ManagerPane {
         JTabbedPane tabbedPane = new JTabbedPane();
         
         tabbedPane.add("Veículos", new VehiclesJPanel());
-        tabbedPane.add("Clientes", new ClientsJPanel());;
+        tabbedPane.add("Clientes", new ClientsJPanel());
         //tabbedPane.add("Veículos", new VehicleTablePane());
         
         window.add(tabbedPane);

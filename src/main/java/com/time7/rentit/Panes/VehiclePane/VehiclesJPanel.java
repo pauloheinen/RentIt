@@ -46,6 +46,10 @@ public class VehiclesJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         editButtton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 129, 239));
+
+        returnButton.setBackground(new java.awt.Color(0, 129, 239));
+        returnButton.setForeground(new java.awt.Color(255, 255, 255));
         returnButton.setText("Devolver");
         returnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,6 +57,9 @@ public class VehiclesJPanel extends javax.swing.JPanel {
             }
         });
 
+        jScrollPane1.setBackground(new java.awt.Color(0, 129, 239));
+
+        jTable.setBackground(new java.awt.Color(0, 129, 239));
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -65,8 +72,12 @@ public class VehiclesJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable);
 
+        reportButton.setBackground(new java.awt.Color(0, 129, 239));
+        reportButton.setForeground(new java.awt.Color(255, 255, 255));
         reportButton.setText("Relatório");
 
+        removeButton.setBackground(new java.awt.Color(0, 129, 239));
+        removeButton.setForeground(new java.awt.Color(255, 255, 255));
         removeButton.setText("Remover");
         removeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -74,6 +85,8 @@ public class VehiclesJPanel extends javax.swing.JPanel {
             }
         });
 
+        rentButton.setBackground(new java.awt.Color(0, 129, 239));
+        rentButton.setForeground(new java.awt.Color(255, 255, 255));
         rentButton.setText("Alugar");
         rentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +94,8 @@ public class VehiclesJPanel extends javax.swing.JPanel {
             }
         });
 
+        addButon.setBackground(new java.awt.Color(0, 129, 239));
+        addButon.setForeground(new java.awt.Color(255, 255, 255));
         addButon.setText("Adicionar");
         addButon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -88,14 +103,19 @@ public class VehiclesJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Controles");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Ações");
 
+        editButtton.setBackground(new java.awt.Color(0, 129, 239));
+        editButtton.setForeground(new java.awt.Color(255, 255, 255));
         editButtton.setText("Editar");
         editButtton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
