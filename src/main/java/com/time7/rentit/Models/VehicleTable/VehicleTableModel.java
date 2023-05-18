@@ -28,7 +28,7 @@ public class VehicleTableModel
             List<Vehicle> vehicles = VehicleService.getInstance().getVehicles();
             vehiclesList.addAll(vehicles);            
         } catch (Exception e) {
-            Prompts.PromptError(null, e);
+            Prompts.promptError(null, e);
         }
     }
     

@@ -27,17 +27,17 @@ public class RecoverPasswordController {
             
             if (employee == null){
                     String message = "Não foi possível localizar o usuário.";
-                    Prompts.PromptWarning(root, message);
+                    Prompts.promptWarning(root, message);
                     return;
                 } else {
                     employee.setPassword(newPassword);
                     service.updateEmployee(employee);
                     
                     String message = "Senha alterada com sucesso!";
-                    Prompts.PromptInfo(root, message);
+                    Prompts.promptInfo(root, message);
                 }
         } catch (Exception e){
-            Prompts.PromptError(null, e);
+            Prompts.promptError(null, e);
         }
     }
     
@@ -45,13 +45,13 @@ public class RecoverPasswordController {
         
         if (user.isEmpty() || newPassword.isEmpty() || retryNewPassword.isEmpty()){
             String message = "Preencha todos os campos!";
-            Prompts.PromptWarning(root, message);
+            Prompts.promptWarning(root, message);
 
             return false;
         }
         else if (!newPassword.equals(retryNewPassword)) {
             String message = "As senhas são diferentes!";
-            Prompts.PromptWarning(root, message);
+            Prompts.promptWarning(root, message);
 
             return false;
         }

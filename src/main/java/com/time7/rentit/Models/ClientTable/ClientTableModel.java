@@ -27,7 +27,7 @@ public class ClientTableModel
             List<Client> clients = ClientService.getInstance().getClients();
             clientsList.addAll(clients);            
         } catch (Exception e) {
-            Prompts.PromptError(null, e);
+            Prompts.promptError(null, e);
         }
     }
     

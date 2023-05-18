@@ -67,14 +67,4 @@ public class VehicleTableController {
             }
         }).editVehicle(vehicle);
     }
-    
-    public boolean validateRowSelected(int selectedRow) {
-        if (selectedRow == -1) {
-            String message = "Selecione uma linha.";
-            Prompts.PromptWarning(root, message);
-            return false;
-        } else {
-            return true;
-        }
-    }
 }

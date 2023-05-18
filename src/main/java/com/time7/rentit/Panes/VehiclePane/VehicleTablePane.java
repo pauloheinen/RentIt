@@ -3,6 +3,7 @@ package com.time7.rentit.Panes.VehiclePane;
 import com.time7.rentit.Controller.VehicleTableController.VehicleTableController;
 import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Models.VehicleTable.VehicleTableModel;
+import com.time7.rentit.Panes.ClientPane.ClientTablePane;
 import com.time7.rentit.Panes.Prompts.Prompts;
 
 /**
@@ -22,6 +23,7 @@ public class VehicleTablePane
         this.vehicleTableModel = new VehicleTableModel();
         this.jTable.setModel(vehicleTableModel);
         this.controller = new VehicleTableController(this);
+        this.setTitle("Listagem de veículos");
         
         setVisible(true);
     }
@@ -178,16 +180,42 @@ public class VehicleTablePane
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         int selectedRow = this.jTable.getSelectedRow();
         
-        if (controller.validateRowSelected(selectedRow)) {
+        if (selectedRow == -1) {
+            
+            String message = "Selecione uma linha.";
+            Prompts.promptWarning(this, message);
+            
+        } else {
             System.out.println("Abre tela devolver");
         }
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void rentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentButtonActionPerformed
-        int selectedRow = this.jTable.getSelectedRow();
         
-        if (controller.validateRowSelected(selectedRow)) {
-            System.out.println("Abre tela alugar");
+        int selectedRow = this.jTable.getSelectedRow();
+                
+        if (selectedRow == -1) {
+            
+            String message = "Selecione uma linha.";
+            Prompts.promptWarning(this, message);
+            
+        } else {
+            
+            Vehicle vehicle = vehicleTableModel.getVehicle(selectedRow);
+            boolean statusVehicle = vehicle.isStatus();
+            if (statusVehicle == false) {
+            
+            String message = "Este veículo já está alugado.";
+            Prompts.promptWarning(this, message);
+            
+        } else {
+            try {
+                ClientTablePane clientTablePane = new ClientTablePane();
+                clientTablePane.setVisible(true);
+            } catch (Exception e) {
+                Prompts.promptError(this, e);
+            }
+        } 
         }
     }//GEN-LAST:event_rentButtonActionPerformed
 

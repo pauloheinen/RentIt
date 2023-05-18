@@ -43,7 +43,7 @@ public class LoginPaneController {
             vehicleTable.setLocationRelativeTo(root);
             
         } catch (Exception e) {
-            Prompts.PromptError(root, e);
+            Prompts.promptError(root, e);
         }
     }
 }

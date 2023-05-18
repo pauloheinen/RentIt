@@ -42,7 +42,7 @@ public class RegisterPaneController {
             
             service.createEmployee(employee);
         } catch (Exception e) {
-            Prompts.PromptError(null, e);
+            Prompts.promptError(null, e);
         }
     }
     
