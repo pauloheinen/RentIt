@@ -15,7 +15,7 @@ public class Launch {
         try {
             UIManager.setLookAndFeel("com.formdev.flatlaf.FlatDarkLaf");    
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
-            Prompts.PromptError(null, e);
+            Prompts.promptError(null, e);
         }
         
         java.awt.EventQueue.invokeLater(() -> {

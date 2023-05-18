@@ -3,7 +3,6 @@ package com.time7.rentit.Controller;
 import com.time7.rentit.Entity.Employee;
 import com.time7.rentit.Panes.ManagerPane;
 import com.time7.rentit.Panes.Prompts.Prompts;
-import com.time7.rentit.Panes.VehiclePane.VehicleTablePane;
 import com.time7.rentit.Service.EmployeeService;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -40,8 +39,8 @@ public class LoginPaneController {
             root.dispose();
             
             ManagerPane managerPane = new ManagerPane();
-            managerPane.setVisible(true);
-            managerPane.setLocationRelativeTo(root);
+            //managerPane.setVisible(true);
+            //managerPane.setLocationRelativeTo(root);
             
         } catch (Exception e) {
             Prompts.promptError(root, e);

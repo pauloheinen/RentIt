@@ -202,8 +202,8 @@ public class VehicleTablePane
         } else {
             
             Vehicle vehicle = vehicleTableModel.getVehicle(selectedRow);
-            boolean statusVehicle = vehicle.isStatus();
-            if (statusVehicle == false) {
+            int statusVehicle = vehicle.getStatus();
+            if (statusVehicle == 0) {
             
             String message = "Este veículo já está alugado.";
             Prompts.promptWarning(this, message);

@@ -27,11 +27,11 @@ public class VehicleTableController {
                 Vehicle vehicle = Vehicle.class.cast(object);
                 service.createVehicle(vehicle);
                 
-                Prompts.PromptInfo(root, "Veículo adicionado!");
+                Prompts.promptInfo(root, "Veículo adicionado!");
                 
                 callback.inform(vehicle);
             } catch (Exception e) {
-                Prompts.PromptError(root, e);
+                Prompts.promptError(root, e);
             }
         }).addVehicle();
     }
@@ -43,11 +43,11 @@ public class VehicleTableController {
             Vehicle vehicle = service.getVehicleById(vehicleId);
             service.deleteVehicle(vehicle);
             
-            Prompts.PromptInfo(root, "Veículo removido");
+            Prompts.promptInfo(root, "Veículo removido");
             
             callback.inform(vehicle);
         } catch (Exception e) {
-            Prompts.PromptError(root, e);
+            Prompts.promptError(root, e);
         }
     }
     
@@ -59,11 +59,11 @@ public class VehicleTableController {
                 Vehicle v = Vehicle.class.cast(object);
                 service.updateVehicle(v);
                 
-                Prompts.PromptInfo(root, "Veículo atualizado");
+                Prompts.promptInfo(root, "Veículo atualizado");
                 
                 callback.inform(v);
             } catch (Exception e) {
-                Prompts.PromptError(root, e);
+                Prompts.promptError(root, e);
             }
         }).editVehicle(vehicle);
     }
