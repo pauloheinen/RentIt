@@ -39,9 +39,6 @@ public class LoginPaneController {
             root.dispose();
             
             ManagerPane managerPane = new ManagerPane();
-            //managerPane.setVisible(true);
-            //managerPane.setLocationRelativeTo(root);
-            
         } catch (Exception e) {
             Prompts.promptError(root, e);
         }
