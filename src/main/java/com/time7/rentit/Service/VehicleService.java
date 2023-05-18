@@ -1,7 +1,6 @@
 package com.time7.rentit.Service;
 
 import com.time7.rentit.Database.Database;
-import com.time7.rentit.Entity.Client;
 import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Service.Interface.VehicleServiceInterface;
 import java.util.List;
