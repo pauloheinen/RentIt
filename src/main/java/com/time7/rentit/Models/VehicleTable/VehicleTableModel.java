@@ -5,7 +5,6 @@ import com.time7.rentit.Panes.Prompts.Prompts;
 import com.time7.rentit.Service.VehicleService;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 
 /**

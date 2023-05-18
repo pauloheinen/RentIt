@@ -1,10 +1,13 @@
 package com.time7.rentit.Controller.VehicleTableController;
 
+import com.time7.rentit.Controller.ClientTableController.ClientTableController;
 import com.time7.rentit.Editors.VehicleTableEditor.VehicleCellEditor;
 import com.time7.rentit.Entity.Vehicle;
+import com.time7.rentit.Panes.ClientPane.ClientTablePane;
 import com.time7.rentit.Panes.Prompts.Prompts;
 import com.time7.rentit.Service.VehicleService;
 import com.time7.rentit.Utilities.GenericObserver;
+import java.awt.Component;
 import javax.swing.JFrame;
 
 /**
@@ -27,11 +30,11 @@ public class VehicleTableController {
                 Vehicle vehicle = Vehicle.class.cast(object);
                 service.createVehicle(vehicle);
                 
-                Prompts.PromptInfo(root, "Veículo adicionado!");
+                Prompts.promptInfo(root, "Veículo adicionado!");
                 
                 callback.inform(vehicle);
             } catch (Exception e) {
-                Prompts.PromptError(root, e);
+                Prompts.promptError(root, e);
             }
         }).addVehicle();
     }
@@ -43,11 +46,11 @@ public class VehicleTableController {
             Vehicle vehicle = service.getVehicleById(vehicleId);
             service.deleteVehicle(vehicle);
             
-            Prompts.PromptInfo(root, "Veículo removido");
+            Prompts.promptInfo(root, "Veículo removido");
             
             callback.inform(vehicle);
         } catch (Exception e) {
-            Prompts.PromptError(root, e);
+            Prompts.promptError(root, e);
         }
     }
     
@@ -59,12 +62,16 @@ public class VehicleTableController {
                 Vehicle v = Vehicle.class.cast(object);
                 service.updateVehicle(v);
                 
-                Prompts.PromptInfo(root, "Veículo atualizado");
+                Prompts.promptInfo(root, "Veículo atualizado");
                 
                 callback.inform(v);
             } catch (Exception e) {
-                Prompts.PromptError(root, e);
+                Prompts.promptError(root, e);
             }
         }).editVehicle(vehicle);
+    }
+    
+    public void rentVehicle(Vehicle vehicle, GenericObserver observer) {
+        new ClientTablePane().selectClient(observer);
     }
 }

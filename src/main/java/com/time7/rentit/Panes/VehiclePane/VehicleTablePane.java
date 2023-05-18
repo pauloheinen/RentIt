@@ -5,6 +5,7 @@ import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Models.VehicleTable.VehicleTableModel;
 import com.time7.rentit.Panes.ClientPane.ClientTablePane;
 import com.time7.rentit.Panes.Prompts.Prompts;
+import com.time7.rentit.Utilities.GenericObserver;
 
 /**
  *
@@ -154,7 +155,13 @@ public class VehicleTablePane
     }// </editor-fold>//GEN-END:initComponents
 
     private void removeVehicleButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeVehicleButton
-        int selectedRow = this.jTable.getSelectedRow();
+        int selectedRow = getSelectedRow();
+        
+        if (! hasSelectedRow()) {
+            Prompts.promptWarning(this, "Selecione um veículo");
+            return;    
+        }
+        
         Long vehicleId = (Long) this.jTable.getValueAt(selectedRow, vehicleTableModel.getColumnCount()-1);
         
         controller.removeVehicle(vehicleId, (Object object) -> {
@@ -169,7 +176,13 @@ public class VehicleTablePane
     }//GEN-LAST:event_addVehicleButton
 
     private void editVehicleButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editVehicleButton
-        int selectedRow = this.jTable.getSelectedRow();
+        int selectedRow = getSelectedRow();
+        
+        if (! hasSelectedRow()) {
+            Prompts.promptWarning(this, "Selecione um veículo");
+            return;    
+        } 
+        
         Vehicle vehicle = vehicleTableModel.getVehicle(selectedRow);
         
         controller.editVehicle(vehicle, (Object object) -> {
@@ -178,47 +191,47 @@ public class VehicleTablePane
     }//GEN-LAST:event_editVehicleButton
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        int selectedRow = this.jTable.getSelectedRow();
+        int selectedRow = getSelectedRow();
         
-        if (selectedRow == -1) {
-            
-            String message = "Selecione uma linha.";
-            Prompts.promptWarning(this, message);
-            
-        } else {
-            System.out.println("Abre tela devolver");
-        }
+        if (! hasSelectedRow()) {
+            Prompts.promptWarning(this, "Selecione um veículo");
+            return;    
+        } 
+        
+        System.out.println("Abre tela devolver");
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void rentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentButtonActionPerformed
-        
-        int selectedRow = this.jTable.getSelectedRow();
+        int selectedRow = getSelectedRow();
                 
-        if (selectedRow == -1) {
-            
-            String message = "Selecione uma linha.";
-            Prompts.promptWarning(this, message);
-            
-        } else {
-            
-            Vehicle vehicle = vehicleTableModel.getVehicle(selectedRow);
-            boolean statusVehicle = vehicle.isStatus();
-            if (statusVehicle == false) {
-            
-            String message = "Este veículo já está alugado.";
-            Prompts.promptWarning(this, message);
-            
-        } else {
-            try {
-                ClientTablePane clientTablePane = new ClientTablePane();
-                clientTablePane.setVisible(true);
-            } catch (Exception e) {
-                Prompts.promptError(this, e);
-            }
-        } 
+        if (! hasSelectedRow()) {
+            Prompts.promptWarning(this, "Selecione um veículo");
+            return;
         }
+        
+        Vehicle vehicle = vehicleTableModel.getVehicle(selectedRow);
+
+        if (vehicle.getStatus() == Vehicle.STATUS_RENT) {
+            Prompts.promptWarning(this, "Este veículo já está alugado");
+            return;
+        }
+        
+        controller.rentVehicle(vehicle, new GenericObserver() {
+            @Override
+            public void inform(Object object) {
+                // just do the connection with database to rent the vehicle
+            }
+        });
     }//GEN-LAST:event_rentButtonActionPerformed
 
+    private boolean hasSelectedRow() {
+        return getSelectedRow() == 0;
+    }
+    
+    private int getSelectedRow() {
+        return this.jTable.getSelectedRow();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButon;
     private javax.swing.JButton editButtton;

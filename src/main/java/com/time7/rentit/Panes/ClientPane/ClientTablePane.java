@@ -3,6 +3,8 @@ package com.time7.rentit.Panes.ClientPane;
 import com.time7.rentit.Controller.ClientTableController.ClientTableController;
 import com.time7.rentit.Entity.Client;
 import com.time7.rentit.Models.ClientTable.ClientTableModel;
+import com.time7.rentit.Panes.Prompts.Prompts;
+import com.time7.rentit.Utilities.GenericObserver;
 
 /**
  *
@@ -42,12 +44,7 @@ public class ClientTablePane
         selectButton.setText("Selecionar");
         selectButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                selectButton(evt);
-            }
-        });
-        selectButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectButtonActionPerformed(evt);
+                selectClientAction(evt);
             }
         });
 
@@ -133,7 +130,13 @@ public class ClientTablePane
     }//GEN-LAST:event_addButon
 
     private void editButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editButton
-        int selectedRow = this.jTable.getSelectedRow();
+        int selectedRow = getSelectedRow();
+        
+        if (! hasSelectedRow()) {
+            Prompts.promptWarning(this, "Selecione um cliente");
+            return;
+        }
+        
         Client client = clientTableModel.getClient(selectedRow);
         
         controller.editClient(client, (Object object) -> {
@@ -141,20 +144,33 @@ public class ClientTablePane
         });
     }//GEN-LAST:event_editButton
 
-    private void selectButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectButton
+    private void selectClientAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_selectClientAction
+        int selectedRow = getSelectedRow();
         
-    }//GEN-LAST:event_selectButton
-
-    private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
-        int selectedRow = this.jTable.getSelectedRow();
+        if (! hasSelectedRow()) {
+            Prompts.promptWarning(this, "Selecione um cliente");
+            return;
+        }
+        
         Client client = clientTableModel.getClient(selectedRow);
         
-        //SALVAR OS DADOS NA TABELA RENTS
-        
-        
-        this.dispose();
-    }//GEN-LAST:event_selectButtonActionPerformed
+        dispose();
+    }//GEN-LAST:event_selectClientAction
 
+    public Client selectClient(GenericObserver callback) {
+//        controller.selectClient()
+        
+        return null;
+    }
+    
+    private boolean hasSelectedRow() {
+        return getSelectedRow() == 0;
+    }
+    
+    private int getSelectedRow() {
+        return this.jTable.getSelectedRow();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButon;
     private javax.swing.JButton editButton;
