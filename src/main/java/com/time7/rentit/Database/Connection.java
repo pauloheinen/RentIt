@@ -2,6 +2,7 @@ package com.time7.rentit.Database;
 
 import com.time7.rentit.Prompts.Prompts;
 import com.time7.rentit.Utilities.PersistenceUtils.PersistenceUtil;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -128,7 +129,7 @@ public class Connection {
         try {
             find = manager.createQuery(sql).getResultList();
         } catch (NoResultException e) {
-            find = null;
+            find = new ArrayList<>();
         }
         
         finally {

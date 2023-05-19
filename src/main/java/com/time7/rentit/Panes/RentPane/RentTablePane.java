@@ -84,14 +84,6 @@ public class RentTablePane
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private boolean hasSelectedRow() {
-        return getSelectedRow() == 0;
-    }
-    
-    private int getSelectedRow() {
-        return this.jTable.getSelectedRow();
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

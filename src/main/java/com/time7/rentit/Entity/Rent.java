@@ -1,9 +1,8 @@
 package com.time7.rentit.Entity;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.*;
-
 
 /**
  *
@@ -14,7 +13,7 @@ public class Rent
     implements
         Serializable {
     
-    public static final int STATUS_CLOSE = 0;
+    public static final int STATUS_CLOSED = 0;
     public static final int STATUS_OPEN = 1;
     
     public static String[] STATUS = new String[] {
@@ -25,22 +24,34 @@ public class Rent
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     @Column(name = "employee_id", nullable = false)
     private Long employeeId;
+    
     @Column(name = "client_id", nullable = false)
     private Long clientId;
+    
     @Column(name = "vehicle_id", nullable = false)
     private Long vehicleId;
+    
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "rent_start_dt", nullable = false)
     private Date rentStartDt;
+    
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "rent_end_dt", nullable = false)
     private Date rentEndDt;
+    
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "rent_expected_end_dt", nullable = false)
     private Date rentExpectedEndDt;
+    
     @Column(name = "rent_value", nullable = false)
     private double rentValue;
+    
     @Column(name = "rent_value_fine", nullable = false)
     private double rentValueFine;
+    
     @Column(name = "status", nullable = false)
     private int status;
 

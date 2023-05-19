@@ -4,6 +4,7 @@ package com.time7.rentit.Panes.VehiclePane;
 import com.time7.rentit.Controller.VehicleTableController.VehicleTableController;
 import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Models.VehicleTable.VehicleTableModel;
+import com.time7.rentit.Prompts.Prompts;
 
 /**
  *
@@ -150,7 +151,12 @@ public class VehicleTablePane
     }// </editor-fold>//GEN-END:initComponents
 
     private void removeVehicleButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeVehicleButton
-        int selectedRow = this.jTable.getSelectedRow();
+        int selectedRow = getSelectedRow();
+        
+        if (! isRowSelected()) {
+            Prompts.promptInfo(this, "Necessário selecionar um veículo");
+        }
+        
         Long vehicleId = (Long) this.jTable.getValueAt(selectedRow, vehicleTableModel.getColumnCount()-1);
 
         controller.removeVehicle(vehicleId, (Object object) -> {
@@ -165,7 +171,12 @@ public class VehicleTablePane
     }//GEN-LAST:event_addVehicleButton
 
     private void editVehicleButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editVehicleButton
-        int selectedRow = this.jTable.getSelectedRow();
+        int selectedRow = getSelectedRow();
+        
+        if (! isRowSelected()) {
+            Prompts.promptInfo(this, "Necessário selecionar um veículo");
+        }
+        
         Vehicle vehicle = vehicleTableModel.getVehicle(selectedRow);
 
         controller.editVehicle(vehicle, (Object object) -> {
@@ -181,6 +192,13 @@ public class VehicleTablePane
         // TODO add your handling code here:
     }//GEN-LAST:event_ReturnVehicleButton
 
+    private int getSelectedRow() {
+        return this.jTable.getSelectedRow();
+    }
+    
+    private boolean isRowSelected() {
+        return getSelectedRow() == 0;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButon;

@@ -5,6 +5,7 @@
     <class>com.time7.rentit.Entity.Employee</class>
     <class>com.time7.rentit.Entity.Client</class>
     <class>com.time7.rentit.Entity.Vehicle</class>
+    <class>com.time7.rentit.Entity.Rent</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/rentitdb"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

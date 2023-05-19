@@ -127,7 +127,7 @@ public class ClientTablePane
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
         int selectedRow = getSelectedRow();
         
-        if (hasRowSelected()) {
+        if (! isRowSelected()) {
             Prompts.promptWarning(this, "Selecione um cliente");
             return;
         }
@@ -146,6 +146,11 @@ public class ClientTablePane
 
     private void editButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editButton
         int selectedRow = getSelectedRow();
+        
+        if (! isRowSelected()) {
+            Prompts.promptInfo(this, "Necessário selecionar um cliente");
+        }
+        
         Client client = clientTableModel.getClient(selectedRow);
 
         controller.editClient(client, (Object object) -> {
@@ -157,7 +162,7 @@ public class ClientTablePane
         return this.jTable.getSelectedRow();
     }
     
-    private boolean hasRowSelected() {
+    private boolean isRowSelected() {
         return getSelectedRow() == 0;
     }
 
