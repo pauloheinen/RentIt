@@ -41,6 +41,8 @@ public class RegisterPaneController {
             employee.setPassword(password);
             
             service.createEmployee(employee);
+            
+            Prompts.promptInfo(root, "Usuário cadastrado com sucesso!");
         } catch (Exception e) {
             Prompts.promptError(null, e);
         }

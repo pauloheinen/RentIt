@@ -39,6 +39,7 @@ public class LoginPaneController {
             root.dispose();
             
             ManagerPane managerPane = new ManagerPane();
+            managerPane.setVisible(true);
         } catch (Exception e) {
             Prompts.promptError(root, e);
         }
