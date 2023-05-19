@@ -59,7 +59,6 @@ public class VehiclesJPanel extends javax.swing.JPanel {
 
         jScrollPane1.setBackground(new java.awt.Color(0, 129, 239));
 
-        jTable.setBackground(new java.awt.Color(0, 129, 239));
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},

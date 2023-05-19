@@ -20,6 +20,7 @@ public class ManagerPane {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(900,400);
         
+        
         JTabbedPane tabbedPane = new JTabbedPane();
         
         tabbedPane.add("Veículos", new VehiclesJPanel());

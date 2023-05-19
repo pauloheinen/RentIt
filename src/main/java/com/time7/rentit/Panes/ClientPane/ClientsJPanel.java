@@ -3,6 +3,7 @@ package com.time7.rentit.Panes.ClientPane;
 import com.time7.rentit.Controller.ClientTableController.ClientTableController;
 import com.time7.rentit.Entity.Client;
 import com.time7.rentit.Models.ClientTable.ClientTableModel;
+import com.time7.rentit.Panes.Prompts.Prompts;
 
 /**
  *
@@ -75,6 +76,11 @@ public class ClientsJPanel
                 editButton(evt);
             }
         });
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -134,6 +140,13 @@ public class ClientsJPanel
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
         int selectedRow = this.jTable.getSelectedRow();
+        
+        if (selectedRow == -1) {
+            String message = "Selecione uma linha.";
+            Prompts.promptWarning(this, message);
+            return;
+        }
+        
         Client client = clientTableModel.getClient(selectedRow);
 
         //SALVAR OS DADOS NA TABELA RENTS
@@ -154,6 +167,16 @@ public class ClientsJPanel
             clientTableModel.editClient(selectedRow, Client.class.cast(object));
         });
     }//GEN-LAST:event_editButton
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        int selectedRow = this.jTable.getSelectedRow();
+
+        if (selectedRow == -1) {
+            String message = "Selecione uma linha.";
+            Prompts.promptWarning(this, message);
+            return;
+        }
+    }//GEN-LAST:event_editButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
