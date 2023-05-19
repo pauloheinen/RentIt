@@ -7,11 +7,11 @@ import java.util.List;
  *
  * @author Daniel
  */
-    public interface ClientServiceInterface {
-        void createClient(Client client) throws Exception;
-        void updateClient(Client client) throws Exception;
-        void deleteClient(Client client) throws Exception;
+public interface ClientServiceInterface {
+    void createClient(Client client) throws Exception;
+    void updateClient(Client client) throws Exception;
+    void deleteClient(Client client) throws Exception;
+    Client getClientById(int id) throws Exception;
 
-        Client getClientById(int id) throws Exception;
-        List<Client> getClients() throws Exception;
-    }
+    List<Client> getClients() throws Exception;
+}

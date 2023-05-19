@@ -16,7 +16,7 @@ public class ClientTableModel
         AbstractTableModel {
 
     private List<Client> clientsList = new ArrayList<>();
-    private String[] columns = {"Posição", "Nome", "Email", "Celular", "Código"};
+    private String[] columns = {"Linha", "Nome", "Email", "Celular"};
     
     public ClientTableModel() {
         loadData();
