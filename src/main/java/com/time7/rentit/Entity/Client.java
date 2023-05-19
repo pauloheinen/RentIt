@@ -15,9 +15,21 @@ public class Client
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "name", nullable = false, length = 120)
     private String name;
+<<<<<<< Updated upstream
     private String phone;
+=======
+<<<<<<< HEAD
+    @Column(name = "email", nullable = false, length = 120)
+=======
+    private String phone;
+>>>>>>> fe754d627f0dbdac6b7abd2e5f4da7edd8490d16
+>>>>>>> Stashed changes
     private String email;
+    @Column(name = "phone", nullable = false)
+    private int phone;
+    
 
     public Long getId() {
         return id;

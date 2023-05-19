@@ -16,7 +16,7 @@ public class RentTableModel
         AbstractTableModel {
 
     private final List<Rent> rentsList = new ArrayList<>();
-    private final String[] columns = {"Usuário", "Cliente", "Veículo", "Início", "Fim", "Fim estimado", "Valor", "Multa", "Status", "ID"};
+    private final String[] columns = {"Posição", "Usuário", "Cliente", "Veículo", "Início", "Fim", "Fim estimado", "Valor", "Multa", "Status", "Código"};
     
     public RentTableModel() {
         loadData();
