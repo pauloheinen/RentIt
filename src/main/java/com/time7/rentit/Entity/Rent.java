@@ -13,6 +13,14 @@ public class Rent
     implements
         Serializable {
     
+    public static final int TYPE_CAR = 0;
+    public static final int TYPE_VAN = 1;
+    
+    public static String[] STATUS = new String[] {
+        "Em aberto",
+        "Encerrada"
+    };
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -103,5 +111,9 @@ public class Rent
 
     public void setStatus(int status) {
         this.status = status;
+    }
+    
+    public String getRentStatusLabel() {
+        return Rent.STATUS[this.status];
     }
 }

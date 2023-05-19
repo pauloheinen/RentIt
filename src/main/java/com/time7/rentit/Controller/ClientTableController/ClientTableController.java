@@ -1,6 +1,6 @@
 package com.time7.rentit.Controller.ClientTableController;
 
-import com.time7.rentit.Editors.ClientTableEditor.ClientCellEditor;
+import com.time7.rentit.Editors.ClientEditor.ClientCellEditor;
 import com.time7.rentit.Entity.Client;
 import com.time7.rentit.Prompts.Prompts;
 import com.time7.rentit.Service.Client.ClientService;
