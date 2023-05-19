@@ -16,7 +16,7 @@ public class VehicleTableModel
         AbstractTableModel {
 
     private final List<Vehicle> vehiclesList = new ArrayList<>();
-    private final String[] columns = {"Posição", "Marca", "Modelo", "Ano", "Placa", "Tipo", "Status", "ID"};
+    private final String[] columns = {"Código", "Marca", "Modelo", "Ano", "Placa", "Tipo", "Status", "Linha"};
     
     public VehicleTableModel() {
         loadData();
@@ -71,7 +71,7 @@ public class VehicleTableModel
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return rowIndex;
+                return this.vehiclesList.get(rowIndex).getId();
             case 1:
                 return this.vehiclesList.get(rowIndex).getVehicleBrand();
             case 2:
@@ -85,7 +85,7 @@ public class VehicleTableModel
             case 6:
                 return this.vehiclesList.get(rowIndex).getStatus();
             case 7:
-                return this.vehiclesList.get(rowIndex).getId();
+                return rowIndex + 1;
             default:
                 return this.vehiclesList.get(rowIndex);
         }

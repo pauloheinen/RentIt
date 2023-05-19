@@ -16,7 +16,7 @@ public class RentTableModel
         AbstractTableModel {
 
     private final List<Rent> rentsList = new ArrayList<>();
-    private final String[] columns = {"Linha", "Usuário", "Cliente", "Veículo", "Início", "Fim", "Fim estimado", "Valor", "Multa", "Status", "Código"};
+    private final String[] columns = {"Código","Usuário", "Cliente", "Veículo", "Início", "Fim", "Fim estimado", "Valor", "Multa", "Status", "Linha"};
     
     public RentTableModel() {
         loadData();
@@ -71,7 +71,7 @@ public class RentTableModel
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return rowIndex;
+                return this.rentsList.get(rowIndex).getId();
             case 1:
                 return this.rentsList.get(rowIndex).getEmployeeId();
             case 2:
@@ -91,7 +91,7 @@ public class RentTableModel
             case 9:
                 return this.rentsList.get(rowIndex).getStatus();
             case 10:
-                return this.rentsList.get(rowIndex).getId();
+                return rowIndex + 1;    
             default:
                 return this.rentsList.get(rowIndex);
         }

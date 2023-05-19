@@ -16,7 +16,7 @@ public class ClientTableModel
         AbstractTableModel {
 
     private List<Client> clientsList = new ArrayList<>();
-    private String[] columns = {"Linha", "Nome", "Email", "Celular"};
+    private String[] columns = {"Código", "Nome", "Email", "Celular", "Linha"};
     
     public ClientTableModel() {
         loadData();
@@ -71,7 +71,7 @@ public class ClientTableModel
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return rowIndex;
+                return this.clientsList.get(rowIndex).getId();
             case 1:
                 return this.clientsList.get(rowIndex).getName();
             case 2:
@@ -79,7 +79,7 @@ public class ClientTableModel
             case 3:
                 return this.clientsList.get(rowIndex).getPhone();
             case 4:
-                return this.clientsList.get(rowIndex).getId();
+                return rowIndex + 1;
             default:
                 return this.clientsList.get(rowIndex);
         }
