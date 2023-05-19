@@ -11,14 +11,14 @@ public class RentTablePane
     extends 
         javax.swing.JPanel {
     
-    private final RentTableModel clientTableModel;
+    private final RentTableModel rentTableModel;
     private final RentTableController controller;
 
     public RentTablePane() {
         initComponents();
 
-        this.clientTableModel = new RentTableModel();
-        this.jTable.setModel(clientTableModel);
+        this.rentTableModel = new RentTableModel();
+        this.jTable.setModel(rentTableModel);
         this.controller = new RentTableController(null);
         
         setVisible(true);
@@ -96,8 +96,6 @@ public class RentTablePane
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable;
-    private javax.swing.JButton removeButton;
-    private javax.swing.JButton removeButton1;
     private javax.swing.JButton reportButton;
     // End of variables declaration//GEN-END:variables
 }

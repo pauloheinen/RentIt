@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.*;
 
+
 /**
  *
  * @author Daniel
@@ -13,17 +14,19 @@ public class Rent
     implements
         Serializable {
     
-    public static final int TYPE_CAR = 0;
-    public static final int TYPE_VAN = 1;
+    public static final int STATUS_CLOSE = 0;
+    public static final int STATUS_OPEN = 1;
     
     public static String[] STATUS = new String[] {
-        "Em aberto",
-        "Encerrada"
+        "Encerrada",
+        "Em aberto"
     };
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "employee_id", nullable = false)
+    private Long employeeId;
     @Column(name = "client_id", nullable = false)
     private Long clientId;
     @Column(name = "vehicle_id", nullable = false)
@@ -32,7 +35,7 @@ public class Rent
     private Date rentStartDt;
     @Column(name = "rent_end_dt", nullable = false)
     private Date rentEndDt;
-    @Column(name = "rent_expected_end_date", nullable = false)
+    @Column(name = "rent_expected_end_dt", nullable = false)
     private Date rentExpectedEndDt;
     @Column(name = "rent_value", nullable = false)
     private double rentValue;
@@ -49,6 +52,14 @@ public class Rent
         this.id = id;
     }
 
+    public Long getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(Long employeeId) {
+        this.employeeId = employeeId;
+    }
+    
     public Long getClientId() {
         return clientId;
     }

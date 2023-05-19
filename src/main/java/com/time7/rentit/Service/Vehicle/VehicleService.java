@@ -2,7 +2,7 @@ package com.time7.rentit.Service.Vehicle;
 
 import com.time7.rentit.Database.Database;
 import com.time7.rentit.Entity.Vehicle;
-import com.time7.rentit.Service.Interface.Client.VehicleServiceInterface;
+import com.time7.rentit.Service.Interface.Vehicle.VehicleServiceInterface;
 import java.util.List;
 
 /**

@@ -15,8 +15,8 @@ public class RentTableModel
     extends
         AbstractTableModel {
 
-    private List<Rent> rentsList = new ArrayList<>();
-    private String[] columns = {"Cliente", "Veículo", "Início", "Fim", "Fim estimado", "Valor", "Multa", "Status"};
+    private final List<Rent> rentsList = new ArrayList<>();
+    private final String[] columns = {"Usuário", "Cliente", "Veículo", "Início", "Fim", "Fim estimado", "Valor", "Multa", "Status", "ID"};
     
     public RentTableModel() {
         loadData();
@@ -73,22 +73,24 @@ public class RentTableModel
             case 0:
                 return rowIndex;
             case 1:
-                return this.rentsList.get(rowIndex).getClientId();
+                return this.rentsList.get(rowIndex).getEmployeeId();
             case 2:
-                return this.rentsList.get(rowIndex).getVehicleId();
+                return this.rentsList.get(rowIndex).getClientId();
             case 3:
-                return this.rentsList.get(rowIndex).getRentStartDt();
+                return this.rentsList.get(rowIndex).getVehicleId();
             case 4:
-                return this.rentsList.get(rowIndex).getRentEndDt();
+                return this.rentsList.get(rowIndex).getRentStartDt();
             case 5:
-                return this.rentsList.get(rowIndex).getRentExpectedEndDt();
+                return this.rentsList.get(rowIndex).getRentEndDt();
             case 6:
-                return this.rentsList.get(rowIndex).getRentValue();
+                return this.rentsList.get(rowIndex).getRentExpectedEndDt();
             case 7:
-                return this.rentsList.get(rowIndex).getRentValueFine();
+                return this.rentsList.get(rowIndex).getRentValue();
             case 8:
-                return this.rentsList.get(rowIndex).getStatus();
+                return this.rentsList.get(rowIndex).getRentValueFine();
             case 9:
+                return this.rentsList.get(rowIndex).getStatus();
+            case 10:
                 return this.rentsList.get(rowIndex).getId();
             default:
                 return this.rentsList.get(rowIndex);

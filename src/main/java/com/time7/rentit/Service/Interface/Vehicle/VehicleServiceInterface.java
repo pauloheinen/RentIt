@@ -1,4 +1,4 @@
-package com.time7.rentit.Service.Interface.Client;
+package com.time7.rentit.Service.Interface.Vehicle;
 
 import com.time7.rentit.Entity.Vehicle;
 import java.util.List;
