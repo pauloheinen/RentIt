@@ -125,17 +125,7 @@ public class ClientTablePane
     }//GEN-LAST:event_selectButton
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
-        int selectedRow = getSelectedRow();
-        
-        if (! isRowSelected()) {
-            Prompts.promptWarning(this, "Selecione um cliente");
-            return;
-        }
-        
-        Client client = clientTableModel.getClient(selectedRow);
-
-        //SALVAR OS DADOS NA TABELA RENTS
-        
+  
     }//GEN-LAST:event_selectButtonActionPerformed
 
     private void addButon(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addButon
