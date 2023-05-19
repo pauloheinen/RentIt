@@ -1,13 +1,10 @@
 package com.time7.rentit.Controller.VehicleTableController;
 
-import com.time7.rentit.Controller.ClientTableController.ClientTableController;
-import com.time7.rentit.Editors.VehicleTableEditor.VehicleCellEditor;
+import com.time7.rentit.Editors.VehicleEditor.VehicleCellEditor;
 import com.time7.rentit.Entity.Vehicle;
-import com.time7.rentit.Panes.ClientPane.ClientTablePane;
-import com.time7.rentit.Panes.Prompts.Prompts;
-import com.time7.rentit.Service.VehicleService;
+import com.time7.rentit.Prompts.Prompts;
+import com.time7.rentit.Service.Vehicle.VehicleService;
 import com.time7.rentit.Utilities.GenericObserver;
-import java.awt.Component;
 import javax.swing.JFrame;
 
 /**
@@ -30,7 +27,7 @@ public class VehicleTableController {
                 Vehicle vehicle = Vehicle.class.cast(object);
                 service.createVehicle(vehicle);
                 
-                Prompts.promptInfo(root, "Veículo adicionado!");
+                Prompts.promptInfo(root, "Veículo adicionado");
                 
                 callback.inform(vehicle);
             } catch (Exception e) {
@@ -72,6 +69,6 @@ public class VehicleTableController {
     }
     
     public void rentVehicle(Vehicle vehicle, GenericObserver observer) {
-        new ClientTablePane().selectClient(observer);
+        
     }
 }

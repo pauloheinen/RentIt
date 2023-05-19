@@ -1,7 +1,7 @@
 package com.time7.rentit;
 
-import com.time7.rentit.Panes.LoginPane;
-import com.time7.rentit.Panes.Prompts.Prompts;
+import com.time7.rentit.Panes.HomePane.ManagerPane;
+import com.time7.rentit.Prompts.Prompts;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -19,7 +19,7 @@ public class Launch {
         }
         
         java.awt.EventQueue.invokeLater(() -> {
-            new LoginPane().setVisible(true);
+            new ManagerPane().setVisible(true);
         });
     }
 }

@@ -2,10 +2,10 @@ package com.time7.rentit.Controller.ClientTableController;
 
 import com.time7.rentit.Editors.ClientTableEditor.ClientCellEditor;
 import com.time7.rentit.Entity.Client;
-import com.time7.rentit.Service.ClientService;
+import com.time7.rentit.Prompts.Prompts;
+import com.time7.rentit.Service.Client.ClientService;
 import com.time7.rentit.Utilities.GenericObserver;
 import javax.swing.JFrame;
-
 
 /**
  *
@@ -27,7 +27,7 @@ public class ClientTableController {
                 Client client = Client.class.cast(object);
                 service.createClient(client);
                 
-                // prompt something to inform that the client has been added
+                Prompts.promptInfo(root, "Cliente adicionado");
                 
                 callback.inform(client);
             } catch (Exception e) {
@@ -44,7 +44,7 @@ public class ClientTableController {
                 Client c = Client.class.cast(object);
                 service.updateClient(c);
                 
-                // prompt something to inform that the client has been edited
+                Prompts.promptInfo(root, "Cliente atualizado");
                 
                 callback.inform(c);
             } catch (Exception e) {

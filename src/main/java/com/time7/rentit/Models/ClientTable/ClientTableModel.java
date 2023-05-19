@@ -1,8 +1,8 @@
 package com.time7.rentit.Models.ClientTable;
 
 import com.time7.rentit.Entity.Client;
-import com.time7.rentit.Panes.Prompts.Prompts;
-import com.time7.rentit.Service.ClientService;
+import com.time7.rentit.Prompts.Prompts;
+import com.time7.rentit.Service.Client.ClientService;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;

@@ -3,17 +3,16 @@ package com.time7.rentit.Panes.VehiclePane;
 import com.time7.rentit.Controller.VehicleTableController.VehicleTableController;
 import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Models.VehicleTable.VehicleTableModel;
-import com.time7.rentit.Panes.ClientPane.ClientTablePane;
-import com.time7.rentit.Panes.Prompts.Prompts;
+import com.time7.rentit.Prompts.Prompts;
 import com.time7.rentit.Utilities.GenericObserver;
 
 /**
  *
- * @author Paulo Henrique
+ * @author Daniel
  */
 public class VehicleTablePane
     extends 
-        javax.swing.JFrame {
+        javax.swing.JPanel {
 
     private final VehicleTableModel vehicleTableModel;
     private final VehicleTableController controller;
@@ -24,14 +23,14 @@ public class VehicleTablePane
         this.vehicleTableModel = new VehicleTableModel();
         this.jTable.setModel(vehicleTableModel);
         this.controller = new VehicleTableController(null);
-//        this.setTitle("Listagem de veículos");
-        
+                
         setVisible(true);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        returnButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
         reportButton = new javax.swing.JButton();
@@ -41,9 +40,20 @@ public class VehicleTablePane
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         editButtton = new javax.swing.JButton();
-        returnButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(880, 488));
+        setMinimumSize(new java.awt.Dimension(880, 488));
+
+        returnButton.setBackground(new java.awt.Color(69, 73, 74));
+        returnButton.setForeground(new java.awt.Color(255, 255, 255));
+        returnButton.setText("Devolver");
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnButtonActionPerformed(evt);
+            }
+        });
+
+        jScrollPane1.setBackground(new java.awt.Color(0, 129, 239));
 
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -57,15 +67,21 @@ public class VehicleTablePane
         ));
         jScrollPane1.setViewportView(jTable);
 
+        reportButton.setBackground(new java.awt.Color(69, 73, 74));
+        reportButton.setForeground(new java.awt.Color(255, 255, 255));
         reportButton.setText("Relatório");
 
+        removeButton.setBackground(new java.awt.Color(69, 73, 74));
+        removeButton.setForeground(new java.awt.Color(255, 255, 255));
         removeButton.setText("Remover");
         removeButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                removeVehicleButton(evt);
+                removeButtonremoveVehicleButton(evt);
             }
         });
 
+        rentButton.setBackground(new java.awt.Color(69, 73, 74));
+        rentButton.setForeground(new java.awt.Color(255, 255, 255));
         rentButton.setText("Alugar");
         rentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,133 +89,103 @@ public class VehicleTablePane
             }
         });
 
+        addButon.setBackground(new java.awt.Color(69, 73, 74));
+        addButon.setForeground(new java.awt.Color(255, 255, 255));
         addButon.setText("Adicionar");
         addButon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addVehicleButton(evt);
+                addButonaddVehicleButton(evt);
             }
         });
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Controles");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Ações");
 
+        editButtton.setBackground(new java.awt.Color(69, 73, 74));
+        editButtton.setForeground(new java.awt.Color(255, 255, 255));
         editButtton.setText("Editar");
         editButtton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                editVehicleButton(evt);
+                editButttoneditVehicleButton(evt);
             }
         });
 
-        returnButton.setText("Devolver");
-        returnButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                returnButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                            .addComponent(addButon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(editButtton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(rentButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(reportButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(returnButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(reportButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(removeButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(editButtton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(addButon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(returnButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(rentButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addButon)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(editButtton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(removeButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(60, 60, 60)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(rentButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(returnButton)
-                        .addGap(12, 12, 12)
-                        .addComponent(reportButton)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(reportButton)
+                        .addGap(0, 182, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void removeVehicleButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeVehicleButton
-        int selectedRow = getSelectedRow();
-        
-        if (! hasSelectedRow()) {
-            Prompts.promptWarning(this, "Selecione um veículo");
-            return;    
-        }
-        
-        Long vehicleId = (Long) this.jTable.getValueAt(selectedRow, vehicleTableModel.getColumnCount()-1);
-        
-        controller.removeVehicle(vehicleId, (Object object) -> {
-            vehicleTableModel.removeVehicle(selectedRow);
-        });
-    }//GEN-LAST:event_editVehicleButton
-
-    private void addVehicleButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addVehicleButton
-        controller.addVehicle((Object object) -> {
-            vehicleTableModel.insertVehicle(Vehicle.class.cast(object));
-        });
-    }//GEN-LAST:event_addVehicleButton
-
-    private void editVehicleButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editVehicleButton
-        int selectedRow = getSelectedRow();
-        
-        if (! hasSelectedRow()) {
-            Prompts.promptWarning(this, "Selecione um veículo");
-            return;    
-        } 
-        
-        Vehicle vehicle = vehicleTableModel.getVehicle(selectedRow);
-        
-        controller.editVehicle(vehicle, (Object object) -> {
-            vehicleTableModel.editVehicle(selectedRow, Vehicle.class.cast(object));
-        });
-    }//GEN-LAST:event_editVehicleButton
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         int selectedRow = getSelectedRow();
-        
-        if (! hasSelectedRow()) {
-            Prompts.promptWarning(this, "Selecione um veículo");
-            return;    
-        } 
-        
+
+        if (selectedRow == -1) {
+            Prompts.promptWarning(this, "Selecione uma linha");
+            return;
+        }
         System.out.println("Abre tela devolver");
     }//GEN-LAST:event_returnButtonActionPerformed
+
+    private void removeButtonremoveVehicleButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeButtonremoveVehicleButton
+        int selectedRow = getSelectedRow();
+        Long vehicleId = (Long) this.jTable.getValueAt(selectedRow, vehicleTableModel.getColumnCount()-1);
+
+        controller.removeVehicle(vehicleId, (Object object) -> {
+            vehicleTableModel.removeVehicle(selectedRow);
+        });
+    }//GEN-LAST:event_removeButtonremoveVehicleButton
 
     private void rentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentButtonActionPerformed
         int selectedRow = getSelectedRow();
@@ -224,6 +210,21 @@ public class VehicleTablePane
         });
     }//GEN-LAST:event_rentButtonActionPerformed
 
+    private void addButonaddVehicleButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addButonaddVehicleButton
+        controller.addVehicle((Object object) -> {
+            vehicleTableModel.insertVehicle(Vehicle.class.cast(object));
+        });
+    }//GEN-LAST:event_addButonaddVehicleButton
+
+    private void editButttoneditVehicleButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editButttoneditVehicleButton
+        int selectedRow = getSelectedRow();
+        Vehicle vehicle = vehicleTableModel.getVehicle(selectedRow);
+
+        controller.editVehicle(vehicle, (Object object) -> {
+            vehicleTableModel.editVehicle(selectedRow, Vehicle.class.cast(object));
+        });
+    }//GEN-LAST:event_editButttoneditVehicleButton
+
     private boolean hasSelectedRow() {
         return getSelectedRow() == 0;
     }
@@ -231,7 +232,7 @@ public class VehicleTablePane
     private int getSelectedRow() {
         return this.jTable.getSelectedRow();
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButon;
     private javax.swing.JButton editButtton;

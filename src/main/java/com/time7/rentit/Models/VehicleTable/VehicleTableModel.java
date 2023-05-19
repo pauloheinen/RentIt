@@ -1,8 +1,8 @@
 package com.time7.rentit.Models.VehicleTable;
 
 import com.time7.rentit.Entity.Vehicle;
-import com.time7.rentit.Panes.Prompts.Prompts;
-import com.time7.rentit.Service.VehicleService;
+import com.time7.rentit.Prompts.Prompts;
+import com.time7.rentit.Service.Vehicle.VehicleService;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;

@@ -1,6 +1,6 @@
 package com.time7.rentit.Database;
 
-import com.time7.rentit.Panes.Prompts.Prompts;
+import com.time7.rentit.Prompts.Prompts;
 import com.time7.rentit.Utilities.PersistenceUtils.PersistenceUtil;
 import java.util.List;
 import javax.persistence.EntityManager;
