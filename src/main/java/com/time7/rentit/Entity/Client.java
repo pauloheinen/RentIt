@@ -16,14 +16,14 @@ public class Client
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private int phone;
+    private String phone;
     private String email;
 
     public Long getId() {
         return id;
     }
 
-    public void setId( Long id ) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -31,15 +31,15 @@ public class Client
         return name;
     }
 
-    public void setName( String name ) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone( int phone ) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -47,7 +47,7 @@ public class Client
         return email;
     }
 
-    public void setEmail( String email ) {
+    public void setEmail(String email) {
         this.email = email;
     }
 }

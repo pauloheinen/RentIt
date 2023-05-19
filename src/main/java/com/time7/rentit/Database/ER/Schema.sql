@@ -21,7 +21,7 @@ create table clients (
     id int AUTO_INCREMENT not null,
     name varchar (120) not null,
     email varchar (120) not null,
-    phone int not null,
+    phone varchar(11) not null,
     type tinyint not null,
     primary key (id)
 );

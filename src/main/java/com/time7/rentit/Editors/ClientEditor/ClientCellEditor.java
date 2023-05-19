@@ -107,7 +107,7 @@ public class ClientCellEditor
 
         client.setName(nameTextEditor.getText());
         client.setEmail(emailTextEditor.getText());
-        client.setPhone(Integer.valueOf(phoneTextEditor.getText()));
+        client.setPhone(phoneTextEditor.getText());
         
         callback.inform(client);
         dispose();
@@ -122,7 +122,7 @@ public class ClientCellEditor
         
         nameTextEditor.setText(source.getName());
         emailTextEditor.setText(source.getEmail());
-        phoneTextEditor.setText(String.valueOf(source.getPhone()));
+        phoneTextEditor.setText(source.getPhone());
                 
         showPane();
     }
