@@ -265,6 +265,11 @@ public class RegisterPane
        String confirmPassword = confirmPasswordTextField.getText();
               
        controller.registerEmployee(name, username, password, confirmPassword);
+       
+       nameTextField.setText("");
+       userNameTextField.setText("");
+       passwordTextField.setText("");
+       confirmPasswordTextField.setText("");
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed

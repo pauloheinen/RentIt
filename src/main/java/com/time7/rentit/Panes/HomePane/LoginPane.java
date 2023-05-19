@@ -77,12 +77,13 @@ public class LoginPane
         jPanel1.setMaximumSize(new java.awt.Dimension(968, 459));
         jPanel1.setMinimumSize(new java.awt.Dimension(968, 459));
 
+        nameTextField.setForeground(new java.awt.Color(255, 255, 255));
         nameTextField.setToolTipText("");
         nameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         nameTextField.setCaretColor(new java.awt.Color(0, 0, 0));
-        nameTextField.setFocusTraversalPolicyProvider(true);
         nameTextField.setSelectedTextColor(new java.awt.Color(0, 116, 255));
 
+        passwordTextField.setForeground(new java.awt.Color(255, 255, 255));
         passwordTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         passwordTextField.setCaretColor(new java.awt.Color(0, 0, 0));
         passwordTextField.setSelectedTextColor(new java.awt.Color(0, 116, 255));
