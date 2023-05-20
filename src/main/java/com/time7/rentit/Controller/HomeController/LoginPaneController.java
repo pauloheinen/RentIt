@@ -19,9 +19,9 @@ public class LoginPaneController {
         this.root = root;
     }
     
-    public void logInEmployee(String user, String password) {
-        if (user.isEmpty() || password.isEmpty()){
-            JOptionPane.showMessageDialog(root, "Preencha usuário e senha!");
+    public void logInEmployee(String username, String password) {
+        if (username.isEmpty() || password.isEmpty()){
+            Prompts.promptInfo(root, "Preencha usuário e senha!");
             
             return;
         } 
@@ -29,10 +29,10 @@ public class LoginPaneController {
         EmployeeService service = EmployeeService.getInstance();
         
         try {
-            Employee employee = service.getEmployeeByUsernameAndPassword(user, password);
+            Employee employee = service.getEmployeeByUsernameAndPassword(username, password);
             
             if (employee == null){
-                JOptionPane.showMessageDialog(null, "Dados inválidos!", "Não foi possível fazer login.", 0);
+                Prompts.promptInfo(null, "Não foi possível fazer login.");
                 return;
             } 
             
