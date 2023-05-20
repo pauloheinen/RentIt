@@ -89,8 +89,7 @@ public class RentTableModel
                 idSearch = toIntExact(id);
                 try {
                    Employee employee = EmployeeService.getInstance().getEmployeeById(idSearch);
-                    name = employee.getName();
-                    return name; 
+                    return employee.getName();
                 } catch (Exception e) {
                    Prompts.promptError(null, e); 
                 }
@@ -99,8 +98,7 @@ public class RentTableModel
                 idSearch = toIntExact(id);
                 try {
                     Client client = ClientService.getInstance().getClientById(idSearch);
-                    name = client.getName();
-                    return name;
+                    return client.getName();
                 } catch (Exception e) {
                     Prompts.promptError(null, e);
                 }                
