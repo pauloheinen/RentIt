@@ -15,9 +15,9 @@ public class ManagerPane
         JFrame {
     
     public ManagerPane () {
-        this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(900, 400);
+        this.setLocationRelativeTo(null);
         
         JTabbedPane tabbedPane = new JTabbedPane();
         

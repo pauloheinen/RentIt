@@ -15,10 +15,7 @@ public class RegisterPane
         initComponents();
         getRootPane().setDefaultButton(registerButton);
     }
-
-    public void close(){
-        this.dispose();
-    }
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -69,11 +66,6 @@ public class RegisterPane
         nameLabel.setText("Nome");
 
         nameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        nameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameTextFieldActionPerformed(evt);
-            }
-        });
 
         userNameLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         userNameLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -272,11 +264,9 @@ public class RegisterPane
        confirmPasswordTextField.setText("");
     }//GEN-LAST:event_registerButtonActionPerformed
 
-    private void nameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameTextFieldActionPerformed
-
-     
+    private void close(){
+        this.dispose();
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel confirmPasswordLabel;

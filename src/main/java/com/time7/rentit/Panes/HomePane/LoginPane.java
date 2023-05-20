@@ -21,9 +21,6 @@ public class LoginPane
         getRootPane().setDefaultButton(enterButton);
     }
     
-    private void close(){
-        this.dispose();
-    }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -77,26 +74,23 @@ public class LoginPane
         jPanel1.setMaximumSize(new java.awt.Dimension(968, 459));
         jPanel1.setMinimumSize(new java.awt.Dimension(968, 459));
 
-        usernameTextField.setForeground(new java.awt.Color(255, 255, 255));
+        usernameTextField.setBackground(new java.awt.Color(255, 255, 255));
+        usernameTextField.setForeground(new java.awt.Color(0, 0, 0));
         usernameTextField.setToolTipText("");
         usernameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         usernameTextField.setCaretColor(new java.awt.Color(0, 0, 0));
         usernameTextField.setSelectedTextColor(new java.awt.Color(0, 116, 255));
 
-        passwordTextField.setForeground(new java.awt.Color(255, 255, 255));
+        passwordTextField.setBackground(new java.awt.Color(255, 255, 255));
+        passwordTextField.setForeground(new java.awt.Color(0, 0, 0));
         passwordTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         passwordTextField.setCaretColor(new java.awt.Color(0, 0, 0));
         passwordTextField.setSelectedTextColor(new java.awt.Color(0, 116, 255));
-        passwordTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordTextFieldActionPerformed(evt);
-            }
-        });
 
         enterButton.setBackground(new java.awt.Color(0, 129, 239));
-        enterButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         enterButton.setForeground(new java.awt.Color(255, 255, 255));
         enterButton.setText("Entrar");
+        enterButton.setBorderPainted(false);
         enterButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         enterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,9 +99,9 @@ public class LoginPane
         });
 
         forgotPassword.setBackground(new java.awt.Color(0, 129, 239));
-        forgotPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         forgotPassword.setForeground(new java.awt.Color(255, 255, 255));
         forgotPassword.setText("Esqueceu a senha?");
+        forgotPassword.setBorderPainted(false);
         forgotPassword.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         forgotPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,9 +110,9 @@ public class LoginPane
         });
 
         registerButton.setBackground(new java.awt.Color(0, 129, 239));
-        registerButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         registerButton.setForeground(new java.awt.Color(255, 255, 255));
         registerButton.setText("Registre-se");
+        registerButton.setBorderPainted(false);
         registerButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,7 +219,7 @@ public class LoginPane
                     .addComponent(registerButton))
                 .addGap(30, 30, 30)
                 .addComponent(forgotPassword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(creditsLabel))
         );
 
@@ -315,10 +309,9 @@ public class LoginPane
         exitButton.setForeground(Color.WHITE);
     }//GEN-LAST:event_mouseExit
 
-    private void passwordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordTextFieldActionPerformed
-
+    private void close(){
+        this.dispose();
+    }
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel creditsLabel;
