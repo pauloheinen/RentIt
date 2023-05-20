@@ -21,7 +21,7 @@ public class LoginPane
         getRootPane().setDefaultButton(enterButton);
     }
     
-    public void close(){
+    private void close(){
         this.dispose();
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -33,7 +33,7 @@ public class LoginPane
         jPanel3 = new javax.swing.JPanel();
         loginPaneContet = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        nameTextField = new javax.swing.JTextField();
+        usernameTextField = new javax.swing.JTextField();
         passwordTextField = new javax.swing.JPasswordField();
         enterButton = new javax.swing.JButton();
         forgotPassword = new javax.swing.JButton();
@@ -77,11 +77,11 @@ public class LoginPane
         jPanel1.setMaximumSize(new java.awt.Dimension(968, 459));
         jPanel1.setMinimumSize(new java.awt.Dimension(968, 459));
 
-        nameTextField.setForeground(new java.awt.Color(255, 255, 255));
-        nameTextField.setToolTipText("");
-        nameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        nameTextField.setCaretColor(new java.awt.Color(0, 0, 0));
-        nameTextField.setSelectedTextColor(new java.awt.Color(0, 116, 255));
+        usernameTextField.setForeground(new java.awt.Color(255, 255, 255));
+        usernameTextField.setToolTipText("");
+        usernameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        usernameTextField.setCaretColor(new java.awt.Color(0, 0, 0));
+        usernameTextField.setSelectedTextColor(new java.awt.Color(0, 116, 255));
 
         passwordTextField.setForeground(new java.awt.Color(255, 255, 255));
         passwordTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -182,7 +182,7 @@ public class LoginPane
                     .addComponent(registerButton, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(passwordTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
                     .addComponent(enterButton)
-                    .addComponent(nameTextField))
+                    .addComponent(usernameTextField))
                 .addGap(67, 67, 67))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -213,7 +213,7 @@ public class LoginPane
                 .addComponent(wolcomeLabel)
                 .addGap(53, 53, 53)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(usernameLabel))
                 .addGap(72, 72, 72)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -276,7 +276,7 @@ public class LoginPane
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-                                               
+    
  private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         close();
         RegisterPane registerPane = new RegisterPane();
@@ -297,10 +297,10 @@ public class LoginPane
     }//GEN-LAST:event_forgotPasswordActionPerformed
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
-        String user = nameTextField.getText();
+        String username = usernameTextField.getText();
         String password = passwordTextField.getText();
 
-        controller.logInEmployee(user, password);
+        controller.logInEmployee(username, password);
     }//GEN-LAST:event_enterButtonActionPerformed
 
     private void exitButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButton
@@ -334,11 +334,11 @@ public class LoginPane
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel loginLabel;
     private javax.swing.JPanel loginPaneContet;
-    private javax.swing.JTextField nameTextField;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JPasswordField passwordTextField;
     private javax.swing.JButton registerButton;
     private javax.swing.JLabel usernameLabel;
+    private javax.swing.JTextField usernameTextField;
     private javax.swing.JLabel wolcomeLabel;
     // End of variables declaration//GEN-END:variables
 }
