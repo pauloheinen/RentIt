@@ -1,8 +1,14 @@
 package com.time7.rentit.Models.RentTable;
 
+import com.time7.rentit.Entity.Client;
+import com.time7.rentit.Entity.Employee;
 import com.time7.rentit.Entity.Rent;
 import com.time7.rentit.Prompts.Prompts;
+import com.time7.rentit.Service.Client.ClientService;
+import com.time7.rentit.Service.Employee.EmployeeService;
 import com.time7.rentit.Service.Rent.RentService;
+import static java.lang.Math.toIntExact;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -16,7 +22,7 @@ public class RentTableModel
         AbstractTableModel {
 
     private final List<Rent> rentsList = new ArrayList<>();
-    private final String[] columns = {"Código","Usuário", "Cliente", "Veículo", "Início", "Fim", "Fim estimado", "Valor", "Multa", "Status", "Linha"};
+    private final String[] columns = {"Código","Usuário", "Cliente", "Cód Veículo", "Início", "Fim", "Fim estimado", "Valor", "Multa", "Status", "Linha"};
     
     public RentTableModel() {
         loadData();
@@ -69,27 +75,52 @@ public class RentTableModel
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
+        String date, name;
+        int status, idSearch;
+        Long id;
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        
         switch (columnIndex) {
             case 0:
                 return this.rentsList.get(rowIndex).getId();
             case 1:
-                return this.rentsList.get(rowIndex).getEmployeeId();
+                id = this.rentsList.get(rowIndex).getEmployeeId();
+                idSearch = toIntExact(id);
+                try {
+                   Employee employee = EmployeeService.getInstance().getEmployeeById(idSearch);
+                    name = employee.getName();
+                    return name; 
+                } catch (Exception e) {
+                   Prompts.promptError(null, e); 
+                }
             case 2:
-                return this.rentsList.get(rowIndex).getClientId();
+                id = this.rentsList.get(rowIndex).getClientId();
+                idSearch = toIntExact(id);
+                try {
+                    Client client = ClientService.getInstance().getClientById(idSearch);
+                    name = client.getName();
+                    return name;
+                } catch (Exception e) {
+                    Prompts.promptError(null, e);
+                }                
             case 3:
                 return this.rentsList.get(rowIndex).getVehicleId();
             case 4:
-                return this.rentsList.get(rowIndex).getRentStartDt();
+                date = sdf.format(this.rentsList.get(rowIndex).getRentStartDt());
+                return date;
             case 5:
-                return this.rentsList.get(rowIndex).getRentEndDt();
+                date = sdf.format(this.rentsList.get(rowIndex).getRentEndDt());
+                return date;
             case 6:
-                return this.rentsList.get(rowIndex).getRentExpectedEndDt();
+                date = sdf.format(this.rentsList.get(rowIndex).getRentExpectedEndDt());
+                return date;
             case 7:
                 return this.rentsList.get(rowIndex).getRentValue();
             case 8:
                 return this.rentsList.get(rowIndex).getRentValueFine();
             case 9:
-                return this.rentsList.get(rowIndex).getStatus();
+                return this.rentsList.get(rowIndex).getRentStatusLabel();
             case 10:
                 return rowIndex + 1;    
             default:
