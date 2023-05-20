@@ -81,9 +81,9 @@ public class VehicleTableModel
             case 4:
                 return this.vehiclesList.get(rowIndex).getVehiclePlate();
             case 5:
-                return this.vehiclesList.get(rowIndex).getType();
+                return this.vehiclesList.get(rowIndex).getVehicleTypeName();
             case 6:
-                return this.vehiclesList.get(rowIndex).getStatus();
+                return this.vehiclesList.get(rowIndex).getVehicleStatusLabel();
             case 7:
                 return rowIndex + 1;
             default:
