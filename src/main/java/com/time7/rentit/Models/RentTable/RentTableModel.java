@@ -43,12 +43,6 @@ public class RentTableModel
         refresh();
     }
     
-    public void removeRent(int rowIndex) {
-        this.rentsList.remove(rowIndex);
-        
-        refresh();
-    }
-    
     public void editRent(int rowIndex, Rent client) {
         this.rentsList.set(rowIndex, client);
         

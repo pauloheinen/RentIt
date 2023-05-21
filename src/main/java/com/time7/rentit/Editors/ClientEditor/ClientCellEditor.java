@@ -23,7 +23,7 @@ public class ClientCellEditor
         setLocationRelativeTo(root);
     }
 
-    public void showPane() {
+    private void showPane() {
         setVisible(true);
     }
 

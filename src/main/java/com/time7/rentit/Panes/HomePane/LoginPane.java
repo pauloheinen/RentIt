@@ -11,12 +11,15 @@ public class LoginPane
     extends 
         javax.swing.JFrame {
 
-    LoginPaneController controller = new LoginPaneController(this);
+    LoginPaneController controller;
         
     public LoginPane() {
         initComponents();
+        
         this.setTitle("Bem vindo!");
         this.setLocationRelativeTo(null);
+        
+        controller = new LoginPaneController(this);
         
         getRootPane().setDefaultButton(enterButton);
     }
@@ -290,13 +293,6 @@ public class LoginPane
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_forgotPasswordActionPerformed
 
-    private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
-        String username = usernameTextField.getText();
-        String password = passwordTextField.getText();
-
-        controller.logInEmployee(username, password);
-    }//GEN-LAST:event_enterButtonActionPerformed
-
     private void exitButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButton
         close();
     }//GEN-LAST:event_exitButton
@@ -308,6 +304,13 @@ public class LoginPane
     private void mouseExit(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseExit
         exitButton.setForeground(Color.WHITE);
     }//GEN-LAST:event_mouseExit
+
+    private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
+        String username = usernameTextField.getText();
+        String password = passwordTextField.getText();
+
+        controller.logInEmployee(username, password);
+    }//GEN-LAST:event_enterButtonActionPerformed
 
     private void close(){
         this.dispose();

@@ -13,6 +13,7 @@ import javax.swing.JFrame;
  */
 public class VehicleTableController {
 
+    private boolean rentMode = false;
     private final JFrame root;
     
     public VehicleTableController(JFrame root) {
@@ -66,9 +67,5 @@ public class VehicleTableController {
                 Prompts.promptError(root, e);
             }
         }).editVehicle(vehicle);
-    }
-    
-    public void rentVehicle(Vehicle vehicle, GenericObserver observer) {
-        
     }
 }

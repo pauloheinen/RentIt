@@ -34,15 +34,15 @@ public class Rent
     @Column(name = "vehicle_id", nullable = false)
     private Long vehicleId;
     
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     @Column(name = "rent_start_dt", nullable = false)
     private Date rentStartDt;
     
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     @Column(name = "rent_end_dt", nullable = false)
     private Date rentEndDt;
     
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     @Column(name = "rent_expected_end_dt", nullable = false)
     private Date rentExpectedEndDt;
     

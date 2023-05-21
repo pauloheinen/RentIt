@@ -107,4 +107,11 @@ public class Vehicle
     public String getVehicleStatusLabel() {
         return Vehicle.STATUS[this.status];
     }
+
+    @Override
+    public String toString() {
+        return this.vehicleBrand + " " +
+               this.vehicleModel + " " +
+               this.vehiclePlate ;
+    }
 }

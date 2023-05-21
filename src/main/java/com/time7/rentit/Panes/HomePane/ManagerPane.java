@@ -14,17 +14,24 @@ public class ManagerPane
     extends
         JFrame {
     
-    public ManagerPane () {
+    private final JTabbedPane tabbedPane = new JTabbedPane();
+    private final VehicleTablePane vehicleTablePane;
+    private final ClientTablePane clientTablePane;
+    private final RentTablePane rentTablePane;
+    
+    public ManagerPane(JFrame root) {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(900, 400);
-        this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(root);
         
-        JTabbedPane tabbedPane = new JTabbedPane();
+        vehicleTablePane = new VehicleTablePane();
+        clientTablePane = new ClientTablePane();
+        rentTablePane = new RentTablePane();
         
-        tabbedPane.add("Veículos", new VehicleTablePane());
-        tabbedPane.add("Clientes", new ClientTablePane());
-        tabbedPane.add("Locações", new RentTablePane());
-        
+        tabbedPane.add("Veículos", vehicleTablePane);
+        tabbedPane.add("Clientes", clientTablePane);
+        tabbedPane.add("Locações", rentTablePane);
+                
         this.add(tabbedPane);
     }
 }

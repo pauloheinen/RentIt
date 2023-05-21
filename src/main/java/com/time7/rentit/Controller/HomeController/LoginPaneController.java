@@ -4,8 +4,8 @@ import com.time7.rentit.Entity.Employee;
 import com.time7.rentit.Panes.HomePane.ManagerPane;
 import com.time7.rentit.Prompts.Prompts;
 import com.time7.rentit.Service.Employee.EmployeeService;
+import com.time7.rentit.Utilities.EmployeeUtilities;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,8 +21,7 @@ public class LoginPaneController {
     
     public void logInEmployee(String username, String password) {
         if (username.isEmpty() || password.isEmpty()){
-            Prompts.promptInfo(root, "Preencha usuário e senha!");
-            
+            Prompts.promptWarning(root, "Preencha usuário e senha!");
             return;
         } 
         
@@ -32,13 +31,15 @@ public class LoginPaneController {
             Employee employee = service.getEmployeeByUsernameAndPassword(username, password);
             
             if (employee == null){
-                Prompts.promptInfo(null, "Não foi possível fazer login.");
+                Prompts.promptWarning(null, "Não foi possível fazer login.");
                 return;
-            } 
+            }
             
             root.dispose();
             
-            ManagerPane managerPane = new ManagerPane();
+            EmployeeUtilities.setActiveEmployee(employee);
+                    
+            ManagerPane managerPane = new ManagerPane(root);
             managerPane.setVisible(true);
         } catch (Exception e) {
             Prompts.promptError(root, e);

@@ -70,4 +70,12 @@ public class VehicleService
         
         return database.findAllBySql(Vehicle.class, sql);
     }
+
+    public List<Vehicle> getDisponibleVehicles() {
+        Database database = Database.getInstance();
+        
+        String sql = "select v from vehicles v where v.status = " + Vehicle.STATUS_DISPONIBLE;
+        
+        return database.findAllBySql(Vehicle.class, sql);
+    }
 }
