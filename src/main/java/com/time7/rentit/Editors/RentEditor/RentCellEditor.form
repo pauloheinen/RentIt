@@ -35,9 +35,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="endRentDate" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="valueField" min="-2" pref="87" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="valueFineField" min="-2" pref="76" max="-2" attributes="0"/>
+                      <Component id="valueField" min="-2" pref="100" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="valueFineField" min="-2" pref="90" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="vehicleLabel" min="-2" pref="53" max="-2" attributes="0"/>
@@ -92,16 +92,24 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="rentLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="valueFineField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="valueField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="rentLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="initialDateRent" max="32767" attributes="0"/>
+                                  <Component id="estimatedDateRent" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="initialDateRent" min="-2" max="-2" attributes="0"/>
-                          <Component id="estimatedDateRent" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="valueField" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="valueFineField" min="-2" pref="24" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="cancelButton" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="confirmButton" min="-2" max="-2" attributes="0"/>

@@ -36,6 +36,7 @@ public class RentTablePane
         rentButton = new javax.swing.JButton();
         reportButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 129, 239));
         setMaximumSize(new java.awt.Dimension(880, 339));
         setMinimumSize(new java.awt.Dimension(880, 339));
         setPreferredSize(new java.awt.Dimension(880, 339));
@@ -46,7 +47,10 @@ public class RentTablePane
         jLabel2.setText("Ações");
 
         jScrollPane1.setBackground(new java.awt.Color(0, 129, 239));
+        jScrollPane1.setForeground(new java.awt.Color(51, 51, 51));
 
+        jTable.setBackground(new java.awt.Color(147, 206, 255));
+        jTable.setForeground(new java.awt.Color(51, 51, 51));
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -60,6 +64,8 @@ public class RentTablePane
         jTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable);
 
+        rentButton.setBackground(new java.awt.Color(0, 129, 239));
+        rentButton.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         rentButton.setForeground(new java.awt.Color(255, 255, 255));
         rentButton.setText("Alugar");
         rentButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -67,8 +73,14 @@ public class RentTablePane
                 rentVehicleAction(evt);
             }
         });
+        rentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentButtonActionPerformed(evt);
+            }
+        });
 
-        reportButton.setBackground(new java.awt.Color(69, 73, 74));
+        reportButton.setBackground(new java.awt.Color(0, 129, 239));
+        reportButton.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         reportButton.setForeground(new java.awt.Color(255, 255, 255));
         reportButton.setText("Relatório");
 
@@ -78,18 +90,17 @@ public class RentTablePane
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 597, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 819, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rentButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(68, 68, 68)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(reportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(rentButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(reportButton, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,10 +109,11 @@ public class RentTablePane
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(reportButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(rentButton)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -116,6 +128,10 @@ public class RentTablePane
             }
         });
     }//GEN-LAST:event_rentVehicleAction
+
+    private void rentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rentButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;

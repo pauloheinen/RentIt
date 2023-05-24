@@ -99,14 +99,11 @@ public class RentTableModel
             case 3:
                 return this.rentsList.get(rowIndex).getVehicleId();
             case 4:
-                date = sdf.format(this.rentsList.get(rowIndex).getRentStartDt());
-                return date;
+                return date = sdf.format(this.rentsList.get(rowIndex).getRentStartDt());
             case 5:
-                date = sdf.format(this.rentsList.get(rowIndex).getRentEndDt());
-                return date;
+                return date = sdf.format(this.rentsList.get(rowIndex).getRentEndDt());
             case 6:
-                date = sdf.format(this.rentsList.get(rowIndex).getRentExpectedEndDt());
-                return date;
+                return date = sdf.format(this.rentsList.get(rowIndex).getRentExpectedEndDt());
             case 7:
                 return this.rentsList.get(rowIndex).getRentValue();
             case 8:
