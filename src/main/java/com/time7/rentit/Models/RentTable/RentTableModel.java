@@ -7,6 +7,7 @@ import com.time7.rentit.Prompts.Prompts;
 import com.time7.rentit.Service.Client.ClientService;
 import com.time7.rentit.Service.Employee.EmployeeService;
 import com.time7.rentit.Service.Rent.RentService;
+import com.time7.rentit.Utilities.FormatUtilities.Formats;
 import static java.lang.Math.toIntExact;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ public class RentTableModel
 
     private final List<Rent> rentsList = new ArrayList<>();
     private final String[] columns = {"Código","Usuário", "Cliente", "Cód Veículo", "Início", "Fim", "Fim estimado", "Valor", "Multa", "Status", "Linha"};
+    
+    Formats format = new Formats();
     
     public RentTableModel() {
         loadData();

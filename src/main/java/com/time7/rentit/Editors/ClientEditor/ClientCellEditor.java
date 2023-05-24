@@ -116,6 +116,7 @@ public class ClientCellEditor
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirmButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmButton
+        Formats removeFormat = new Formats();
         Client client;
 
         if (source != null) {
@@ -126,9 +127,11 @@ public class ClientCellEditor
             client = new Client();
         }
 
+        System.out.println(removeFormat.removeFormat(phoneTextEditor.getText()));
+        
         client.setName(nameTextEditor.getText());
         client.setEmail(emailTextEditor.getText());
-        client.setPhone(phoneTextEditor.getText());
+        client.setPhone(removeFormat.removeFormat(phoneTextEditor.getText()));
         
         callback.inform(client);
         dispose();

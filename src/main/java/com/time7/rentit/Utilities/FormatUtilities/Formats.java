@@ -1,10 +1,10 @@
 package com.time7.rentit.Utilities.FormatUtilities;
 
+import com.time7.rentit.Prompts.Prompts;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -20,20 +20,16 @@ import javax.swing.text.MaskFormatter;
 public class Formats {
     static DecimalFormat df = new DecimalFormat("#,##0.00", new DecimalFormatSymbols(new Locale("pt", "BR")));
 
-    public static String getFormat(String format) {
-        
-        MaskFormatter maskFormatter = new MaskFormatter();
-
-        maskFormatter.setPlaceholderCharacter(' ');
-        maskFormatter.setValueContainsLiteralCharacters(false);
-
+    public static String getFormat(String string, String mask) {
         try {
-            maskFormatter.setMask(format);
             
-        } catch (ParseException ex) {
-            ex.printStackTrace();
+            MaskFormatter mf = new MaskFormatter(mask);
+            mf.setValueContainsLiteralCharacters(false);
+            return mf.valueToString(string);
+        } catch (Exception e) {
+            Prompts.promptError(null, e);
         }
-        return format;
+        return null;
     }
 
     public static void formatDecimal(JTextField field) {
@@ -41,14 +37,14 @@ public class Formats {
     }
 
     public static String formatDecimal(double value) {
-        NumberFormat formatter = new DecimalFormat("###0.00");
+        NumberFormat formatter = new DecimalFormat("R$###0.00");
         return (formatter.format(value));
     }
 
-    public static String getTelephone() {
-        return getFormat("(##) #####-####");
+    public static String getTelephone(String string) {
+        return getFormat(string, "(##) #####-####");
     }
-
+    /*
     public static String getCNPJ() {
         return getFormat("##.###.###/####-##");
     }
@@ -64,7 +60,7 @@ public class Formats {
     public static String getDateTime() {
         return getFormat("##/##/#### ##:##");
     }
-
+    */
     public void formatterDecimal(JTextField field) {
         field.setText(df.format(Double.parseDouble(field.getText())));
     }
@@ -159,7 +155,7 @@ public class Formats {
     public static String removeFormat(String info) {
         String retorno = "";
         for (int i = 0; i < info.length(); i++) {
-            if (info.charAt(i) != '.' && info.charAt(i) != '/' && info.charAt(i) != '-') {
+            if (info.charAt(i) != ' ' && info.charAt(i) != ')' && info.charAt(i) != '(' && info.charAt(i) != '.' && info.charAt(i) != '/' && info.charAt(i) != '-') {
                 retorno = retorno + info.charAt(i);
             }
         }

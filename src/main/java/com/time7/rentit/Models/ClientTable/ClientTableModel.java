@@ -3,6 +3,7 @@ package com.time7.rentit.Models.ClientTable;
 import com.time7.rentit.Entity.Client;
 import com.time7.rentit.Prompts.Prompts;
 import com.time7.rentit.Service.Client.ClientService;
+import com.time7.rentit.Utilities.FormatUtilities.Formats;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -17,6 +18,7 @@ public class ClientTableModel
       
     private List<Client> clientsList = new ArrayList<>();
     private String[] columns = {"Código", "Nome", "Email", "Celular", "Linha"};
+    Formats format = new Formats();
     
     public ClientTableModel() {
         loadData();
@@ -77,7 +79,7 @@ public class ClientTableModel
             case 2:
                 return this.clientsList.get(rowIndex).getEmail();
             case 3:
-                return this.clientsList.get(rowIndex).getPhone();
+                return format.getTelephone (this.clientsList.get(rowIndex).getPhone());
             case 4:
                 return rowIndex + 1;
             default:
