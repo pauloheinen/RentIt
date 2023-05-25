@@ -2,7 +2,10 @@ package com.time7.rentit.Panes.RentPane;
 
 import com.time7.rentit.Controller.RentTableController.RentTableController;
 import com.time7.rentit.Entity.Rent;
+import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Models.RentTable.RentTableModel;
+import com.time7.rentit.Prompts.Prompts;
+import com.time7.rentit.Service.Vehicle.VehicleService;
 import com.time7.rentit.Utilities.GenericObserver;
 
 /**
@@ -35,6 +38,7 @@ public class RentTablePane
         jTable = new javax.swing.JTable();
         rentButton = new javax.swing.JButton();
         reportButton = new javax.swing.JButton();
+        rentReturn = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(1044, 339));
         setMinimumSize(new java.awt.Dimension(1044, 339));
@@ -81,23 +85,41 @@ public class RentTablePane
         reportButton.setForeground(new java.awt.Color(255, 255, 255));
         reportButton.setText("Relatório");
 
+        rentReturn.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        rentReturn.setForeground(new java.awt.Color(255, 255, 255));
+        rentReturn.setText("Devolver");
+        rentReturn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rentReturnrentVehicleAction(evt);
+            }
+        });
+        rentReturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rentReturnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 863, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 831, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(rentButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(reportButton, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                            .addContainerGap())
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(34, 34, 34)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(rentButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(reportButton, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34))))
+                        .addComponent(rentReturn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +130,9 @@ public class RentTablePane
                 .addComponent(reportButton)
                 .addGap(18, 18, 18)
                 .addComponent(rentButton)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(rentReturn)
+                .addContainerGap(183, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
@@ -128,11 +152,47 @@ public class RentTablePane
         // TODO add your handling code here:
     }//GEN-LAST:event_rentButtonActionPerformed
 
+    private void rentReturnrentVehicleAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rentReturnrentVehicleAction
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rentReturnrentVehicleAction
+
+    private void rentReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentReturnActionPerformed
+        int selectedRow = getSelectedRow();
+        
+        if (selectedRow < 0) {
+            Prompts.promptWarning(this, "Necessário selecionar uma locação");
+            return;
+        } else {
+            try {
+                Long vehicleId = (Long) this.jTable.getValueAt(selectedRow, 3);
+                
+                VehicleService vehicleService = VehicleService.getInstance();
+                
+                Vehicle vehicle = new Vehicle();
+                
+                vehicle = vehicleService.getVehicleById(vehicleId);
+                
+                if (vehicle.getStatus() == 1) {
+                    Prompts.promptWarning(this, "Este veículo não está alugado. \nCódigo veículo: " + vehicle.getId());
+                } else {
+                    System.out.println("ABRIU TELA DE DEVOLVER");
+                }
+            } catch (Exception e) {
+                Prompts.promptError(this, e);
+            }
+        }
+    }//GEN-LAST:event_rentReturnActionPerformed
+
+    private int getSelectedRow() {
+        return this.jTable.getSelectedRow();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable;
     private javax.swing.JButton rentButton;
+    private javax.swing.JButton rentReturn;
     private javax.swing.JButton reportButton;
     // End of variables declaration//GEN-END:variables
 }

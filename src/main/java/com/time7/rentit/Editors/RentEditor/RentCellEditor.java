@@ -220,9 +220,6 @@ public class RentCellEditor
 
                 Rent rent = new Rent();
                 
-                System.out.println(initialDateRent.getDate());
-                System.out.println(endDateRent.getDate());
-                
                 rent.setEmployeeId(employee.getId());
                 rent.setClientId(client.getId());
                 rent.setVehicleId(vehicle.getId());
