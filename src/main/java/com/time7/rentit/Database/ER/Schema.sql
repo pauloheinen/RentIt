@@ -48,7 +48,7 @@ create table rents (
     client_id int not null,
     vehicle_id int not null,
     rent_start_dt date not null,
-    rent_end_dt date not null,
+    rent_end_dt date,
     rent_expected_end_dt date not null,
     rent_value double null,
     status tinyint not null,
