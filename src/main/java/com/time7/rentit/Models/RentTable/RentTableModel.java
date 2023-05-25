@@ -108,9 +108,9 @@ public class RentTableModel
             case 6:
                 return date = sdf.format(this.rentsList.get(rowIndex).getRentExpectedEndDt());
             case 7:
-                return this.rentsList.get(rowIndex).getRentValue();
+                return format.formatDoubleDecimal(this.rentsList.get(rowIndex).getRentValue());
             case 8:
-                return this.rentsList.get(rowIndex).getRentValueFine();
+                return format.formatDoubleDecimal(this.rentsList.get(rowIndex).getRentValueFine());
             case 9:
                 return this.rentsList.get(rowIndex).getRentStatusLabel();
             case 10:

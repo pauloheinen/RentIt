@@ -1,7 +1,12 @@
 package com.time7.rentit.Editors.RentEditor;
 
+import com.time7.rentit.Entity.Client;
+import com.time7.rentit.Entity.Employee;
+import com.time7.rentit.Entity.Rent;
+import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Prompts.Prompts;
 import com.time7.rentit.Service.Client.ClientService;
+import com.time7.rentit.Service.Rent.RentService;
 import com.time7.rentit.Service.Vehicle.VehicleService;
 import com.time7.rentit.Utilities.EmployeeUtilities;
 import com.time7.rentit.Utilities.FormatUtilities.Formats;
@@ -19,14 +24,18 @@ public class RentCellEditor
         javax.swing.JFrame {
 
     private GenericObserver callback;
+    Formats format = new Formats();
     
     public RentCellEditor(JFrame root, GenericObserver callback) {
         this.callback = callback;
         
         setLocationRelativeTo(root);
         initComponents();
-        Formats.formatDecimal(valueField);
-        Formats.formatDecimal(valueFineField);
+        //Formats.formatDecimal(valueField);
+        //Formats.formatDecimal(valueFineField);
+        //Formats.adjustDateDMA(endRentDate.toString());
+        //Formats.adjustDateDMA(estimatedDateRent.toString());
+        //Formats.adjustDateDMA(initialDateRent.toString());
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -195,26 +204,30 @@ public class RentCellEditor
     
     private void confirmRentAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmRentAction
         try {
-//            Vehicle vehicle = (Vehicle) vehicleComboBox.getSelectedItem();
-//            Client client = (Client) clientComboBox.getSelectedItem();
-//            Employee employee = EmployeeUtilities.getActiveEmployee();
-//            
-//            Rent rent = new Rent();
-//            
-//            rent.setEmployeeId(employee.getId());
-//            rent.setClientId(client.getId());
-//            rent.setVehicleId(vehicle.getId());
-//            rent.setRentStartDt(initialDateRent.getDate());
-//            rent.setRentEndDt(endRentDate.getDate());
-//            rent.setRentExpectedEndDt(estimatedDateRent.getDate());
-//            rent.setRentValue((Double)valueField.getValue());
-//            rent.setRentValueFine((Double)valueFineField.getValue());
-//            rent.setStatus(Rent.STATUS_OPEN);
-//            
-//            RentService.getInstance().createRent(rent);
+            Vehicle vehicle = (Vehicle) vehicleComboBox.getSelectedItem();
+            if (vehicle != null) {
+                Client client = (Client) clientComboBox.getSelectedItem();
+                Employee employee = EmployeeUtilities.getActiveEmployee();
 
-//        callback.inform(rent);
-        dispose();
+                Rent rent = new Rent();
+
+                rent.setEmployeeId(employee.getId());
+                rent.setClientId(client.getId());
+                rent.setVehicleId(vehicle.getId());
+                rent.setRentStartDt(initialDateRent.getDate());
+                rent.setRentEndDt(endRentDate.getDate());
+                rent.setRentExpectedEndDt(estimatedDateRent.getDate());
+                rent.setRentValue((Double)valueField.getValue());
+                rent.setRentValueFine((Double)valueFineField.getValue());
+                rent.setStatus(Rent.STATUS_OPEN);
+
+                RentService.getInstance().createRent(rent);
+
+                callback.inform(rent);
+                dispose();
+            } else {
+                Prompts.promptWarning(this, "Veículo não selecionado ou não há veículos disponíveis.");
+            }
         } catch (Exception e) {
             Prompts.promptError(this, e);
         }

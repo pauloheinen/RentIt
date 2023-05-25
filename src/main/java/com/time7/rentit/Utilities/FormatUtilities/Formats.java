@@ -36,85 +36,17 @@ public class Formats {
         field.setText(df.format(Double.parseDouble(field.getText())));
     }
 
-    public static String formatDecimal(double value) {
-        NumberFormat formatter = new DecimalFormat("R$###0.00");
+    public static String formatDoubleDecimal(double value) {
+        NumberFormat formatter = new DecimalFormat("'R$ '###0.00");
         return (formatter.format(value));
     }
 
     public static String getTelephone(String string) {
         return getFormat(string, "(##) #####-####");
     }
-    /*
-    public static String getCNPJ() {
-        return getFormat("##.###.###/####-##");
-    }
-
-    public static String getCPF() {
-        return getFormat("###.###.###-##");
-    }
-
-    public static String getDate() {
-        return getFormat("##/##/####");
-    }
-
-    public static String getDateTime() {
-        return getFormat("##/##/#### ##:##");
-    }
-    */
+  
     public void formatterDecimal(JTextField field) {
         field.setText(df.format(Double.parseDouble(field.getText())));
-    }
-
-    public static void formatDate(JFormattedTextField field) {
-        try {
-            MaskFormatter m = new MaskFormatter();
-            m.setPlaceholderCharacter(' ');
-            m.setMask("##/##/####");
-            field.setFormatterFactory(null);
-            field.setFormatterFactory(new DefaultFormatterFactory(m));
-            field.setValue(null);
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-    }
-    
-     public static void formatDateTime(JFormattedTextField field) {
-        try {
-            MaskFormatter m = new MaskFormatter();
-            m.setPlaceholderCharacter(' ');
-            m.setMask("##/##/#### ##:##");
-            field.setFormatterFactory(null);
-            field.setFormatterFactory(new DefaultFormatterFactory(m));
-            field.setValue(null);
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-    }
-
-    public static void formatCpf(JFormattedTextField field) {
-        try {
-            MaskFormatter m = new MaskFormatter();
-            m.setPlaceholderCharacter(' ');
-            m.setMask("###.###.###-##");
-            field.setFormatterFactory(null);
-            field.setFormatterFactory(new DefaultFormatterFactory(m));
-            field.setValue(null);
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-    }
-
-    public static void formatCnpj(JFormattedTextField field) {
-        try {
-            MaskFormatter m = new MaskFormatter();
-            m.setPlaceholderCharacter(' ');
-            m.setMask("##.###.###/####-##");
-            field.setFormatterFactory(null);
-            field.setFormatterFactory(new DefaultFormatterFactory(m));
-            field.setValue(null);
-        } catch (Exception e) {
-            System.err.println(e);
-        }
     }
 
     public static void formatTelephone(JFormattedTextField field) {

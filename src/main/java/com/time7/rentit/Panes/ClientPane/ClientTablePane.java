@@ -71,6 +71,7 @@ public class ClientTablePane
             }
         });
 
+        jTable.setForeground(new java.awt.Color(255, 255, 255));
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -137,15 +138,16 @@ public class ClientTablePane
     private void editButton(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editButton
         int selectedRow = getSelectedRow();
         
-        if (! isRowSelected()) {
-            Prompts.promptInfo(this, "Necessário selecionar um cliente");
-        }
-        
-        Client client = clientTableModel.getClient(selectedRow);
+        if (selectedRow < 0) {
+            Prompts.promptWarning(this, "Necessário selecionar um cliente");
+            return;
+        } else {
+            Client client = clientTableModel.getClient(selectedRow);
 
-        controller.editClient(client, (Object object) -> {
-            clientTableModel.editClient(selectedRow, Client.class.cast(object));
-        });
+            controller.editClient(client, (Object object) -> {
+                clientTableModel.editClient(selectedRow, Client.class.cast(object));
+            });
+        }    
     }//GEN-LAST:event_editButton
 
     private int getSelectedRow() {

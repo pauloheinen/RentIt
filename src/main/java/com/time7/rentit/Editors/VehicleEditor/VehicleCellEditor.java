@@ -57,13 +57,7 @@ public class VehicleCellEditor
         setResizable(false);
         setType(java.awt.Window.Type.UTILITY);
 
-        brandTextEditor.setText("Marca");
-
-        modelTextEditor.setText("Modelo");
-
-        plateTextEditor.setText("Placa");
-
-        yearTextEditor.setText("Ano");
+        brandTextEditor.setToolTipText("");
 
         confirmButton.setText("Confirmar");
         confirmButton.setBorderPainted(false);
@@ -188,7 +182,7 @@ public class VehicleCellEditor
         vehicle.setVehicleBrand(brandTextEditor.getText());
         vehicle.setVehicleModel(modelTextEditor.getText());
         vehicle.setVehicleYear(yearTextEditor.getText());
-        vehicle.setVehiclePlate(plateTextEditor.getText());
+        vehicle.setVehiclePlate(plateTextEditor.getText().toUpperCase());
         vehicle.setType(typeComboBox.getSelectedIndex());
         vehicle.setStatus(statusComboBox.getSelectedIndex());
         

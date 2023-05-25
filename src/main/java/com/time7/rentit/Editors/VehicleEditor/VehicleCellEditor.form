@@ -123,23 +123,14 @@
   <SubComponents>
     <Component class="javax.swing.JTextField" name="brandTextEditor">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Marca"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="modelTextEditor">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Modelo"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="plateTextEditor">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Placa"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="yearTextEditor">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ano"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="confirmButton">
       <Properties>
