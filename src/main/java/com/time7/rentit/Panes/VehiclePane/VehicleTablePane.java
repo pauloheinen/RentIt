@@ -125,10 +125,11 @@ public class VehicleTablePane
         
         int selectedRow = getSelectedRow();
         
-        Object object1 = this.jTable.getValueAt(selectedRow, vehicleTableModel.getColumnCount()-1);
-        int id = object1.hashCode();
-        Long idVehicleRemove = Long.valueOf(id);
-        controller.removeVehicle(idVehicleRemove, (Object object) -> {
+        Long vehicleId = (Long) this.jTable.getValueAt(selectedRow, 0);
+        
+        System.out.println(vehicleId);
+        
+        controller.removeVehicle(vehicleId, (Object object) -> {
             vehicleTableModel.removeVehicle(selectedRow);
         });
     }//GEN-LAST:event_removeVehicleAction

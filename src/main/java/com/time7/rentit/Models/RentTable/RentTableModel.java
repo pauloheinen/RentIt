@@ -23,7 +23,7 @@ public class RentTableModel
         AbstractTableModel {
 
     private final List<Rent> rentsList = new ArrayList<>();
-    private final String[] columns = {"Código","Usuário", "Cliente", "Cód Veículo", "Início", "Fim", "Fim estimado", "Valor", "Multa", "Status", "Linha"};
+    private final String[] columns = {"Código","Usuário", "Cliente", "Cód Veículo", "Início", "Fim", "Fim estimado", "Valor", "Status", "Linha"};
     
     Formats format = new Formats();
     
@@ -110,10 +110,8 @@ public class RentTableModel
             case 7:
                 return format.formatDoubleDecimal(this.rentsList.get(rowIndex).getRentValue());
             case 8:
-                return format.formatDoubleDecimal(this.rentsList.get(rowIndex).getRentValueFine());
-            case 9:
                 return this.rentsList.get(rowIndex).getRentStatusLabel();
-            case 10:
+            case 9:
                 return rowIndex + 1;    
             default:
                 return this.rentsList.get(rowIndex);

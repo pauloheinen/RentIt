@@ -44,7 +44,6 @@ public class RentService
         find.setRentEndDt(rent.getRentEndDt());
         find.setRentExpectedEndDt(rent.getRentExpectedEndDt());
         find.setRentValue(rent.getRentValue());
-        find.setRentValueFine(rent.getRentValueFine());
         find.setStatus(rent.getStatus());
         
         database.update(find);

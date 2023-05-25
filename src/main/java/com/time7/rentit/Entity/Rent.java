@@ -49,9 +49,6 @@ public class Rent
     @Column(name = "rent_value", nullable = false)
     private double rentValue;
     
-    @Column(name = "rent_value_fine", nullable = false)
-    private double rentValueFine;
-    
     @Column(name = "status", nullable = false)
     private int status;
 
@@ -117,14 +114,6 @@ public class Rent
 
     public void setRentValue(double rentValue) {
         this.rentValue = rentValue;
-    }
-
-    public double getRentValueFine() {
-        return rentValueFine;
-    }
-
-    public void setRentValueFine(double rentValueFine) {
-        this.rentValueFine = rentValueFine;
     }
 
     public int getStatus() {
