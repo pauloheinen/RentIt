@@ -51,7 +51,6 @@ create table rents (
     rent_end_dt date not null,
     rent_expected_end_dt date not null,
     rent_value double null,
-    rent_value_fine double null,
     status tinyint not null,
     primary key (id),
     FOREIGN KEY (client_id) REFERENCES clients (id),
