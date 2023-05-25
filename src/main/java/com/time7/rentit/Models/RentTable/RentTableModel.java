@@ -11,6 +11,7 @@ import com.time7.rentit.Utilities.FormatUtilities.Formats;
 import static java.lang.Math.toIntExact;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -104,7 +105,13 @@ public class RentTableModel
             case 4:
                 return date = sdf.format(this.rentsList.get(rowIndex).getRentStartDt());
             case 5:
-                return date = sdf.format(this.rentsList.get(rowIndex).getRentEndDt());
+                Date endDate = this.rentsList.get(rowIndex).getRentEndDt();
+                if (endDate == null) {
+                    return endDate;
+                } else if (endDate != null) {
+                    return sdf.format(endDate);
+                }
+                
             case 6:
                 return date = sdf.format(this.rentsList.get(rowIndex).getRentExpectedEndDt());
             case 7:

@@ -39,7 +39,7 @@ public class Rent
     private Date rentStartDt;
     
     @Temporal(TemporalType.DATE)
-    @Column(name = "rent_end_dt", nullable = false)
+    @Column(name = "rent_end_dt", nullable = true)
     private Date rentEndDt;
     
     @Temporal(TemporalType.DATE)
