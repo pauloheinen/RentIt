@@ -5,6 +5,7 @@ import com.time7.rentit.Controller.VehicleTableController.VehicleTableController
 import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Models.VehicleTable.VehicleTableModel;
 import com.time7.rentit.Prompts.Prompts;
+import com.time7.rentit.Service.Vehicle.VehicleService;
 
 /**
  *
@@ -124,12 +125,22 @@ public class VehicleTablePane
         }
         
         int selectedRow = getSelectedRow();
-        
-        Long vehicleId = (Long) this.jTable.getValueAt(selectedRow, 0);
-               
-        controller.removeVehicle(vehicleId, (Object object) -> {
-            vehicleTableModel.removeVehicle(selectedRow);
-        });
+        try {
+            Long vehicleId = (Long) this.jTable.getValueAt(selectedRow, 0);
+            VehicleService vehicleService = VehicleService.getInstance();
+            Vehicle vehicle = new Vehicle();
+            vehicle = vehicleService.getVehicleById(vehicleId);
+            
+            if (vehicle.getStatus() == 0) {
+                Prompts.promptWarning(this, "Este veículo está alugado, não é possível removê-lo.");
+            } else {
+                controller.removeVehicle(vehicleId, (Object object) -> {
+                    vehicleTableModel.removeVehicle(selectedRow);
+                });
+            }
+        } catch (Exception e) {
+            Prompts.promptError(this, e);
+        }
     }//GEN-LAST:event_removeVehicleAction
 
     private void addVehicleAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addVehicleAction

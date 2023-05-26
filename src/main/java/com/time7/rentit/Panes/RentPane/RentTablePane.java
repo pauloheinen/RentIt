@@ -173,9 +173,13 @@ public class RentTablePane
                 vehicle = vehicleService.getVehicleById(vehicleId);
                 
                 if (vehicle.getStatus() == 1) {
-                    Prompts.promptWarning(this, "Este veículo não está alugado. \nCódigo veículo: " + vehicle.getId());
+                    Prompts.promptWarning(this, "Este veículo não está alugado. \nCódigo veículo: " + vehicle.getId() + "\nLinha: " + selectedRow);
                 } else {
-                    System.out.println("ABRIU TELA DE DEVOLVER");
+                    Rent rent = rentTableModel.getRent(selectedRow);
+                    
+                    controller.editRent(rent, (Object object) -> {
+                        rentTableModel.editRent(selectedRow, Rent.class.cast(object));
+                    });
                 }
             } catch (Exception e) {
                 Prompts.promptError(this, e);

@@ -24,6 +24,7 @@ public class RentCellEditor
         javax.swing.JFrame {
 
     private GenericObserver callback;
+    private Rent source;
        
     public RentCellEditor(JFrame root, GenericObserver callback) {
         this.callback = callback;
@@ -241,6 +242,21 @@ public class RentCellEditor
         }
     }//GEN-LAST:event_confirmRentAction
 
+    public void editRent(Rent rent) {
+        source = rent;
+        
+        initialDateRent.setEnabled(false);
+        initialDateRent.setDate(source.getRentStartDt());
+        
+        estimatedDateRent.setEnabled(false);
+        estimatedDateRent.setDate(source.getRentExpectedEndDt());
+        
+        endDateRent.setEnabled(false);
+        endDateRent.setDate(source.getRentExpectedEndDt());
+        
+        showPane();
+    }
+    
     private void cancelRentAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelRentAction
         this.dispose();
     }//GEN-LAST:event_cancelRentAction

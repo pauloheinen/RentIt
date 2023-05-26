@@ -114,6 +114,7 @@ public class LoginPane
         usernameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         usernameTextField.setCaretPosition(1);
         usernameTextField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        usernameTextField.setFocusTraversalPolicyProvider(true);
         usernameTextField.setSelectedTextColor(new java.awt.Color(0, 116, 255));
         usernameTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -125,6 +126,7 @@ public class LoginPane
         passwordTextField.setText("12345678");
         passwordTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         passwordTextField.setDoubleBuffered(true);
+        passwordTextField.setFocusTraversalPolicyProvider(true);
         passwordTextField.setSelectedTextColor(new java.awt.Color(0, 116, 255));
         passwordTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
