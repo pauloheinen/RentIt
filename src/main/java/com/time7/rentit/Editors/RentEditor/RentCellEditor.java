@@ -290,12 +290,11 @@ public class RentCellEditor
             Long employeeLongId = source.getEmployeeId();
             int employeeId = (int) (long) employeeLongId;
             EmployeeService employeeService = EmployeeService.getInstance();
-            Employee employee = new Employee();
-            employee = employeeService.getEmployeeById(employeeId);
+            Employee employee = employeeService.getEmployeeById(employeeId);
             employeeName.setText(employee.getName());
             
-            //Object[] vehicles = VehicleService.getInstance().getRentsVehicles().toArray();
-            //vehicleComboBox.setModel(new DefaultComboBoxModel<>(vehicles.));
+            Object[] vehicles = VehicleService.getInstance().getRentsVehicles().toArray();
+            vehicleComboBox.setModel(new DefaultComboBoxModel<>(vehicles));
             Long vehicleLongId = source.getVehicleId();
             Vehicle vehicle = VehicleService.getInstance().getVehicleById(vehicleLongId);
             vehicleComboBox.setSelectedItem(vehicle);
@@ -317,6 +316,9 @@ public class RentCellEditor
             Double value = source.getRentValue();
             String valueRent = value.toString();
             valueField.setText(valueRent);
+            
+            RentService.getInstance().updateRent(rent);
+            
         } catch (Exception e) {
             Prompts.promptError(this, e);
         }
@@ -342,7 +344,32 @@ public class RentCellEditor
     }//GEN-LAST:event_valueFieldKeyTyped
 
     private void returnRentButtonconfirmRentAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnRentButtonconfirmRentAction
-        // TODO add your handling code here:
+        try {
+            Vehicle vehicle = (Vehicle) vehicleComboBox.getSelectedItem();
+            Client client = (Client) clientComboBox.getSelectedItem();
+            Employee employee = EmployeeUtilities.getActiveEmployee();
+
+            Rent rent = new Rent();
+
+            rent.setEmployeeId(employee.getId());
+            rent.setClientId(client.getId());
+            rent.setVehicleId(vehicle.getId());
+            rent.setRentStartDt(initialDateRent.getDate());
+            rent.setRentEndDt(endDateRent.getDate());
+            rent.setRentExpectedEndDt(estimatedDateRent.getDate());
+            rent.setRentValue(Double.parseDouble(valueField.getText()));
+            rent.setStatus(Rent.STATUS_CLOSED);
+            vehicle.setStatus(0);
+
+            RentService.getInstance().updateRent(rent);
+            VehicleService.getInstance().updateVehicle(vehicle);
+            callback.inform(rent);
+
+            dispose();
+        } catch (Exception e) {
+            Prompts.promptError(this, e);
+        }
+
     }//GEN-LAST:event_returnRentButtonconfirmRentAction
 
     private void showPane() {
