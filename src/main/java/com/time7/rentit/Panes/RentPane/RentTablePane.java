@@ -172,7 +172,7 @@ public class RentTablePane
                 
                 vehicle = vehicleService.getVehicleById(vehicleId);
                 
-                if (vehicle.getStatus() == 1) {
+                if (vehicle.getStatus() == 0) {
                     Prompts.promptWarning(this, "Este veículo não está alugado. \nCódigo veículo: " + vehicle.getId() + "\nLinha: " + selectedRow);
                 } else {
                     Rent rent = rentTableModel.getRent(selectedRow);

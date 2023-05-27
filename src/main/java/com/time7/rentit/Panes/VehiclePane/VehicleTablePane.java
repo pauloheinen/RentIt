@@ -37,6 +37,7 @@ public class VehicleTablePane
         addButon = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         editButtton = new javax.swing.JButton();
+        jButtonRefresh = new javax.swing.JButton();
 
         jScrollPane1.setBackground(new java.awt.Color(0, 129, 239));
 
@@ -51,7 +52,6 @@ public class VehicleTablePane
             }
         ));
         jTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jTable.setShowHorizontalLines(true);
         jScrollPane1.setViewportView(jTable);
 
         removeButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -84,6 +84,13 @@ public class VehicleTablePane
             }
         });
 
+        jButtonRefresh.setText("Atualizar");
+        jButtonRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRefreshActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,7 +103,8 @@ public class VehicleTablePane
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
                     .addComponent(addButon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(editButtton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(removeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(removeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -113,6 +121,8 @@ public class VehicleTablePane
                         .addComponent(editButtton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(removeButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonRefresh)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -163,6 +173,10 @@ public class VehicleTablePane
         });
     }//GEN-LAST:event_editVehicleAction
 
+    private void jButtonRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRefreshActionPerformed
+        this.jTable.setModel(vehicleTableModel);
+    }//GEN-LAST:event_jButtonRefreshActionPerformed
+
     private int getSelectedRow() {
         return this.jTable.getSelectedRow();
     }
@@ -174,6 +188,7 @@ public class VehicleTablePane
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButon;
     private javax.swing.JButton editButtton;
+    private javax.swing.JButton jButtonRefresh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable;
