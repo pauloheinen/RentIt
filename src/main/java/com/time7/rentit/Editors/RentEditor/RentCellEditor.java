@@ -78,7 +78,7 @@ public class RentCellEditor
             }
         });
 
-        cancelButton.setText("Cancela");
+        cancelButton.setText("Cancelar");
         cancelButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cancelRentAction(evt);
@@ -218,8 +218,9 @@ public class RentCellEditor
         
         Date initialDate = initialDateRent.getDate();
         Date estimatedDate = estimatedDateRent.getDate();
+        Date endDate = endDateRent.getDate();
         String value = valueField.getText();
-        
+                
         if (initialDate == null || estimatedDate == null || value.equals("")) {
             Prompts.promptWarning(this, "Preencha as datas e o valor da locação.");
         } else {
@@ -231,21 +232,36 @@ public class RentCellEditor
 
                 Rent rent = new Rent();
                 
-                rent.setEmployeeId(employee.getId());
-                rent.setClientId(client.getId());
-                rent.setVehicleId(vehicle.getId());
-                rent.setRentStartDt(initialDateRent.getDate());
-                rent.setRentEndDt(endDateRent.getDate());
-                rent.setRentExpectedEndDt(estimatedDateRent.getDate());
-                rent.setRentValue(Double.parseDouble(valueField.getText()));
-                rent.setStatus(Rent.STATUS_OPEN);
-                vehicle.setStatus(1);
-                
-                
-                RentService.getInstance().createRent(rent);
-                VehicleService.getInstance().updateVehicle(vehicle);
+                if (endDate != null) {
 
-                callback.inform(rent);
+                    rent.setEmployeeId(employee.getId());
+                    rent.setClientId(client.getId());
+                    rent.setVehicleId(vehicle.getId());
+                    rent.setRentStartDt(initialDateRent.getDate());
+                    rent.setRentEndDt(endDateRent.getDate());
+                    rent.setRentExpectedEndDt(estimatedDateRent.getDate());
+                    rent.setRentValue(Double.parseDouble(valueField.getText()));
+                    rent.setStatus(Rent.STATUS_CLOSED);
+                    vehicle.setStatus(0);
+                    
+                    RentService.getInstance().updateRent(rent);
+                    VehicleService.getInstance().updateVehicle(vehicle);
+                    callback.inform(rent);
+                } else {
+                    rent.setEmployeeId(employee.getId());
+                    rent.setClientId(client.getId());
+                    rent.setVehicleId(vehicle.getId());
+                    rent.setRentStartDt(initialDateRent.getDate());
+                    rent.setRentEndDt(endDateRent.getDate());
+                    rent.setRentExpectedEndDt(estimatedDateRent.getDate());
+                    rent.setRentValue(Double.parseDouble(valueField.getText()));
+                    rent.setStatus(Rent.STATUS_OPEN);
+                    vehicle.setStatus(1);
+                    
+                    RentService.getInstance().createRent(rent);
+                    VehicleService.getInstance().updateVehicle(vehicle);
+                    callback.inform(rent);
+                }
                 dispose();
             } else {
                 Prompts.promptWarning(this, "Veículo não selecionado ou não há veículos disponíveis.");
@@ -267,32 +283,38 @@ public class RentCellEditor
             employee = employeeService.getEmployeeById(employeeId);
             employeeName.setText(employee.getName());
             
+            vehicleComboBox.setEnabled(false);
+            Object[] vehicles = VehicleService.getInstance().getRentsVehicles().toArray();
+            vehicleComboBox.setModel(new DefaultComboBoxModel<>(vehicles));
             Long vehicleLongId = source.getVehicleId();
-            //int vehicleId = (int) (long) vehicleLongId;
-            VehicleService vehicleService = VehicleService.getInstance();
-            Vehicle vehicle = new Vehicle();
-            vehicle = vehicleService.getVehicleById(vehicleLongId);
+            Vehicle vehicle = VehicleService.getInstance().getVehicleById(vehicleLongId);
             vehicleComboBox.setSelectedItem(vehicle);
             
+            clientComboBox.setEnabled(false);
+            Object[] clients = ClientService.getInstance().getClients().toArray();
+            clientComboBox.setModel(new DefaultComboBoxModel<>(clients));
+            Long clientLongId = source.getClientId();
+            String idClientString = clientLongId.toString();
+            int idClient = Integer.parseInt(idClientString);
+            Client client = ClientService.getInstance().getClientById(idClient);
+            clientComboBox.setSelectedItem(client);
             
+            initialDateRent.setEnabled(false);
+            initialDateRent.setDate(source.getRentStartDt());
+
+            estimatedDateRent.setEnabled(false);
+            estimatedDateRent.setDate(source.getRentExpectedEndDt());
+
+            endDateRent.setEnabled(true);
+            endDateRent.setDate(source.getRentExpectedEndDt());
+
+            valueField.setEnabled(true);
+            Double value = source.getRentValue();
+            String valueRent = value.toString();
+            valueField.setText(valueRent);
         } catch (Exception e) {
             Prompts.promptError(this, e);
         }
-        
-        initialDateRent.setEnabled(false);
-        initialDateRent.setDate(source.getRentStartDt());
-        
-        estimatedDateRent.setEnabled(false);
-        estimatedDateRent.setDate(source.getRentExpectedEndDt());
-        
-        endDateRent.setEnabled(true);
-        endDateRent.setDate(source.getRentExpectedEndDt());
-        
-        valueField.setEnabled(true);
-        Double value = source.getRentValue();
-        String valueRent = value.toString();
-        valueField.setText(valueRent);
-        
         showPane();
     }
     
@@ -309,7 +331,6 @@ public class RentCellEditor
         
         try {           
             double parseDouble = Double.parseDouble(valueField.getText() + evt.getKeyChar() );
-            System.out.println(parseDouble);            
         } catch (Exception e) {
             evt.consume();
         }

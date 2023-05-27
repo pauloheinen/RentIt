@@ -167,13 +167,11 @@ public class RentTablePane
                 Long vehicleId = (Long) this.jTable.getValueAt(selectedRow, 3);
                 
                 VehicleService vehicleService = VehicleService.getInstance();
-                
                 Vehicle vehicle = new Vehicle();
-                
                 vehicle = vehicleService.getVehicleById(vehicleId);
                 
                 if (vehicle.getStatus() == 0) {
-                    Prompts.promptWarning(this, "Este veículo não está alugado. \nCódigo veículo: " + vehicle.getId() + "\nLinha: " + selectedRow);
+                    Prompts.promptWarning(this, "Este veículo não está alugado. \nCódigo veículo: " + vehicle.getId() + "\nVeículo: " + vehicle.getVehicleModel());
                 } else {
                     Rent rent = rentTableModel.getRent(selectedRow);
                     

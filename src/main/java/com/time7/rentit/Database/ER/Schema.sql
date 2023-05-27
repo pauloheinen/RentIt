@@ -1,7 +1,7 @@
 -- -----------------------------------
 -- Database rentitdb
 -- -----------------------------------
-create database rentitdb;
+-- create database rentitdb;
 
 -- -----------------------------------
 -- Table employees
