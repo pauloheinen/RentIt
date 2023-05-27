@@ -20,12 +20,12 @@ public class Vehicle
         "Van"
     };
     
-    public static final int STATUS_RENT = 0;
-    public static final int STATUS_DISPONIBLE = 1;
+    public static final int STATUS_DISPONIBLE = 0;
+    public static final int STATUS_RENT = 1;
     
     public static String[] STATUS = new String[] {
-        "Alugado",
-        "Disponível"
+        "Disponível",
+        "Alugado"
     };
     
     @Id

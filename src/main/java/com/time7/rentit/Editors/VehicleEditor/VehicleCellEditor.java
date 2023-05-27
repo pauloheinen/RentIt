@@ -25,6 +25,8 @@ public class VehicleCellEditor
         
         statusComboBox.setModel(new DefaultComboBoxModel<>(Vehicle.STATUS));
         typeComboBox.setModel(new DefaultComboBoxModel<>(Vehicle.TYPES));
+        
+        statusComboBox.setEnabled(false);
     }
 
     public void showPane() {

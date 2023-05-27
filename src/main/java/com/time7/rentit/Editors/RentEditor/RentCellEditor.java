@@ -239,8 +239,11 @@ public class RentCellEditor
                 rent.setRentExpectedEndDt(estimatedDateRent.getDate());
                 rent.setRentValue(Double.parseDouble(valueField.getText()));
                 rent.setStatus(Rent.STATUS_OPEN);
+                vehicle.setStatus(1);
+                
                 
                 RentService.getInstance().createRent(rent);
+                VehicleService.getInstance().updateVehicle(vehicle);
 
                 callback.inform(rent);
                 dispose();
