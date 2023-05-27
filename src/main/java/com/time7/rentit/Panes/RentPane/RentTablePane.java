@@ -2,10 +2,9 @@ package com.time7.rentit.Panes.RentPane;
 
 import com.time7.rentit.Controller.RentTableController.RentTableController;
 import com.time7.rentit.Entity.Rent;
-import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Models.RentTable.RentTableModel;
 import com.time7.rentit.Prompts.Prompts;
-import com.time7.rentit.Service.Vehicle.VehicleService;
+import com.time7.rentit.Service.Rent.RentService;
 import com.time7.rentit.Utilities.GenericObserver;
 
 /**
@@ -18,6 +17,7 @@ public class RentTablePane
     
     private final RentTableModel rentTableModel;
     private final RentTableController controller;
+    
 
     public RentTablePane() {
         initComponents();
@@ -159,25 +159,33 @@ public class RentTablePane
     private void rentReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentReturnActionPerformed
         int selectedRow = getSelectedRow();
         
+        
         if (selectedRow < 0) {
             Prompts.promptWarning(this, "Necessário selecionar uma locação");
             return;
         } else {
             try {
-                Long vehicleId = (Long) this.jTable.getValueAt(selectedRow, 3);
+                Long rentId = (Long) this.jTable.getValueAt(selectedRow, 0);
                 
-                VehicleService vehicleService = VehicleService.getInstance();
-                Vehicle vehicle = new Vehicle();
-                vehicle = vehicleService.getVehicleById(vehicleId);
+                RentService rentService = RentService.getInstance();
+                Rent rent = new Rent();
+                rent = rentService.getRentById(rentId);
                 
-                if (vehicle.getStatus() == 0) {
-                    Prompts.promptWarning(this, "Este veículo não está alugado. \nCódigo veículo: " + vehicle.getId() + "\nVeículo: " + vehicle.getVehicleModel());
+                if (rent.getStatus() == 0) {
+                    Prompts.promptWarning(this, "Esta locação já está encerrada.\nCódigo locação: " + rent.getId() + "\nVeículo: " + rent.getVehicleId());
                 } else {
-                    Rent rent = rentTableModel.getRent(selectedRow);
+                    rent = rentTableModel.getRent(selectedRow);
                     
-                    controller.editRent(rent, (Object object) -> {
-                        rentTableModel.editRent(selectedRow, Rent.class.cast(object));
-                    });
+                   // controller.editRent(rent, (Object object) -> {
+                   //     rentTableModel.editRent(selectedRow, Rent.class.cast(object));
+                   // });
+                    
+                    controller.editRent(rent, new GenericObserver() {
+                    @Override
+                    public void inform(Object object) {
+                        rentTableModel.insertRent(Rent.class.cast(object));
+                    }
+                     });
                 }
             } catch (Exception e) {
                 Prompts.promptError(this, e);

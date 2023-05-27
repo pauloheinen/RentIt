@@ -45,7 +45,7 @@ public class RentCellEditor
         rentLabel = new javax.swing.JLabel();
         employeeLabel = new javax.swing.JLabel();
         employeeName = new javax.swing.JLabel();
-        confirmButton = new javax.swing.JButton();
+        rentButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         initialDateRent = new com.toedter.calendar.JDateChooser();
         estimatedDateRent = new com.toedter.calendar.JDateChooser();
@@ -55,6 +55,7 @@ public class RentCellEditor
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        returnRentButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -71,8 +72,8 @@ public class RentCellEditor
         employeeName.setMinimumSize(new java.awt.Dimension(5, 5));
         employeeName.setPreferredSize(new java.awt.Dimension(5, 5));
 
-        confirmButton.setText("Confirma");
-        confirmButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        rentButton.setText("Alugar");
+        rentButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 confirmRentAction(evt);
             }
@@ -101,12 +102,19 @@ public class RentCellEditor
 
         jLabel4.setText("Valor total:");
 
+        returnRentButton.setText("Devolver");
+        returnRentButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                returnRentButtonconfirmRentAction(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(30, 30, 30)
@@ -123,26 +131,34 @@ public class RentCellEditor
                             .addComponent(employeeLabel)
                             .addGap(28, 28, 28)
                             .addComponent(employeeName, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(rentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rentLabel)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(valueField)
-                                .addComponent(estimatedDateRent, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                .addComponent(initialDateRent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(endDateRent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(confirmButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(cancelButton)))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                                .addComponent(returnRentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(valueField, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(estimatedDateRent, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                                        .addComponent(initialDateRent, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(endDateRent, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(rentLabel))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,16 +198,22 @@ public class RentCellEditor
                     .addComponent(valueField, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(confirmButton)
-                    .addComponent(cancelButton))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cancelButton)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(rentButton)
+                        .addComponent(returnRentButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void rentVehicle() {       
+    public void rentVehicle() {
+        
+        returnRentButton.setEnabled(false);
+        endDateRent.setEnabled(false);
+        
         try {
             Object[] clients = ClientService.getInstance().getClients().toArray();
             clientComboBox.setModel(new DefaultComboBoxModel<>(clients));
@@ -204,8 +226,6 @@ public class RentCellEditor
         
         employeeName.setText(EmployeeUtilities.getActiveEmployee().getName());
         
-        endDateRent.setEnabled(false);
-        
         showPane();
     }
     
@@ -215,10 +235,9 @@ public class RentCellEditor
     }
     
     private void confirmRentAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmRentAction
-        
         Date initialDate = initialDateRent.getDate();
         Date estimatedDate = estimatedDateRent.getDate();
-        Date endDate = endDateRent.getDate();
+        
         String value = valueField.getText();
                 
         if (initialDate == null || estimatedDate == null || value.equals("")) {
@@ -232,36 +251,20 @@ public class RentCellEditor
 
                 Rent rent = new Rent();
                 
-                if (endDate != null) {
+                rent.setEmployeeId(employee.getId());
+                rent.setClientId(client.getId());
+                rent.setVehicleId(vehicle.getId());
+                rent.setRentStartDt(initialDateRent.getDate());
+                rent.setRentEndDt(endDateRent.getDate());
+                rent.setRentExpectedEndDt(estimatedDateRent.getDate());
+                rent.setRentValue(Double.parseDouble(valueField.getText()));
+                rent.setStatus(Rent.STATUS_OPEN);
+                vehicle.setStatus(1);
 
-                    rent.setEmployeeId(employee.getId());
-                    rent.setClientId(client.getId());
-                    rent.setVehicleId(vehicle.getId());
-                    rent.setRentStartDt(initialDateRent.getDate());
-                    rent.setRentEndDt(endDateRent.getDate());
-                    rent.setRentExpectedEndDt(estimatedDateRent.getDate());
-                    rent.setRentValue(Double.parseDouble(valueField.getText()));
-                    rent.setStatus(Rent.STATUS_CLOSED);
-                    vehicle.setStatus(0);
-                    
-                    RentService.getInstance().updateRent(rent);
-                    VehicleService.getInstance().updateVehicle(vehicle);
-                    callback.inform(rent);
-                } else {
-                    rent.setEmployeeId(employee.getId());
-                    rent.setClientId(client.getId());
-                    rent.setVehicleId(vehicle.getId());
-                    rent.setRentStartDt(initialDateRent.getDate());
-                    rent.setRentEndDt(endDateRent.getDate());
-                    rent.setRentExpectedEndDt(estimatedDateRent.getDate());
-                    rent.setRentValue(Double.parseDouble(valueField.getText()));
-                    rent.setStatus(Rent.STATUS_OPEN);
-                    vehicle.setStatus(1);
-                    
-                    RentService.getInstance().createRent(rent);
-                    VehicleService.getInstance().updateVehicle(vehicle);
-                    callback.inform(rent);
-                }
+                //RentService.getInstance().createRent(rent); ESTAVA DUPLICANDO A LOCAÇÃO NO BD
+                VehicleService.getInstance().updateVehicle(vehicle);
+                callback.inform(rent);
+                
                 dispose();
             } else {
                 Prompts.promptWarning(this, "Veículo não selecionado ou não há veículos disponíveis.");
@@ -273,9 +276,17 @@ public class RentCellEditor
     }//GEN-LAST:event_confirmRentAction
 
     public void editRent(Rent rent) {
-        source = rent;
+        vehicleComboBox.setEnabled(false);
+        clientComboBox.setEnabled(false);
+        initialDateRent.setEnabled(false);
+        estimatedDateRent.setEnabled(false);
+        endDateRent.setEnabled(true);
+        valueField.setEnabled(true);
+        rentButton.setEnabled(false);
         
         try {
+            source = rent;
+            
             Long employeeLongId = source.getEmployeeId();
             int employeeId = (int) (long) employeeLongId;
             EmployeeService employeeService = EmployeeService.getInstance();
@@ -283,14 +294,12 @@ public class RentCellEditor
             employee = employeeService.getEmployeeById(employeeId);
             employeeName.setText(employee.getName());
             
-            vehicleComboBox.setEnabled(false);
-            Object[] vehicles = VehicleService.getInstance().getRentsVehicles().toArray();
-            vehicleComboBox.setModel(new DefaultComboBoxModel<>(vehicles));
+            //Object[] vehicles = VehicleService.getInstance().getRentsVehicles().toArray();
+            //vehicleComboBox.setModel(new DefaultComboBoxModel<>(vehicles.));
             Long vehicleLongId = source.getVehicleId();
             Vehicle vehicle = VehicleService.getInstance().getVehicleById(vehicleLongId);
             vehicleComboBox.setSelectedItem(vehicle);
             
-            clientComboBox.setEnabled(false);
             Object[] clients = ClientService.getInstance().getClients().toArray();
             clientComboBox.setModel(new DefaultComboBoxModel<>(clients));
             Long clientLongId = source.getClientId();
@@ -299,16 +308,12 @@ public class RentCellEditor
             Client client = ClientService.getInstance().getClientById(idClient);
             clientComboBox.setSelectedItem(client);
             
-            initialDateRent.setEnabled(false);
             initialDateRent.setDate(source.getRentStartDt());
 
-            estimatedDateRent.setEnabled(false);
             estimatedDateRent.setDate(source.getRentExpectedEndDt());
-
-            endDateRent.setEnabled(true);
+            
             endDateRent.setDate(source.getRentExpectedEndDt());
-
-            valueField.setEnabled(true);
+            
             Double value = source.getRentValue();
             String valueRent = value.toString();
             valueField.setText(valueRent);
@@ -336,6 +341,10 @@ public class RentCellEditor
         }
     }//GEN-LAST:event_valueFieldKeyTyped
 
+    private void returnRentButtonconfirmRentAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnRentButtonconfirmRentAction
+        // TODO add your handling code here:
+    }//GEN-LAST:event_returnRentButtonconfirmRentAction
+
     private void showPane() {
         setVisible(true);
     }
@@ -354,7 +363,6 @@ public class RentCellEditor
     private javax.swing.JButton cancelButton;
     private javax.swing.JComboBox<Object> clientComboBox;
     private javax.swing.JLabel clientLabel;
-    private javax.swing.JButton confirmButton;
     private javax.swing.JLabel employeeLabel;
     private javax.swing.JLabel employeeName;
     private com.toedter.calendar.JDateChooser endDateRent;
@@ -364,7 +372,9 @@ public class RentCellEditor
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton rentButton;
     private javax.swing.JLabel rentLabel;
+    private javax.swing.JButton returnRentButton;
     private javax.swing.JFormattedTextField valueField;
     private javax.swing.JComboBox<Object> vehicleComboBox;
     private javax.swing.JLabel vehicleLabel;

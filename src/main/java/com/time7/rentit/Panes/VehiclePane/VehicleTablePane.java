@@ -24,6 +24,7 @@ public class VehicleTablePane
         this.vehicleTableModel = new VehicleTableModel();
         this.jTable.setModel(vehicleTableModel);
         this.controller = new VehicleTableController(null);
+      
         
         setVisible(true);
     }
@@ -141,8 +142,8 @@ public class VehicleTablePane
             Vehicle vehicle = new Vehicle();
             vehicle = vehicleService.getVehicleById(vehicleId);
             
-            if (vehicle.getStatus() == 0) {
-                Prompts.promptWarning(this, "Este veículo está alugado, não é possível removê-lo.");
+            if (vehicle.getStatus() == 1) {
+                Prompts.promptWarning(this, "Este veículo está alugado!\nNão é possível removê-lo.");
             } else {
                 controller.removeVehicle(vehicleId, (Object object) -> {
                     vehicleTableModel.removeVehicle(selectedRow);

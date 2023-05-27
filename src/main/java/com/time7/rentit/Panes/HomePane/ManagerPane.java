@@ -23,6 +23,7 @@ public class ManagerPane
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(900, 400);
         this.setLocationRelativeTo(root);
+        this.setTitle("Rentit Locações");
         
         vehicleTablePane = new VehicleTablePane();
         clientTablePane = new ClientTablePane();

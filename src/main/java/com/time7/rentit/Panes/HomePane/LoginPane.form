@@ -239,7 +239,7 @@
             <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
+            <Property name="focusCycleRoot" type="boolean" value="true"/>
             <Property name="selectedTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="74" red="0" type="rgb"/>
             </Property>
@@ -260,7 +260,7 @@
               </Border>
             </Property>
             <Property name="doubleBuffered" type="boolean" value="true"/>
-            <Property name="focusTraversalPolicyProvider" type="boolean" value="true"/>
+            <Property name="focusCycleRoot" type="boolean" value="true"/>
             <Property name="selectedTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="74" red="0" type="rgb"/>
             </Property>

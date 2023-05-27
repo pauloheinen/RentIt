@@ -64,4 +64,11 @@ public class RentService
         
         return database.findAllBySql(Rent.class, sql);
     }
+    
+    @Override
+    public Rent getRentById(Long id) throws Exception {
+        Database database = Database.getInstance();
+        
+        return database.findById(Rent.class, id);
+    }
 }
