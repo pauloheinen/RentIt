@@ -1,12 +1,9 @@
 package com.time7.rentit.Controller.RentTableController;
 
 import com.time7.rentit.Editors.RentEditor.RentCellEditor;
-import com.time7.rentit.Editors.VehicleEditor.VehicleCellEditor;
 import com.time7.rentit.Entity.Rent;
-import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Prompts.Prompts;
 import com.time7.rentit.Service.Rent.RentService;
-import com.time7.rentit.Service.Vehicle.VehicleService;
 import com.time7.rentit.Utilities.GenericObserver;
 import javax.swing.JFrame;
 

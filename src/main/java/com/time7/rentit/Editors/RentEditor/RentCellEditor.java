@@ -6,12 +6,14 @@ import com.time7.rentit.Entity.Rent;
 import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Prompts.Prompts;
 import com.time7.rentit.Service.Client.ClientService;
+import com.time7.rentit.Service.Employee.EmployeeService;
 import com.time7.rentit.Service.Rent.RentService;
 import com.time7.rentit.Service.Vehicle.VehicleService;
 import com.time7.rentit.Utilities.EmployeeUtilities;
 import com.time7.rentit.Utilities.FormatUtilities.Formats;
 import com.time7.rentit.Utilities.GenericObserver;
 import java.text.NumberFormat;
+import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 
@@ -213,7 +215,15 @@ public class RentCellEditor
     }
     
     private void confirmRentAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmRentAction
-        try {
+        
+        Date initialDate = initialDateRent.getDate();
+        Date estimatedDate = estimatedDateRent.getDate();
+        String value = valueField.getText();
+        
+        if (initialDate == null || estimatedDate == null || value.equals("")) {
+            Prompts.promptWarning(this, "Preencha as datas e o valor da locação.");
+        } else {
+            try {
             Vehicle vehicle = (Vehicle) vehicleComboBox.getSelectedItem();
             if (vehicle != null) {
                 Client client = (Client) clientComboBox.getSelectedItem();
@@ -240,10 +250,31 @@ public class RentCellEditor
         } catch (Exception e) {
             Prompts.promptError(this, e);
         }
+        }    
     }//GEN-LAST:event_confirmRentAction
 
     public void editRent(Rent rent) {
         source = rent;
+        
+        try {
+            Long employeeLongId = source.getEmployeeId();
+            int employeeId = (int) (long) employeeLongId;
+            EmployeeService employeeService = EmployeeService.getInstance();
+            Employee employee = new Employee();
+            employee = employeeService.getEmployeeById(employeeId);
+            employeeName.setText(employee.getName());
+            
+            Long vehicleLongId = source.getVehicleId();
+            //int vehicleId = (int) (long) vehicleLongId;
+            VehicleService vehicleService = VehicleService.getInstance();
+            Vehicle vehicle = new Vehicle();
+            vehicle = vehicleService.getVehicleById(vehicleLongId);
+            vehicleComboBox.setSelectedItem(vehicle);
+            
+            
+        } catch (Exception e) {
+            Prompts.promptError(this, e);
+        }
         
         initialDateRent.setEnabled(false);
         initialDateRent.setDate(source.getRentStartDt());
@@ -251,8 +282,13 @@ public class RentCellEditor
         estimatedDateRent.setEnabled(false);
         estimatedDateRent.setDate(source.getRentExpectedEndDt());
         
-        endDateRent.setEnabled(false);
+        endDateRent.setEnabled(true);
         endDateRent.setDate(source.getRentExpectedEndDt());
+        
+        valueField.setEnabled(true);
+        Double value = source.getRentValue();
+        String valueRent = value.toString();
+        valueField.setText(valueRent);
         
         showPane();
     }
