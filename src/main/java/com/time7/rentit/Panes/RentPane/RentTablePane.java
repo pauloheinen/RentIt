@@ -180,7 +180,7 @@ public class RentTablePane
                    //     rentTableModel.editRent(selectedRow, Rent.class.cast(object));
                    // });
                     
-                    controller.editRent(rent, new GenericObserver() {
+                    controller.editUpdateRent(rent, new GenericObserver() {
                     @Override
                     public void inform(Object object) {
                         rentTableModel.insertRent(Rent.class.cast(object));

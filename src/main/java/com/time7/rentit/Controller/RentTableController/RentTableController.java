@@ -41,7 +41,7 @@ public class RentTableController {
         }).rentVehicle();
     }
     
-    public void editRent(Rent rent, GenericObserver callback) {
+    public void editUpdateRent(Rent rent, GenericObserver callback) {
         new RentCellEditor(root, (Object object) -> {
             RentService service = RentService.getInstance();
         
@@ -49,7 +49,7 @@ public class RentTableController {
                 Rent r = Rent.class.cast(object);
                 service.updateRent(r);
                 
-                Prompts.promptInfo(root, "Locação atualizada");
+                Prompts.promptInfo(root, "Locação encerrada!");
                 
                 callback.inform(r);
             } catch (Exception e) {
