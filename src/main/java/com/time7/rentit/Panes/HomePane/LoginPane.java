@@ -2,6 +2,7 @@ package com.time7.rentit.Panes.HomePane;
 
 import com.time7.rentit.Controller.HomeController.LoginPaneController;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -24,7 +25,7 @@ public class LoginPane
 
         controller = new LoginPaneController(this);
 
-        getRootPane().setDefaultButton(enterButton);
+        //getRootPane().setDefaultButton(enterButton);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -135,7 +136,7 @@ public class LoginPane
         });
 
         enterButton.setBackground(new java.awt.Color(0, 129, 239));
-        enterButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        enterButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         enterButton.setForeground(new java.awt.Color(255, 255, 255));
         enterButton.setText("Entrar");
         enterButton.setBorder(null);
@@ -144,6 +145,11 @@ public class LoginPane
         enterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterButtonActionPerformed(evt);
+            }
+        });
+        enterButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                enterButtonKeyPressed(evt);
             }
         });
 
@@ -205,30 +211,30 @@ public class LoginPane
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(registerButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(enterButton))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(creditsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(exitButton)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(169, 169, 169)
-                            .addComponent(forgotPassword))
+                            .addGap(315, 315, 315)
+                            .addComponent(registerButton))
                         .addComponent(loginLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(wolcomeLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(forgotPassword)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(creditsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(195, 195, 195)
+                        .addComponent(enterButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,12 +249,12 @@ public class LoginPane
                 .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(enterButton)
-                    .addComponent(registerButton))
+                .addGap(52, 52, 52)
+                .addComponent(enterButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(forgotPassword)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(forgotPassword)
+                    .addComponent(registerButton))
                 .addGap(18, 18, 18)
                 .addComponent(creditsLabel))
         );
@@ -270,6 +276,7 @@ public class LoginPane
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
 
  private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         close();
@@ -302,13 +309,6 @@ public class LoginPane
         exitButton.setForeground(Color.WHITE);
     }//GEN-LAST:event_mouseExit
 
-    private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
-        String username = usernameTextField.getText();
-        String password = passwordTextField.getText();
-
-        controller.logInEmployee(username, password);
-    }//GEN-LAST:event_enterButtonActionPerformed
-
     private void usernameTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameTextFieldMouseClicked
         usernameTextField.setText("");
         usernameTextField.setEditable(true);
@@ -320,6 +320,19 @@ public class LoginPane
         passwordTextField.setEditable(true);
         passwordTextField.setFocusable(true);
     }//GEN-LAST:event_passwordTextFieldMouseClicked
+
+    private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
+        String username = usernameTextField.getText();
+            String password = passwordTextField.getText();
+
+            controller.logInEmployee(username, password);
+    }//GEN-LAST:event_enterButtonActionPerformed
+
+    private void enterButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_enterButtonKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            getRootPane().setDefaultButton(enterButton);
+        }
+    }//GEN-LAST:event_enterButtonKeyPressed
 
     private void close() {
         this.dispose();
