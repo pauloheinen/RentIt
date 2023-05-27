@@ -7,7 +7,6 @@ import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Prompts.Prompts;
 import com.time7.rentit.Service.Client.ClientService;
 import com.time7.rentit.Service.Employee.EmployeeService;
-import com.time7.rentit.Service.Rent.RentService;
 import com.time7.rentit.Service.Vehicle.VehicleService;
 import com.time7.rentit.Utilities.EmployeeUtilities;
 import com.time7.rentit.Utilities.FormatUtilities.Formats;
@@ -346,28 +345,22 @@ public class RentCellEditor
             Employee employee = EmployeeUtilities.getActiveEmployee();
 
             Rent rent = new Rent();
-            System.out.println("CHEGOU AQUI =========");
             rent.setEmployeeId(employee.getId());
             rent.setClientId(client.getId());
             rent.setVehicleId(vehicle.getId());
-            System.out.println("JA PEGOU FUNCIONARIO, CLIENTE E VEICULO");
             rent.setRentStartDt(initialDateRent.getDate());
             rent.setRentEndDt(endDateRent.getDate());
             rent.setRentExpectedEndDt(estimatedDateRent.getDate());
-            System.out.println("PEGOU AS DATAS");
             rent.setRentValue(Double.parseDouble(valueField.getText()));
             rent.setStatus(Rent.STATUS_CLOSED);
             vehicle.setStatus(0);
-            System.out.println("PEGOU TUDO");
-
+            
             //RentService.getInstance().updateRent(rent);
             VehicleService.getInstance().updateVehicle(vehicle);
-            System.out.println("FEZ O UPDATE");
             callback.inform(rent);
             
-            System.out.println("VAI SAIR");
             dispose();
-            System.out.println("SAIU");
+            
         } catch (Exception e) {
             Prompts.promptError(this, e);
         } 

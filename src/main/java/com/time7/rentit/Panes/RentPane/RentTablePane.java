@@ -175,11 +175,13 @@ public class RentTablePane
                     Prompts.promptWarning(this, "Esta locação já está encerrada.\nCódigo locação: " + rent.getId() + "\nVeículo: " + rent.getVehicleId());
                 } else {
                     rent = rentTableModel.getRent(selectedRow);
+                   
+                    /*
+                   controller.editUpdateRent(rent, (Object object) -> {
+                        rentTableModel.editRent(selectedRow, Rent.class.cast(object));
+                   });*/
                     
-                   // controller.editRent(rent, (Object object) -> {
-                   //     rentTableModel.editRent(selectedRow, Rent.class.cast(object));
-                   // });
-                    
+                   
                     controller.editUpdateRent(rent, new GenericObserver() {
                     @Override
                     public void inform(Object object) {
