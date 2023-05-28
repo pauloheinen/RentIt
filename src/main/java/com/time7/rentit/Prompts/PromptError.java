@@ -55,7 +55,6 @@ public class PromptError
 
         jPanel1.setBackground(new java.awt.Color(255, 51, 0));
         jPanel1.setMaximumSize(null);
-        jPanel1.setMinimumSize(null);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         jScrollPane1.setViewportBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -81,6 +80,7 @@ public class PromptError
         jButtonExit.setForeground(new java.awt.Color(255, 255, 255));
         jButtonExit.setText("Fechar");
         jButtonExit.setBorder(null);
+        jButtonExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonExitActionPerformed(evt);
@@ -92,6 +92,7 @@ public class PromptError
         jButtonCopy.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCopy.setText("Copiar");
         jButtonCopy.setBorder(null);
+        jButtonCopy.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonCopy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCopyActionPerformed(evt);
