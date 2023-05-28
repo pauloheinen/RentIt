@@ -2,7 +2,6 @@ package com.time7.rentit.Panes.HomePane;
 
 import com.time7.rentit.Controller.HomeController.LoginPaneController;
 import java.awt.Color;
-import java.awt.event.KeyEvent;
 
 /**
  *
@@ -13,7 +12,7 @@ public class LoginPane
         javax.swing.JFrame {
 
     LoginPaneController controller;
-
+    
     public LoginPane() {
         initComponents();
 
@@ -112,11 +111,6 @@ public class LoginPane
         enterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enterButtonActionPerformed(evt);
-            }
-        });
-        enterButton.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                enterButtonKeyPressed(evt);
             }
         });
 
@@ -311,16 +305,6 @@ public class LoginPane
 
         controller.logInEmployee(username, password);
     }//GEN-LAST:event_enterButtonActionPerformed
-
-    private void enterButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_enterButtonKeyPressed
-
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            String username = usernameTextField.getText();
-            String password = passwordTextField.getText();
-
-            controller.logInEmployee(username, password);
-        }
-    }//GEN-LAST:event_enterButtonKeyPressed
 
     private void close() {
         this.dispose();
