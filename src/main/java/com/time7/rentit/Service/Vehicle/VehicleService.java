@@ -79,7 +79,16 @@ public class VehicleService
         return database.findAllBySql(Vehicle.class, sql);
     }
     
-    public List<Vehicle> getRentsVehicles() {
+    public Vehicle getDisponibleVehicleById(Long vehicleId) {
+        Database database = Database.getInstance();
+        
+        String sql = "select v from vehicles v where v.status = " + Vehicle.STATUS_DISPONIBLE +
+                     "and v.id = " + vehicleId;
+        
+        return database.findSingleBySql(Vehicle.class, sql);
+    }
+    
+    public List<Vehicle> getRentedVehicles() {
         Database database = Database.getInstance();
         
         String sql = "select v from vehicles v where v.status = " + Vehicle.STATUS_RENT;

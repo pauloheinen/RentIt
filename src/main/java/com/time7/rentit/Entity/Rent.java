@@ -1,7 +1,7 @@
 package com.time7.rentit.Entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 import javax.persistence.*;
 
 /**
@@ -34,15 +34,12 @@ public class Rent
     @Column(name = "vehicle_id", nullable = false)
     private Long vehicleId;
     
-    @Temporal(TemporalType.DATE)
     @Column(name = "rent_start_dt", nullable = false)
     private Date rentStartDt;
     
-    @Temporal(TemporalType.DATE)
     @Column(name = "rent_end_dt", nullable = true)
     private Date rentEndDt;
     
-    @Temporal(TemporalType.DATE)
     @Column(name = "rent_expected_end_dt", nullable = false)
     private Date rentExpectedEndDt;
     

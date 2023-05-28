@@ -47,7 +47,7 @@ public class RentTableModel
         refresh();
     }
     
-    public void editRent(int rowIndex, Rent client) {
+    public void returnRent(int rowIndex, Rent client) {
         this.rentsList.set(rowIndex, client);
         
         refresh();

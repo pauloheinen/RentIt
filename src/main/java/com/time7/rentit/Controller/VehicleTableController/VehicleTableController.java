@@ -12,8 +12,7 @@ import javax.swing.JFrame;
  * @author Paulo Henrique
  */
 public class VehicleTableController {
-
-    private boolean rentMode = false;
+    
     private final JFrame root;
     
     public VehicleTableController(JFrame root) {

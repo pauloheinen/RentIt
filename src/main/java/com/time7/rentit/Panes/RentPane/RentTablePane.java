@@ -2,11 +2,9 @@ package com.time7.rentit.Panes.RentPane;
 
 import com.time7.rentit.Controller.RentTableController.RentTableController;
 import com.time7.rentit.Entity.Rent;
-import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Models.RentTable.RentTableModel;
 import com.time7.rentit.Prompts.Prompts;
-import com.time7.rentit.Service.Vehicle.VehicleService;
-import com.time7.rentit.Utilities.GenericObserver;
+import com.time7.rentit.Report.Rent.RentReport;
 
 /**
  *
@@ -38,7 +36,7 @@ public class RentTablePane
         jTable = new javax.swing.JTable();
         rentButton = new javax.swing.JButton();
         reportButton = new javax.swing.JButton();
-        rentReturn = new javax.swing.JButton();
+        returnRentButtton = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(1044, 339));
         setMinimumSize(new java.awt.Dimension(1044, 339));
@@ -75,27 +73,22 @@ public class RentTablePane
                 rentVehicleAction(evt);
             }
         });
-        rentButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rentButtonActionPerformed(evt);
-            }
-        });
 
         reportButton.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         reportButton.setForeground(new java.awt.Color(255, 255, 255));
         reportButton.setText("Relatório");
-
-        rentReturn.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        rentReturn.setForeground(new java.awt.Color(255, 255, 255));
-        rentReturn.setText("Devolver");
-        rentReturn.addMouseListener(new java.awt.event.MouseAdapter() {
+        reportButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rentReturnrentVehicleAction(evt);
+                reportButtonMouseClicked(evt);
             }
         });
-        rentReturn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rentReturnActionPerformed(evt);
+
+        returnRentButtton.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        returnRentButtton.setForeground(new java.awt.Color(255, 255, 255));
+        returnRentButtton.setText("Devolver");
+        returnRentButtton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                returnRentAction(evt);
             }
         });
 
@@ -118,7 +111,7 @@ public class RentTablePane
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(34, 34, 34)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(rentReturn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(returnRentButtton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -131,7 +124,7 @@ public class RentTablePane
                 .addGap(18, 18, 18)
                 .addComponent(rentButton)
                 .addGap(18, 18, 18)
-                .addComponent(rentReturn)
+                .addComponent(returnRentButtton)
                 .addContainerGap(183, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -140,53 +133,40 @@ public class RentTablePane
     }// </editor-fold>//GEN-END:initComponents
 
     private void rentVehicleAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rentVehicleAction
-        controller.rentVehicle(new GenericObserver() {
-            @Override
-            public void inform(Object object) {
-                rentTableModel.insertRent(Rent.class.cast(object));
-            }
+        controller.rentVehicle((Object object) -> {
+            rentTableModel.insertRent(Rent.class.cast(object));
         });
     }//GEN-LAST:event_rentVehicleAction
 
-    private void rentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rentButtonActionPerformed
-
-    private void rentReturnrentVehicleAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rentReturnrentVehicleAction
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rentReturnrentVehicleAction
-
-    private void rentReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentReturnActionPerformed
+    private void returnRentAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnRentAction
+        if (! isRowSelected()) {
+            Prompts.promptWarning(this, "Necessário selecionar um aluguel");
+            return;
+        }
+        
         int selectedRow = getSelectedRow();
         
-        if (selectedRow < 0) {
-            Prompts.promptWarning(this, "Necessário selecionar uma locação");
-            return;
-        } else {
-            try {
-                Long vehicleId = (Long) this.jTable.getValueAt(selectedRow, 3);
-                
-                VehicleService vehicleService = VehicleService.getInstance();
-                Vehicle vehicle = new Vehicle();
-                vehicle = vehicleService.getVehicleById(vehicleId);
-                
-                if (vehicle.getStatus() == 0) {
-                    Prompts.promptWarning(this, "Este veículo não está alugado. \nCódigo veículo: " + vehicle.getId() + "\nVeículo: " + vehicle.getVehicleModel());
-                } else {
-                    Rent rent = rentTableModel.getRent(selectedRow);
-                    
-                    controller.editRent(rent, (Object object) -> {
-                        rentTableModel.editRent(selectedRow, Rent.class.cast(object));
-                    });
-                }
-            } catch (Exception e) {
-                Prompts.promptError(this, e);
-            }
+        Rent rent = rentTableModel.getRent(selectedRow);
+        
+        controller.returnRent(rent, (Object object) -> {
+            rentTableModel.returnRent(selectedRow, Rent.class.cast(object));
+        });
+    }//GEN-LAST:event_returnRentAction
+
+    private void reportButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportButtonMouseClicked
+        try {
+            RentReport.generateReport();
+        } catch (Exception e) {
+            Prompts.promptError(this, e);
         }
-    }//GEN-LAST:event_rentReturnActionPerformed
+    }//GEN-LAST:event_reportButtonMouseClicked
 
     private int getSelectedRow() {
         return this.jTable.getSelectedRow();
+    }
+    
+    private boolean isRowSelected() {
+        return getSelectedRow() > -1;
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -194,7 +174,7 @@ public class RentTablePane
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable;
     private javax.swing.JButton rentButton;
-    private javax.swing.JButton rentReturn;
     private javax.swing.JButton reportButton;
+    private javax.swing.JButton returnRentButtton;
     // End of variables declaration//GEN-END:variables
 }

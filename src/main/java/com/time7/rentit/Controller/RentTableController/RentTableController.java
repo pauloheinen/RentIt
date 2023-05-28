@@ -28,12 +28,12 @@ public class RentTableController {
             RentService service = RentService.getInstance();
             
             try {
-                Rent r = Rent.class.cast(object);
-                service.createRent(r);
+                Rent rent = Rent.class.cast(object);
+                service.createRent(rent);
                 
                 Prompts.promptInfo(root, "Locação criada");
                 
-                callback.inform(r);
+                callback.inform(rent);
             } catch (Exception e) {
                 Prompts.promptError(root, e);
             }
@@ -41,7 +41,7 @@ public class RentTableController {
         }).rentVehicle();
     }
     
-    public void editRent(Rent rent, GenericObserver callback) {
+    public void returnRent(Rent rent, GenericObserver callback) {
         new RentCellEditor(root, (Object object) -> {
             RentService service = RentService.getInstance();
         
@@ -49,12 +49,12 @@ public class RentTableController {
                 Rent r = Rent.class.cast(object);
                 service.updateRent(r);
                 
-                Prompts.promptInfo(root, "Locação atualizada");
+                Prompts.promptInfo(root, "Locação devolvida");
                 
                 callback.inform(r);
             } catch (Exception e) {
                 Prompts.promptError(root, e);
             }
-        }).editRent(rent);
+        }).returnRent(rent);
     }
 }

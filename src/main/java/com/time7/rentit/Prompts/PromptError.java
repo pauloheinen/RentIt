@@ -1,5 +1,6 @@
 package com.time7.rentit.Prompts;
 
+import com.time7.rentit.Exception.Logger;
 import java.awt.Component;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
@@ -15,16 +16,18 @@ public class PromptError
     extends 
         javax.swing.JFrame {
     
-    static void showErrorDialog(Component root, Exception exception, String erro) {
-        
+    public static void showErrorDialog(Component root, Exception exception, String erro) {
         PromptError promptError = new PromptError();
         promptError.setTitle(erro);
         
         StringWriter stackTraceWriter = new StringWriter();
         exception.printStackTrace(new PrintWriter(stackTraceWriter));
+
         promptError.errorLogText.setText(stackTraceWriter.toString());
 
         promptError.presentWindow(root);
+        
+        Logger.logException(exception);
     }
         
     private PromptError() {

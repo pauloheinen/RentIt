@@ -46,7 +46,7 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="rentReturn" max="32767" attributes="0"/>
+                      <Component id="returnRentButtton" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -63,7 +63,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="rentButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="rentReturn" min="-2" max="-2" attributes="0"/>
+              <Component id="returnRentButtton" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="183" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
@@ -134,7 +134,6 @@
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rentVehicleAction"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rentButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="reportButton">
@@ -147,8 +146,11 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Relat&#xf3;rio"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="reportButtonMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="rentReturn">
+    <Component class="javax.swing.JButton" name="returnRentButtton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="12" style="1"/>
@@ -159,8 +161,7 @@
         <Property name="text" type="java.lang.String" value="Devolver"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rentReturnrentVehicleAction"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rentReturnActionPerformed"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="returnRentAction"/>
       </Events>
     </Component>
   </SubComponents>
