@@ -27,6 +27,8 @@ public class RegisterPane
 
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         registerPaneContent = new javax.swing.JPanel();
         registerIcon = new javax.swing.JLabel();
         nameTextField = new javax.swing.JTextField();
@@ -43,7 +45,6 @@ public class RegisterPane
         lockerIcon2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         tittleLabel = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -51,14 +52,19 @@ public class RegisterPane
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 129, 239));
-        setMaximumSize(null);
         setMinimumSize(null);
         setUndecorated(true);
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(0, 129, 239));
+
+        jLabel2.setBackground(new java.awt.Color(0, 129, 239));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RegisterImage.JPG"))); // NOI18N
+        jLabel2.setMaximumSize(new java.awt.Dimension(1031, 489));
+        jLabel2.setMinimumSize(new java.awt.Dimension(1031, 489));
+
         registerPaneContent.setBackground(new java.awt.Color(0, 129, 239));
         registerPaneContent.setMaximumSize(null);
-        registerPaneContent.setMinimumSize(null);
         registerPaneContent.setVerifyInputWhenFocusTarget(false);
 
         nameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -154,9 +160,7 @@ public class RegisterPane
                         .addGap(29, 29, 29))
                     .addGroup(registerPaneContentLayout.createSequentialGroup()
                         .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(registerPaneContentLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lockerIcon2))
+                            .addComponent(lockerIcon2)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, registerPaneContentLayout.createSequentialGroup()
                                 .addGroup(registerPaneContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, registerPaneContentLayout.createSequentialGroup()
@@ -237,24 +241,31 @@ public class RegisterPane
                 .addContainerGap())
         );
 
-        jLabel2.setBackground(new java.awt.Color(0, 129, 239));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/RegisterImage.JPG"))); // NOI18N
-        jLabel2.setMaximumSize(new java.awt.Dimension(1031, 489));
-        jLabel2.setMinimumSize(new java.awt.Dimension(1031, 489));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 520, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(registerPaneContent, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, Short.MAX_VALUE)
+            .addComponent(registerPaneContent, javax.swing.GroupLayout.PREFERRED_SIZE, 465, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(registerPaneContent, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(registerPaneContent, javax.swing.GroupLayout.PREFERRED_SIZE, 465, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -320,6 +331,7 @@ public class RegisterPane
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lockerIcon1;
     private javax.swing.JLabel lockerIcon2;
     private javax.swing.JTextField nameTextField;
