@@ -14,10 +14,10 @@ public class RegisterPane
     public RegisterPane() {
         initComponents();
         
-        nameTextField.setEditable(false);
-        userNameTextField.setEditable(false);
-        passwordTextField.setEditable(false);
-        confirmPasswordTextField.setEditable(false);
+        nameTextField.setFocusable(false);
+        userNameTextField.setFocusable(false);
+        passwordTextField.setFocusable(false);
+        confirmPasswordTextField.setFocusable(false);
         
         getRootPane().setDefaultButton(registerButton);
     }

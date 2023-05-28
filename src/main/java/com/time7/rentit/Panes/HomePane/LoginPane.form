@@ -204,7 +204,7 @@
                     <BevelBorder/>
                   </Border>
                 </Property>
-                <Property name="caretPosition" type="int" value="1"/>
+                <Property name="caretPosition" type="int" value="0"/>
                 <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>

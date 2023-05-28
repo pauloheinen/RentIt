@@ -20,10 +20,10 @@ public class LoginPane
         this.setTitle("Bem vindo!");
         this.setLocationRelativeTo(null);
 
-        usernameTextField.setEditable(false);
-        passwordTextField.setEditable(false);
-
         controller = new LoginPaneController(this);
+
+        usernameTextField.setFocusable(false);
+        passwordTextField.setFocusable(false);
 
     }
 
@@ -80,7 +80,7 @@ public class LoginPane
         usernameTextField.setText("Usuário");
         usernameTextField.setToolTipText("");
         usernameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        usernameTextField.setCaretPosition(1);
+        usernameTextField.setCaretPosition(0);
         usernameTextField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         usernameTextField.setFocusCycleRoot(true);
         usernameTextField.setSelectedTextColor(new java.awt.Color(0, 116, 255));
