@@ -16,6 +16,7 @@ public class RentTablePane
     
     private final RentTableModel rentTableModel;
     private final RentTableController controller;
+    
 
     public RentTablePane() {
         initComponents();

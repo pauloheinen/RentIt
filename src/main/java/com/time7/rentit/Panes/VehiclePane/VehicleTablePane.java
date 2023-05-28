@@ -23,6 +23,7 @@ public class VehicleTablePane
         this.vehicleTableModel = new VehicleTableModel();
         this.jTable.setModel(vehicleTableModel);
         this.controller = new VehicleTableController(null);
+      
         
         setVisible(true);
     }

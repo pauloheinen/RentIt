@@ -49,7 +49,7 @@ public class RentTableController {
                 Rent r = Rent.class.cast(object);
                 service.updateRent(r);
                 
-                Prompts.promptInfo(root, "Locação devolvida");
+                Prompts.promptInfo(root, "Locação encerrada!");
                 
                 callback.inform(r);
             } catch (Exception e) {

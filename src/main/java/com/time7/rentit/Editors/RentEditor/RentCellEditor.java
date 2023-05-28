@@ -1,20 +1,16 @@
 package com.time7.rentit.Editors.RentEditor;
 
-import com.time7.rentit.Controller.VehicleTableController.VehicleTableController;
 import com.time7.rentit.Entity.Client;
 import com.time7.rentit.Entity.Employee;
 import com.time7.rentit.Entity.Rent;
 import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Prompts.Prompts;
 import com.time7.rentit.Service.Client.ClientService;
-import com.time7.rentit.Service.Employee.EmployeeService;
-import com.time7.rentit.Service.Rent.RentService;
 import com.time7.rentit.Service.Vehicle.VehicleService;
 import com.time7.rentit.Utilities.EmployeeUtilities;
-import com.time7.rentit.Utilities.FormatUtilities.Formats;
 import com.time7.rentit.Utilities.GenericObserver;
-import java.text.NumberFormat;
 import java.sql.Date;
+import java.text.NumberFormat;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 
@@ -26,7 +22,7 @@ public class RentCellEditor
     extends 
         javax.swing.JFrame {
 
-    private GenericObserver callback;
+    private final GenericObserver callback;
     private Rent source;
        
     public RentCellEditor(JFrame root, GenericObserver callback) {
@@ -50,7 +46,7 @@ public class RentCellEditor
         rentLabel = new javax.swing.JLabel();
         employeeLabel = new javax.swing.JLabel();
         employeeName = new javax.swing.JLabel();
-        confirmButton = new javax.swing.JButton();
+        rentButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         initialDateRent = new com.toedter.calendar.JDateChooser();
         estimatedDateRent = new com.toedter.calendar.JDateChooser();
@@ -76,8 +72,8 @@ public class RentCellEditor
         employeeName.setMinimumSize(new java.awt.Dimension(5, 5));
         employeeName.setPreferredSize(new java.awt.Dimension(5, 5));
 
-        confirmButton.setText("Confirma");
-        confirmButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        rentButton.setText("Alugar");
+        rentButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 confirmRentAction(evt);
             }
@@ -106,7 +102,7 @@ public class RentCellEditor
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(30, 30, 30)
@@ -123,26 +119,33 @@ public class RentCellEditor
                             .addComponent(employeeLabel)
                             .addGap(28, 28, 28)
                             .addComponent(employeeName, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rentLabel)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(valueField)
-                                .addComponent(estimatedDateRent, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                .addComponent(initialDateRent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(endDateRent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(confirmButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(cancelButton)))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                                .addGap(52, 52, 52)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(rentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(valueField, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(estimatedDateRent, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                                        .addComponent(initialDateRent, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(endDateRent, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(rentLabel))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +186,7 @@ public class RentCellEditor
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(confirmButton)
+                    .addComponent(rentButton)
                     .addComponent(cancelButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -191,7 +194,9 @@ public class RentCellEditor
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void rentVehicle() {       
+    public void rentVehicle() {
+        endDateRent.setEnabled(false);
+        
         try {
             Object[] clients = ClientService.getInstance().getClients().toArray();
             clientComboBox.setModel(new DefaultComboBoxModel<>(clients));
@@ -203,8 +208,6 @@ public class RentCellEditor
         }
         
         employeeName.setText(EmployeeUtilities.getActiveEmployee().getName());
-        
-        endDateRent.setEnabled(false);
         
         showPane();
     }
@@ -307,7 +310,6 @@ public class RentCellEditor
     private javax.swing.JButton cancelButton;
     private javax.swing.JComboBox<Object> clientComboBox;
     private javax.swing.JLabel clientLabel;
-    private javax.swing.JButton confirmButton;
     private javax.swing.JLabel employeeLabel;
     private javax.swing.JLabel employeeName;
     private com.toedter.calendar.JDateChooser endDateRent;
@@ -317,6 +319,7 @@ public class RentCellEditor
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton rentButton;
     private javax.swing.JLabel rentLabel;
     private javax.swing.JFormattedTextField valueField;
     private javax.swing.JComboBox<Object> vehicleComboBox;

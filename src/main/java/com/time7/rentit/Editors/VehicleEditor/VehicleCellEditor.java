@@ -181,9 +181,9 @@ public class VehicleCellEditor
             vehicle = new Vehicle();
         }
          
-        vehicle.setVehicleBrand(brandTextEditor.getText());
-        vehicle.setVehicleModel(modelTextEditor.getText());
-        vehicle.setVehicleYear(yearTextEditor.getText());
+        vehicle.setVehicleBrand(brandTextEditor.getText().toUpperCase());
+        vehicle.setVehicleModel(modelTextEditor.getText().toUpperCase());
+        vehicle.setVehicleYear(yearTextEditor.getText().toUpperCase());
         vehicle.setVehiclePlate(plateTextEditor.getText().toUpperCase());
         vehicle.setType(typeComboBox.getSelectedIndex());
         vehicle.setStatus(statusComboBox.getSelectedIndex());
@@ -195,10 +195,10 @@ public class VehicleCellEditor
     public void editVehicle(Vehicle vehicle) {
         source = vehicle;
         
-        brandTextEditor.setText(source.getVehicleBrand());
-        modelTextEditor.setText(source.getVehicleModel());
-        yearTextEditor.setText(source.getVehicleYear());
-        plateTextEditor.setText(source.getVehiclePlate());
+        brandTextEditor.setText(source.getVehicleBrand().toUpperCase());
+        modelTextEditor.setText(source.getVehicleModel().toUpperCase());
+        yearTextEditor.setText(source.getVehicleYear().toUpperCase());
+        plateTextEditor.setText(source.getVehiclePlate().toUpperCase());
         typeComboBox.setSelectedIndex(source.getType());
         statusComboBox.setSelectedIndex(source.getStatus());
         

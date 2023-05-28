@@ -13,4 +13,5 @@ import java.util.List;
     void deleteRent(Rent rent) throws Exception;
         
     List<Rent> getRents() throws Exception;
+    Rent getRentById(Long id) throws Exception;
 }
