@@ -13,7 +13,7 @@ import com.time7.rentit.Utilities.EmployeeUtilities;
 import com.time7.rentit.Utilities.FormatUtilities.Formats;
 import com.time7.rentit.Utilities.GenericObserver;
 import java.text.NumberFormat;
-import java.util.Date;
+import java.sql.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 
@@ -216,13 +216,14 @@ public class RentCellEditor
     
     private void confirmRentAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmRentAction
         
-        Date initialDate = initialDateRent.getDate();
-        Date estimatedDate = estimatedDateRent.getDate();
-        Date endDate = endDateRent.getDate();
+        Date initialDate = new java.sql.Date(initialDateRent.getDate().getTime());
+        Date estimatedDate = new java.sql.Date(estimatedDateRent.getDate().getTime());
+        Date endDate = new java.sql.Date(endDateRent.getDate().getTime());
         String value = valueField.getText();
                 
         if (initialDate == null || estimatedDate == null || value.equals("")) {
             Prompts.promptWarning(this, "Preencha as datas e o valor da locação.");
+            return;
         } else {
             try {
             Vehicle vehicle = (Vehicle) vehicleComboBox.getSelectedItem();
@@ -237,9 +238,9 @@ public class RentCellEditor
                     rent.setEmployeeId(employee.getId());
                     rent.setClientId(client.getId());
                     rent.setVehicleId(vehicle.getId());
-                    rent.setRentStartDt(initialDateRent.getDate());
-                    rent.setRentEndDt(endDateRent.getDate());
-                    rent.setRentExpectedEndDt(estimatedDateRent.getDate());
+                    rent.setRentStartDt(initialDate);
+                    rent.setRentEndDt(estimatedDate);
+                    rent.setRentExpectedEndDt(endDate);
                     rent.setRentValue(Double.parseDouble(valueField.getText()));
                     rent.setStatus(Rent.STATUS_CLOSED);
                     vehicle.setStatus(0);
@@ -251,9 +252,9 @@ public class RentCellEditor
                     rent.setEmployeeId(employee.getId());
                     rent.setClientId(client.getId());
                     rent.setVehicleId(vehicle.getId());
-                    rent.setRentStartDt(initialDateRent.getDate());
-                    rent.setRentEndDt(endDateRent.getDate());
-                    rent.setRentExpectedEndDt(estimatedDateRent.getDate());
+                    rent.setRentStartDt(new java.sql.Date(initialDateRent.getDate().getTime()));
+                    rent.setRentEndDt(new java.sql.Date(endDateRent.getDate().getTime()));
+                    rent.setRentExpectedEndDt(new java.sql.Date(estimatedDateRent.getDate().getTime()));
                     rent.setRentValue(Double.parseDouble(valueField.getText()));
                     rent.setStatus(Rent.STATUS_OPEN);
                     vehicle.setStatus(1);
