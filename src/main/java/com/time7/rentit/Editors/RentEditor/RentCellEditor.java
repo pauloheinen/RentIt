@@ -30,6 +30,7 @@ public class RentCellEditor
         
         setLocationRelativeTo(root);
         initComponents();
+        this.setTitle("Manutenção de locações");
         
         initialDateRent.getDateEditor().setDateFormatString("dd/MM/yyyy");
         endDateRent.getDateEditor().setDateFormatString("dd/MM//yyyy");

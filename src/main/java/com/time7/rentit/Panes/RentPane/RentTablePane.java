@@ -144,7 +144,8 @@ public class RentTablePane
             Prompts.promptWarning(this, "Necessário selecionar um aluguel");
             return;
         }
-        
+        Prompts.promptWarning(this, "Sendo implementado.");
+        /*
         int selectedRow = getSelectedRow();
         
         Rent rent = rentTableModel.getRent(selectedRow);
@@ -152,6 +153,7 @@ public class RentTablePane
         controller.returnRent(rent, (Object object) -> {
             rentTableModel.returnRent(selectedRow, Rent.class.cast(object));
         });
+        */
     }//GEN-LAST:event_returnRentAction
 
     private void reportButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportButtonMouseClicked
