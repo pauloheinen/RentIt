@@ -114,12 +114,7 @@ public class RentCellEditor
         returnButton.setText("Devolver");
         returnButton.setBorder(null);
         returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        returnButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                returnButtonMouseClicked(evt);
-            }
-        });
-
+        
         rentButton.setBackground(new java.awt.Color(0, 129, 239));
         rentButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rentButton.setForeground(new java.awt.Color(255, 255, 255));
