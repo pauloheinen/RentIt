@@ -1,5 +1,6 @@
 package com.time7.rentit.Utilities.PersistenceUtils;
 
+import com.time7.rentit.Prompts.Prompts;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -15,8 +16,7 @@ import javax.persistence.Persistence;
 public class PersistenceUtil {
     
     public static EntityManagerFactory loadConnectionInfo() {
-        String[] paramsArray = new String[3];
-        paramsArray = getDatabaseParams();        
+        String[] paramsArray = getDatabaseParams();        
         
         Map<String, String> persistenceMap = new HashMap<>();
         
@@ -30,23 +30,25 @@ public class PersistenceUtil {
     
     public static String[] getDatabaseParams() {
         String[] databaseParamsArray = new String[3];
+        
         int cont = 0;
         
         String projectDir = System.getProperty("user.dir");
         
-        File file = new File (projectDir + File.separator + "database-connection.txt");
+        File file = new File(projectDir + File.separator + "database-connection.txt");
         
         Scanner readFile;
                 
         try {
             readFile = new Scanner( file );
+            
             while ( readFile.hasNextLine() ) {
-                String line = (readFile.nextLine());
-                databaseParamsArray[cont] = line.substring(line.indexOf("\"") + 1,line.lastIndexOf("\""));
+                String line = readFile.nextLine();
+                databaseParamsArray[cont] = line.substring(line.indexOf("\"") + 1, line.lastIndexOf("\""));
                 cont ++;
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            Prompts.promptWarning(null, "database-connection.txt não encontrado");
         }
         return databaseParamsArray;
     }
