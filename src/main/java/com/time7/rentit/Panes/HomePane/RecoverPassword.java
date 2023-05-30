@@ -15,11 +15,10 @@ public class RecoverPassword
     public RecoverPassword() {
         initComponents();
         
-        usernameTextField.setFocusable(false);
-        newPasswordTextField.setFocusable(false);
-        confirmPasswordTextField.setFocusable(false);
+        usernameTextField.setEditable(false);
+        newPasswordTextField.setEditable(false);
+        confirmPasswordTextField.setEditable(false);
                 
-        getRootPane().setDefaultButton(changePasswordButton);
     }
     
     public void close(){
@@ -222,19 +221,16 @@ public class RecoverPassword
     private void usernameTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameTextFieldMouseClicked
         usernameTextField.setText("");
         usernameTextField.setEditable(true);
-        usernameTextField.setFocusable(true);
     }//GEN-LAST:event_usernameTextFieldMouseClicked
 
     private void newPasswordTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newPasswordTextFieldMouseClicked
         newPasswordTextField.setText("");
         newPasswordTextField.setEditable(true);
-        newPasswordTextField.setFocusable(true);
     }//GEN-LAST:event_newPasswordTextFieldMouseClicked
 
     private void confirmPasswordTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmPasswordTextFieldMouseClicked
         confirmPasswordTextField.setText("");
         confirmPasswordTextField.setEditable(true);
-        confirmPasswordTextField.setFocusable(true);
     }//GEN-LAST:event_confirmPasswordTextFieldMouseClicked
 
     

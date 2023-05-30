@@ -20,10 +20,9 @@ public class LoginPane
         this.setLocationRelativeTo(null);
 
         controller = new LoginPaneController(this);
-
-        usernameTextField.setFocusable(false);
-        passwordTextField.setFocusable(false);
-
+        
+        usernameTextField.setEditable(false);
+        passwordTextField.setEditable(false);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -215,8 +214,8 @@ public class LoginPane
                 .addGap(43, 43, 43)
                 .addComponent(enterButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(forgotPassword)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(forgotPassword, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(registerButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(creditsLabel)
@@ -239,7 +238,7 @@ public class LoginPane
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -290,15 +289,13 @@ public class LoginPane
     }//GEN-LAST:event_mouseExit
 
     private void usernameTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameTextFieldMouseClicked
-        usernameTextField.setText("");
         usernameTextField.setEditable(true);
-        usernameTextField.setFocusable(true);
+        usernameTextField.setText("");
     }//GEN-LAST:event_usernameTextFieldMouseClicked
 
     private void passwordTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordTextFieldMouseClicked
-        passwordTextField.setText("");
         passwordTextField.setEditable(true);
-        passwordTextField.setFocusable(true);
+        passwordTextField.setText("");
     }//GEN-LAST:event_passwordTextFieldMouseClicked
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed

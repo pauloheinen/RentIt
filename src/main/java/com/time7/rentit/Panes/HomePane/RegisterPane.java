@@ -14,12 +14,11 @@ public class RegisterPane
     public RegisterPane() {
         initComponents();
         
-        nameTextField.setFocusable(false);
-        userNameTextField.setFocusable(false);
-        passwordTextField.setFocusable(false);
-        confirmPasswordTextField.setFocusable(false);
+        nameTextField.setEditable(false);
+        userNameTextField.setEditable(false);
+        passwordTextField.setEditable(false);
+        confirmPasswordTextField.setEditable(false);
         
-        getRootPane().setDefaultButton(registerButton);
     }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -287,25 +286,21 @@ public class RegisterPane
     private void nameTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameTextFieldMouseClicked
         nameTextField.setText("");
         nameTextField.setEditable(true);
-        nameTextField.setFocusable(true);
     }//GEN-LAST:event_nameTextFieldMouseClicked
 
     private void userNameTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userNameTextFieldMouseClicked
         userNameTextField.setText("");
         userNameTextField.setEditable(true);
-        userNameTextField.setFocusable(true);
     }//GEN-LAST:event_userNameTextFieldMouseClicked
 
     private void passwordTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordTextFieldMouseClicked
         passwordTextField.setText("");
         passwordTextField.setEditable(true);
-        passwordTextField.setFocusable(true);
     }//GEN-LAST:event_passwordTextFieldMouseClicked
 
     private void confirmPasswordTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmPasswordTextFieldMouseClicked
         confirmPasswordTextField.setText("");
         confirmPasswordTextField.setEditable(true);
-        confirmPasswordTextField.setFocusable(true);
     }//GEN-LAST:event_confirmPasswordTextFieldMouseClicked
 
     private void close(){
