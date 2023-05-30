@@ -1,6 +1,9 @@
 package com.time7.rentit.Panes.HomePane;
 
 import com.time7.rentit.Controller.HomeController.RegisterPaneController;
+import java.awt.Color;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 /**
  *
  * @author José Augusto Scherer
@@ -14,10 +17,78 @@ public class RegisterPane
     public RegisterPane() {
         initComponents();
         
-        nameTextField.setEditable(false);
-        userNameTextField.setEditable(false);
-        passwordTextField.setEditable(false);
-        confirmPasswordTextField.setEditable(false);
+        nameTextField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (nameTextField.getText().equals("Nome")) {
+                    nameTextField.setText("");
+                    nameTextField.setForeground(Color.WHITE);
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (nameTextField.getText().isEmpty()) {
+                    nameTextField.setForeground(Color.WHITE);
+                    nameTextField.setText("Nome");
+                }
+            }
+        });
+        
+        userNameTextField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (userNameTextField.getText().equals("Usuário")) {
+                    userNameTextField.setText("");
+                    userNameTextField.setForeground(Color.WHITE);
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (userNameTextField.getText().isEmpty()) {
+                    userNameTextField.setForeground(Color.WHITE);
+                    userNameTextField.setText("Usuário");
+                }
+            }
+        });
+
+        passwordTextField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (passwordTextField.getText().equals("12345678")) {
+                    passwordTextField.setText("");
+                    passwordTextField.setForeground(Color.WHITE);
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (passwordTextField.getText().isEmpty()) {
+                    passwordTextField.setForeground(Color.WHITE);
+                    passwordTextField.setText("12345678");
+                }
+            }
+        });
+        
+        confirmPasswordTextField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (confirmPasswordTextField.getText().equals("12345678")) {
+                    confirmPasswordTextField.setText("");
+                    confirmPasswordTextField.setForeground(Color.WHITE);
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (confirmPasswordTextField.getText().isEmpty()) {
+                    confirmPasswordTextField.setForeground(Color.WHITE);
+                    confirmPasswordTextField.setText("12345678");
+                }
+            }
+        });
+
         
     }
     
@@ -69,20 +140,10 @@ public class RegisterPane
         nameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         nameTextField.setText("Nome");
         nameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        nameTextField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                nameTextFieldMouseClicked(evt);
-            }
-        });
 
         userNameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         userNameTextField.setText("Usuário");
         userNameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        userNameTextField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                userNameTextFieldMouseClicked(evt);
-            }
-        });
 
         passwordLabel.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -90,13 +151,8 @@ public class RegisterPane
         passwordLabel.setText("Senha");
 
         passwordTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        passwordTextField.setText("1234567891");
+        passwordTextField.setText("12345678");
         passwordTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        passwordTextField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                passwordTextFieldMouseClicked(evt);
-            }
-        });
 
         confirmPasswordLabel.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         confirmPasswordLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -104,13 +160,8 @@ public class RegisterPane
         confirmPasswordLabel.setText("Confirme a Senha");
 
         confirmPasswordTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        confirmPasswordTextField.setText("123456789+");
+        confirmPasswordTextField.setText("12345678");
         confirmPasswordTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        confirmPasswordTextField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                confirmPasswordTextFieldMouseClicked(evt);
-            }
-        });
 
         registerButton.setBackground(new java.awt.Color(0, 129, 239));
         registerButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -282,26 +333,6 @@ public class RegisterPane
        passwordTextField.setText("");
        confirmPasswordTextField.setText("");
     }//GEN-LAST:event_registerButtonActionPerformed
-
-    private void nameTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameTextFieldMouseClicked
-        nameTextField.setText("");
-        nameTextField.setEditable(true);
-    }//GEN-LAST:event_nameTextFieldMouseClicked
-
-    private void userNameTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userNameTextFieldMouseClicked
-        userNameTextField.setText("");
-        userNameTextField.setEditable(true);
-    }//GEN-LAST:event_userNameTextFieldMouseClicked
-
-    private void passwordTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordTextFieldMouseClicked
-        passwordTextField.setText("");
-        passwordTextField.setEditable(true);
-    }//GEN-LAST:event_passwordTextFieldMouseClicked
-
-    private void confirmPasswordTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmPasswordTextFieldMouseClicked
-        confirmPasswordTextField.setText("");
-        confirmPasswordTextField.setEditable(true);
-    }//GEN-LAST:event_confirmPasswordTextFieldMouseClicked
 
     private void close(){
         this.dispose();

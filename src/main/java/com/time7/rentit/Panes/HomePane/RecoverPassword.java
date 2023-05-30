@@ -1,6 +1,9 @@
 package com.time7.rentit.Panes.HomePane;
 
 import com.time7.rentit.Controller.HomeController.RecoverPasswordController;
+import java.awt.Color;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 /**
  *
@@ -15,9 +18,59 @@ public class RecoverPassword
     public RecoverPassword() {
         initComponents();
         
-        usernameTextField.setEditable(false);
-        newPasswordTextField.setEditable(false);
-        confirmPasswordTextField.setEditable(false);
+        usernameTextField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (usernameTextField.getText().equals("Usuário")) {
+                    usernameTextField.setText("");
+                    usernameTextField.setForeground(Color.WHITE);
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (usernameTextField.getText().isEmpty()) {
+                    usernameTextField.setForeground(Color.WHITE);
+                    usernameTextField.setText("Usuário");
+                }
+            }
+        });
+        
+        newPasswordTextField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (newPasswordTextField.getText().equals("12345678")) {
+                    newPasswordTextField.setText("");
+                    newPasswordTextField.setForeground(Color.WHITE);
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (newPasswordTextField.getText().isEmpty()) {
+                    newPasswordTextField.setForeground(Color.WHITE);
+                    newPasswordTextField.setText("12345678");
+                }
+            }
+        });
+
+        confirmPasswordTextField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (confirmPasswordTextField.getText().equals("12345678")) {
+                    confirmPasswordTextField.setText("");
+                    confirmPasswordTextField.setForeground(Color.WHITE);
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (confirmPasswordTextField.getText().isEmpty()) {
+                    confirmPasswordTextField.setForeground(Color.WHITE);
+                    confirmPasswordTextField.setText("12345678");
+                }
+            }
+        });
                 
     }
     
@@ -58,11 +111,6 @@ public class RecoverPassword
         usernameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         usernameTextField.setPreferredSize(new java.awt.Dimension(64, 31));
         usernameTextField.setSelectedTextColor(new java.awt.Color(0, 116, 255));
-        usernameTextField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                usernameTextFieldMouseClicked(evt);
-            }
-        });
 
         changePasswordButton.setBackground(new java.awt.Color(0, 129, 239));
         changePasswordButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -89,22 +137,12 @@ public class RecoverPassword
         });
 
         newPasswordTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        newPasswordTextField.setText("1234567891");
+        newPasswordTextField.setText("12345678");
         newPasswordTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        newPasswordTextField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                newPasswordTextFieldMouseClicked(evt);
-            }
-        });
 
         confirmPasswordTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        confirmPasswordTextField.setText("1234567891");
+        confirmPasswordTextField.setText("12345678");
         confirmPasswordTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        confirmPasswordTextField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                confirmPasswordTextFieldMouseClicked(evt);
-            }
-        });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -217,21 +255,6 @@ public class RecoverPassword
         newPasswordTextField.setText("");
         confirmPasswordTextField.setText("");
     }//GEN-LAST:event_changePasswordButtonActionPerformed
-
-    private void usernameTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameTextFieldMouseClicked
-        usernameTextField.setText("");
-        usernameTextField.setEditable(true);
-    }//GEN-LAST:event_usernameTextFieldMouseClicked
-
-    private void newPasswordTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newPasswordTextFieldMouseClicked
-        newPasswordTextField.setText("");
-        newPasswordTextField.setEditable(true);
-    }//GEN-LAST:event_newPasswordTextFieldMouseClicked
-
-    private void confirmPasswordTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmPasswordTextFieldMouseClicked
-        confirmPasswordTextField.setText("");
-        confirmPasswordTextField.setEditable(true);
-    }//GEN-LAST:event_confirmPasswordTextFieldMouseClicked
 
     
     
