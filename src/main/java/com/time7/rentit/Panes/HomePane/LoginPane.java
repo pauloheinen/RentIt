@@ -115,16 +115,15 @@ public class LoginPane
         jPanel1.setMinimumSize(new java.awt.Dimension(968, 459));
 
         usernameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        usernameTextField.setText("Usuário");
+        usernameTextField.setText("daniel");
         usernameTextField.setToolTipText("");
         usernameTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        usernameTextField.setCaretPosition(0);
         usernameTextField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         usernameTextField.setFocusCycleRoot(true);
         usernameTextField.setSelectedTextColor(new java.awt.Color(0, 116, 255));
 
         passwordTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        passwordTextField.setText("12345678");
+        passwordTextField.setText("1");
         passwordTextField.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         passwordTextField.setDoubleBuffered(true);
         passwordTextField.setFocusCycleRoot(true);
@@ -268,7 +267,7 @@ public class LoginPane
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

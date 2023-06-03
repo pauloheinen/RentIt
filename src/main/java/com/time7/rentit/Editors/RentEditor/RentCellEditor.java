@@ -6,6 +6,7 @@ import com.time7.rentit.Entity.Rent;
 import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Prompts.Prompts;
 import com.time7.rentit.Service.Client.ClientService;
+import com.time7.rentit.Service.Employee.EmployeeService;
 import com.time7.rentit.Service.Vehicle.VehicleService;
 import com.time7.rentit.Utilities.EmployeeUtilities;
 import com.time7.rentit.Utilities.GenericObserver;
@@ -28,11 +29,9 @@ public class RentCellEditor
     public RentCellEditor(JFrame root, GenericObserver callback) {
         this.callback = callback;
         
-        setLocationRelativeTo(root);
         initComponents();
         
-        this.setLocationRelativeTo(null);
-        
+        setLocationRelativeTo(root);
         this.setTitle("Manutenção de locações");
         
         initialDateRent.getDateEditor().setDateFormatString("dd/MM/yyyy");
@@ -63,9 +62,15 @@ public class RentCellEditor
         vehicleLabel = new javax.swing.JLabel();
         endDateRent = new com.toedter.calendar.JDateChooser();
         clientLabel = new javax.swing.JLabel();
+        jLabelClientReturn = new javax.swing.JLabel();
+        jLabelVehicleReturn = new javax.swing.JLabel();
+        jLabelIdVehicle = new javax.swing.JLabel();
+        jLabelIdClient = new javax.swing.JLabel();
+        jLabelEmployeeId = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(0, 129, 239));
         jPanel1.setMaximumSize(null);
 
         contentPane.setBackground(new java.awt.Color(0, 129, 239));
@@ -96,7 +101,7 @@ public class RentCellEditor
 
         employeeLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         employeeLabel.setForeground(new java.awt.Color(255, 255, 255));
-        employeeLabel.setText("Funcionário:");
+        employeeLabel.setText("Funcionário");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -114,7 +119,17 @@ public class RentCellEditor
         returnButton.setText("Devolver");
         returnButton.setBorder(null);
         returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        
+        returnButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                returnButtonMouseClicked(evt);
+            }
+        });
+        returnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnButtonActionPerformed(evt);
+            }
+        });
+
         rentButton.setBackground(new java.awt.Color(0, 129, 239));
         rentButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rentButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,7 +143,7 @@ public class RentCellEditor
         });
 
         cancelButton.setBackground(new java.awt.Color(0, 129, 239));
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         cancelButton.setForeground(new java.awt.Color(255, 255, 255));
         cancelButton.setText("Cancelar");
         cancelButton.setBorder(null);
@@ -141,59 +156,83 @@ public class RentCellEditor
 
         vehicleLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         vehicleLabel.setForeground(new java.awt.Color(255, 255, 255));
-        vehicleLabel.setText("Veículo");
+        vehicleLabel.setText("Código / Veículo");
 
         clientLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         clientLabel.setForeground(new java.awt.Color(255, 255, 255));
-        clientLabel.setText("Cliente");
+        clientLabel.setText("Código / Cliente");
+
+        jLabelClientReturn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabelClientReturn.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabelVehicleReturn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabelVehicleReturn.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabelIdVehicle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabelIdVehicle.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabelIdClient.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabelIdClient.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabelEmployeeId.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabelEmployeeId.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout contentPaneLayout = new javax.swing.GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rentLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(contentPaneLayout.createSequentialGroup()
                 .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rentLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(contentPaneLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(contentPaneLayout.createSequentialGroup()
-                                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(rentButton))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(initialDateRent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(estimatedDateRent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(endDateRent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(valueField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(returnButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(2, 2, 2))
-                            .addGroup(contentPaneLayout.createSequentialGroup()
-                                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(vehicleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(clientLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(contentPaneLayout.createSequentialGroup()
-                                .addComponent(employeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(rentButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(employeeName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(contentPaneLayout.createSequentialGroup()
-                        .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(contentPaneLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(clientComboBox, 0, 406, Short.MAX_VALUE)
-                                    .addComponent(vehicleComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jLabelIdVehicle)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabelVehicleReturn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(contentPaneLayout.createSequentialGroup()
-                                .addGap(162, 162, 162)
-                                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(jLabelIdClient)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabelClientReturn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(contentPaneLayout.createSequentialGroup()
+                                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(contentPaneLayout.createSequentialGroup()
+                                        .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(estimatedDateRent, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(initialDateRent, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(endDateRent, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(valueField, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(vehicleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(vehicleLabel)
+                                    .addComponent(clientLabel)
+                                    .addGroup(contentPaneLayout.createSequentialGroup()
+                                        .addComponent(jLabelEmployeeId)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(contentPaneLayout.createSequentialGroup()
+                                                .addGap(6, 6, 6)
+                                                .addComponent(employeeName, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+                                            .addComponent(employeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
+            .addGroup(contentPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(clientComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,39 +241,50 @@ public class RentCellEditor
                 .addComponent(vehicleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(vehicleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelVehicleReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelIdVehicle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(clientLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(clientComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(employeeLabel)
-                    .addComponent(employeeName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelClientReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelIdClient))
                 .addGap(18, 18, 18)
+                .addComponent(employeeLabel)
+                .addGap(3, 3, 3)
+                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(employeeName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelEmployeeId))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rentLabel)
                 .addGap(18, 18, 18)
-                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(initialDateRent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(contentPaneLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel2))
+                    .addGroup(contentPaneLayout.createSequentialGroup()
+                        .addComponent(initialDateRent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(estimatedDateRent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(estimatedDateRent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(endDateRent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(18, 18, 18)
-                .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(endDateRent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
                 .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(valueField, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                    .addComponent(valueField, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(110, 110, 110)
                 .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rentButton)
-                    .addComponent(returnButton))
-                .addGap(47, 47, 47)
-                .addComponent(cancelButton)
-                .addContainerGap())
+                    .addComponent(returnButton)
+                    .addComponent(cancelButton)
+                    .addComponent(rentButton))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -260,7 +310,7 @@ public class RentCellEditor
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -268,6 +318,11 @@ public class RentCellEditor
 
     public void rentVehicle() {
         endDateRent.setEnabled(false);
+        jLabelVehicleReturn.setVisible(false);
+        jLabelClientReturn.setVisible(false);
+        jLabelIdVehicle.setVisible(false);
+        jLabelIdClient.setVisible(false);
+        returnButton.setVisible(false);
         
         try {
             Object[] clients = ClientService.getInstance().getClients().toArray();
@@ -279,55 +334,60 @@ public class RentCellEditor
             Prompts.promptError(this, e);
         }
         
-        employeeName.setText(EmployeeUtilities.getActiveEmployee().getName());
+        employeeName.setText(EmployeeUtilities.getActiveEmployee().getName().toUpperCase());
+        jLabelEmployeeId.setText(EmployeeUtilities.getActiveEmployee().getId().toString());
         
         showPane();
     }
     
     public void returnRent(Rent rent) {
-        source = rent;
         
-        // se nao deu certo, começa denovo
-//        try {
-//            Long employeeLongId = source.getEmployeeId();
-//            int employeeId = (int) (long) employeeLongId;
-//            EmployeeService employeeService = EmployeeService.getInstance();
-//            Employee employee = new Employee();
-//            employee = employeeService.getEmployeeById(employeeId);
-//            employeeName.setText(employee.getName());
-//            
-//            vehicleComboBox.setEnabled(false);
-//            Object[] vehicles = VehicleService.getInstance().getRentedVehicles().toArray();
-//            vehicleComboBox.setModel(new DefaultComboBoxModel<>(vehicles));
-//            Long vehicleLongId = source.getVehicleId();
-//            Vehicle vehicle = VehicleService.getInstance().getVehicleById(vehicleLongId);
-//            vehicleComboBox.setSelectedItem(vehicle);
-//            
-//            clientComboBox.setEnabled(false);
-//            Object[] clients = ClientService.getInstance().getClients().toArray();
-//            clientComboBox.setModel(new DefaultComboBoxModel<>(clients));
-//            Long clientLongId = source.getClientId();
-//            String idClientString = clientLongId.toString();
-//            int idClient = Integer.parseInt(idClientString);
-//            Client client = ClientService.getInstance().getClientById(idClient);
-//            clientComboBox.setSelectedItem(client);
-//            
-//            initialDateRent.setEnabled(false);
-//            initialDateRent.setDate(source.getRentStartDt());
-//
-//            estimatedDateRent.setEnabled(false);
-//            estimatedDateRent.setDate(source.getRentExpectedEndDt());
-//
-//            endDateRent.setEnabled(true);
-//            endDateRent.setDate(source.getRentExpectedEndDt());
-//
-//            valueField.setEnabled(true);
-//            Double value = source.getRentValue();
-//            String valueRent = value.toString();
-//            valueField.setText(valueRent);
-//        } catch (Exception e) {
-//            Prompts.promptError(this, e);
-//        }
+        rentButton.setVisible(false);
+        source = rent;
+        try {
+            Long employeeLongId = source.getEmployeeId();
+            int employeeId = (int) (long) employeeLongId;
+            EmployeeService employeeService = EmployeeService.getInstance();
+            Employee employee = new Employee();
+            employee = employeeService.getEmployeeById(employeeId);
+            jLabelEmployeeId.setText(employee.getId().toString());
+            employeeName.setText(employee.getName().toUpperCase());
+            
+            
+            vehicleComboBox.setVisible(false);
+            jLabelIdVehicle.setVisible(true);
+            jLabelVehicleReturn.setVisible(true);
+            VehicleService vehicleService = VehicleService.getInstance();
+            Vehicle vehicle = vehicleService.getVehicleById(source.getVehicleId());
+            jLabelVehicleReturn.setText(vehicle.getVehicleModel());
+            jLabelIdVehicle.setText(vehicle.getId().toString());
+            
+            clientComboBox.setVisible(false);
+            jLabelIdClient.setVisible(true);
+            jLabelClientReturn.setVisible(true);
+            int clientId = (int)(long) source.getClientId();
+            ClientService clientService = ClientService.getInstance();
+            Client client = clientService.getClientById(clientId);
+            jLabelClientReturn.setText(client.getName());
+            jLabelIdClient.setText(client.getId().toString());
+            
+                   
+            initialDateRent.setEnabled(false);
+            initialDateRent.setDate(source.getRentStartDt());
+
+            estimatedDateRent.setEnabled(false);
+            estimatedDateRent.setDate(source.getRentExpectedEndDt());
+
+            endDateRent.setEnabled(true);
+            endDateRent.setDate(source.getRentExpectedEndDt());
+
+            valueField.setEnabled(true);
+            Double value = source.getRentValue();
+            String valueRent = value.toString();
+            valueField.setText(valueRent);
+        } catch (Exception e) {
+            Prompts.promptError(this, e);
+        }
         showPane();
     }
     
@@ -359,7 +419,6 @@ public class RentCellEditor
             rent.setStatus(Rent.STATUS_OPEN);
             
             vehicle.setStatus(Vehicle.STATUS_RENT);
-            
             VehicleService.getInstance().updateVehicle(vehicle);
             
             callback.inform(rent);
@@ -374,6 +433,57 @@ public class RentCellEditor
         this.dispose();
     }//GEN-LAST:event_cancelRentAction
 
+    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+        if (endDateRent.getDate() == null || valueField.getText().isEmpty() ) {
+            Prompts.promptWarning(this, "Preencha a data de devolução e o valor!");
+            return;
+        }
+        Rent rent;
+        if (source != null ) {
+            rent = source;
+            rent.setId((source.getId()));
+        }
+        else {
+            rent = new Rent();
+        }
+        try {
+            Long idVehicle = Long.parseLong(jLabelIdVehicle.getText());
+            VehicleService vehicleService = VehicleService.getInstance();
+            Vehicle vehicle = vehicleService.getVehicleById(idVehicle);
+
+            Long idClient = Long.parseLong(jLabelIdClient.getText());
+
+            String idEmployeeString = jLabelEmployeeId.getText();  
+            Long idEmployee = Long.parseLong(idEmployeeString);
+            
+            Date initialDate = new java.sql.Date(initialDateRent.getDate().getTime());    
+            Date endDate = new java.sql.Date(endDateRent.getDate().getTime());    
+            Date expectedDate = new java.sql.Date(estimatedDateRent.getDate().getTime());
+            String value = valueField.getText();
+            
+            
+            rent.setEmployeeId(idEmployee);
+            rent.setClientId(idClient);
+            rent.setVehicleId(idVehicle);
+            rent.setRentStartDt(initialDate);
+            rent.setRentEndDt(endDate);
+            rent.setRentExpectedEndDt(expectedDate);
+            rent.setRentValue(Double.parseDouble(value));
+            rent.setStatus(rent.STATUS_CLOSED);
+
+            vehicle.setStatus(Vehicle.STATUS_DISPONIBLE);
+            vehicleService.updateVehicle(vehicle);
+        } catch (Exception e) {
+            Prompts.promptError(this, e);
+        }
+        callback.inform(rent);
+        dispose();    
+    }//GEN-LAST:event_returnButtonActionPerformed
+
+    private void returnButtonMouseClicked(java.awt.event.ActionEvent evt) {                                             
+        
+    }                                            
+    
     private void showPane() {
         setVisible(true);
     }
@@ -392,6 +502,11 @@ public class RentCellEditor
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelClientReturn;
+    private javax.swing.JLabel jLabelEmployeeId;
+    private javax.swing.JLabel jLabelIdClient;
+    private javax.swing.JLabel jLabelIdVehicle;
+    private javax.swing.JLabel jLabelVehicleReturn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton rentButton;
     private javax.swing.JLabel rentLabel;
