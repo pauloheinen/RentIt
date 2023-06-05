@@ -184,8 +184,7 @@ public class RentTablePane
             Prompts.promptWarning(this, "Necessário selecionar uma locação!");
             return;
         }
-        //Prompts.promptWarning(this, "Sendo implementado.");
-        
+                
         int selectedRow = getSelectedRow();
         
         Rent rent = rentTableModel.getRent(selectedRow);

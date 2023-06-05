@@ -54,7 +54,6 @@ public class RentCellEditor
         employeeLabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         employeeName = new javax.swing.JLabel();
-        returnButton = new javax.swing.JButton();
         rentButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         initialDateRent = new com.toedter.calendar.JDateChooser();
@@ -67,6 +66,7 @@ public class RentCellEditor
         jLabelIdVehicle = new javax.swing.JLabel();
         jLabelIdClient = new javax.swing.JLabel();
         jLabelEmployeeId = new javax.swing.JLabel();
+        returnButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -113,23 +113,6 @@ public class RentCellEditor
         employeeName.setMinimumSize(new java.awt.Dimension(5, 5));
         employeeName.setPreferredSize(new java.awt.Dimension(5, 5));
 
-        returnButton.setBackground(new java.awt.Color(0, 129, 239));
-        returnButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        returnButton.setForeground(new java.awt.Color(255, 255, 255));
-        returnButton.setText("Devolver");
-        returnButton.setBorder(null);
-        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        returnButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                returnButtonMouseClicked(evt);
-            }
-        });
-        returnButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                returnButtonActionPerformed(evt);
-            }
-        });
-
         rentButton.setBackground(new java.awt.Color(0, 129, 239));
         rentButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         rentButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -156,11 +139,11 @@ public class RentCellEditor
 
         vehicleLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         vehicleLabel.setForeground(new java.awt.Color(255, 255, 255));
-        vehicleLabel.setText("Código / Veículo");
+        vehicleLabel.setText("Código | Veículo");
 
         clientLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         clientLabel.setForeground(new java.awt.Color(255, 255, 255));
-        clientLabel.setText("Código / Cliente");
+        clientLabel.setText("Código | Cliente");
 
         jLabelClientReturn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelClientReturn.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,6 +160,18 @@ public class RentCellEditor
         jLabelEmployeeId.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabelEmployeeId.setForeground(new java.awt.Color(255, 255, 255));
 
+        returnButton.setBackground(new java.awt.Color(0, 129, 239));
+        returnButton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        returnButton.setForeground(new java.awt.Color(255, 255, 255));
+        returnButton.setText("Devolver");
+        returnButton.setBorder(null);
+        returnButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        returnButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                returnButtonconfirmRentAction(evt);
+            }
+        });
+
         javax.swing.GroupLayout contentPaneLayout = new javax.swing.GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
@@ -189,8 +184,8 @@ public class RentCellEditor
                         .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(contentPaneLayout.createSequentialGroup()
                                 .addComponent(rentButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(returnButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(contentPaneLayout.createSequentialGroup()
@@ -281,10 +276,10 @@ public class RentCellEditor
                     .addComponent(jLabel4))
                 .addGap(110, 110, 110)
                 .addGroup(contentPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(returnButton)
                     .addComponent(cancelButton)
-                    .addComponent(rentButton))
-                .addContainerGap(35, Short.MAX_VALUE))
+                    .addComponent(rentButton)
+                    .addComponent(returnButton))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -434,7 +429,11 @@ public class RentCellEditor
     }//GEN-LAST:event_cancelRentAction
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        if (endDateRent.getDate() == null || valueField.getText().isEmpty() ) {
+   
+    }//GEN-LAST:event_returnButtonActionPerformed
+
+    private void returnButtonconfirmRentAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnButtonconfirmRentAction
+                if (endDateRent.getDate() == null || valueField.getText().isEmpty() ) {
             Prompts.promptWarning(this, "Preencha a data de devolução e o valor!");
             return;
         }
@@ -477,13 +476,9 @@ public class RentCellEditor
             Prompts.promptError(this, e);
         }
         callback.inform(rent);
-        dispose();    
-    }//GEN-LAST:event_returnButtonActionPerformed
+        dispose();
+    }//GEN-LAST:event_returnButtonconfirmRentAction
 
-    private void returnButtonMouseClicked(java.awt.event.ActionEvent evt) {                                             
-        
-    }                                            
-    
     private void showPane() {
         setVisible(true);
     }
