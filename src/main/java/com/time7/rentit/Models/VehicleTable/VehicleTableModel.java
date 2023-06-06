@@ -22,7 +22,7 @@ public class VehicleTableModel
         loadData();
     }
     
-    private void loadData() {        
+    public void loadData() {        
         try {
             List<Vehicle> vehicles = VehicleService.getInstance().getVehicles();
             vehiclesList.addAll(vehicles);            
@@ -53,7 +53,7 @@ public class VehicleTableModel
         return this.vehiclesList.get(rowIndex);
     }
     
-    private void refresh() {
+    public void refresh() {
         fireTableDataChanged();
     }
     

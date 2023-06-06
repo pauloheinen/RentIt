@@ -5,6 +5,8 @@ import com.time7.rentit.Panes.RentPane.RentTablePane;
 import com.time7.rentit.Panes.VehiclePane.VehicleTablePane;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 /**
  *
@@ -28,11 +30,17 @@ public class ManagerPane
         vehicleTablePane = new VehicleTablePane();
         clientTablePane = new ClientTablePane();
         rentTablePane = new RentTablePane();
-        
+                        
         tabbedPane.add("Veículos", vehicleTablePane);
         tabbedPane.add("Clientes", clientTablePane);
         tabbedPane.add("Locações", rentTablePane);
                 
         this.add(tabbedPane);
+        
+        tabbedPane.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                vehicleTablePane.refresh();
+            }
+        });
     }
 }

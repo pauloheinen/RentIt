@@ -189,9 +189,14 @@ public class RentTablePane
         
         Rent rent = rentTableModel.getRent(selectedRow);
         
-        controller.returnRent(rent, (Object object) -> {
-            rentTableModel.returnRent(selectedRow, Rent.class.cast(object));
-        });    
+        if (rent.getStatus() == Rent.STATUS_CLOSED) {
+            Prompts.promptWarning(this, "Locação selecionada já está encerrada!");
+            return;
+        } else {
+            controller.returnRent(rent, (Object object) -> {
+                rentTableModel.returnRent(selectedRow, Rent.class.cast(object));
+            });
+        }    
     }//GEN-LAST:event_returnRentAction
 
     private void reportButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportButtonMouseClicked

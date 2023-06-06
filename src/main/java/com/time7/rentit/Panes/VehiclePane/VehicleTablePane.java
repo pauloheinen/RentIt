@@ -4,7 +4,6 @@ import com.time7.rentit.Controller.VehicleTableController.VehicleTableController
 import com.time7.rentit.Entity.Vehicle;
 import com.time7.rentit.Models.VehicleTable.VehicleTableModel;
 import com.time7.rentit.Prompts.Prompts;
-import com.time7.rentit.Service.Vehicle.VehicleService;
 
 /**
  *
@@ -23,7 +22,6 @@ public class VehicleTablePane
         this.vehicleTableModel = new VehicleTableModel();
         this.jTable.setModel(vehicleTableModel);
         this.controller = new VehicleTableController(null);
-      
         
         setVisible(true);
     }
@@ -224,4 +222,8 @@ public class VehicleTablePane
     private javax.swing.JTable jTable;
     private javax.swing.JButton removeButton;
     // End of variables declaration//GEN-END:variables
+
+    public void refresh() {
+        this.jTable.setModel(new VehicleTableModel());
+    }
 }

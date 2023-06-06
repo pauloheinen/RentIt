@@ -433,33 +433,34 @@ public class RentCellEditor
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void returnButtonconfirmRentAction(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_returnButtonconfirmRentAction
-                if (endDateRent.getDate() == null || valueField.getText().isEmpty() ) {
+        if (endDateRent.getDate() == null || valueField.getText().isEmpty() ) {
             Prompts.promptWarning(this, "Preencha a data de devolução e o valor!");
             return;
         }
+        
         Rent rent;
+        
         if (source != null ) {
             rent = source;
-            rent.setId((source.getId()));
         }
         else {
             rent = new Rent();
         }
+        
         try {
-            Long idVehicle = Long.parseLong(jLabelIdVehicle.getText());
+            Long idVehicle = Long.valueOf(jLabelIdVehicle.getText());
             VehicleService vehicleService = VehicleService.getInstance();
             Vehicle vehicle = vehicleService.getVehicleById(idVehicle);
 
-            Long idClient = Long.parseLong(jLabelIdClient.getText());
+            Long idClient = Long.valueOf(jLabelIdClient.getText());
 
             String idEmployeeString = jLabelEmployeeId.getText();  
-            Long idEmployee = Long.parseLong(idEmployeeString);
+            Long idEmployee = Long.valueOf(idEmployeeString);
             
             Date initialDate = new java.sql.Date(initialDateRent.getDate().getTime());    
             Date endDate = new java.sql.Date(endDateRent.getDate().getTime());    
             Date expectedDate = new java.sql.Date(estimatedDateRent.getDate().getTime());
             String value = valueField.getText();
-            
             
             rent.setEmployeeId(idEmployee);
             rent.setClientId(idClient);
@@ -468,15 +469,18 @@ public class RentCellEditor
             rent.setRentEndDt(endDate);
             rent.setRentExpectedEndDt(expectedDate);
             rent.setRentValue(Double.parseDouble(value));
-            rent.setStatus(rent.STATUS_CLOSED);
+            rent.setStatus(Rent.STATUS_CLOSED);
 
             vehicle.setStatus(Vehicle.STATUS_DISPONIBLE);
             vehicleService.updateVehicle(vehicle);
+            
         } catch (Exception e) {
             Prompts.promptError(this, e);
         }
+        
         callback.inform(rent);
         dispose();
+        
     }//GEN-LAST:event_returnButtonconfirmRentAction
 
     private void showPane() {
