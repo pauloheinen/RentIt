@@ -192,16 +192,18 @@ public class RentTablePane
         if (rent.getStatus() == Rent.STATUS_CLOSED) {
             Prompts.promptWarning(this, "Locação selecionada já está encerrada!");
             return;
-        } else {
-            controller.returnRent(rent, (Object object) -> {
-                rentTableModel.returnRent(selectedRow, Rent.class.cast(object));
-            });
-        }    
+        } 
+        
+        controller.returnRent(rent, (Object object) -> {
+            rentTableModel.returnRent(selectedRow, Rent.class.cast(object));
+        });   
+        
     }//GEN-LAST:event_returnRentAction
 
     private void reportButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportButtonMouseClicked
         try {
             RentReport.generateReport();
+            Prompts.promptInfo(this, "Relatório gerado com sucesso! \nPDF salvo na raiz do projeto.");
         } catch (Exception e) {
             Prompts.promptError(this, e);
         }
