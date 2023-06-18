@@ -29,7 +29,7 @@ public class RegisterPaneController {
             Employee employee = service.getEmployeeByNameOrUsername(name, username);
 
             if (employee != null) {
-                JOptionPane.showMessageDialog(null, "Já existe um usuário com esse nome e username!");
+                Prompts.promptWarning(root, "Já existe um usuário com esse nome e username!");
 
                 return;
             }
@@ -55,13 +55,13 @@ public class RegisterPaneController {
             password.strip().isEmpty() ||
             confirmPassword.strip().isEmpty()) {
             
-            JOptionPane.showMessageDialog(root, "Há campos vazios!");
+            Prompts.promptWarning(root, "Há campos vazios!");
             
             return false;
         }
 
-        else if (!password.equals(confirmPassword)) {
-            System.out.println("Senhas diferentes!");
+        if (!password.equals(confirmPassword)) {
+            Prompts.promptWarning(root, "As senhas são diferentes!");
             return false;
         }
         

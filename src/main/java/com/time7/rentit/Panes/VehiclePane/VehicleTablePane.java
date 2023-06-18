@@ -174,8 +174,8 @@ public class VehicleTablePane
             if (vehicle.getStatus() == Vehicle.STATUS_RENT) {
                 Prompts.promptWarning(this, "Este veículo está alugado, não é possível removê-lo.");
                 return;
-            }
-            
+            } 
+                        
             controller.removeVehicle(vehicleId, (Object object) -> {
                 vehicleTableModel.removeVehicle(selectedRow);
             });
